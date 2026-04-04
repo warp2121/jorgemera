@@ -1,1136 +1,450 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
-	<TITLE></TITLE>
-	<META NAME="GENERATOR" CONTENT="OpenOffice 4.1.16  (Win32)">
-	<META NAME="AUTHOR" CONTENT="Walt Arman">
-	<META NAME="CREATED" CONTENT="20260404;10250616">
-	<META NAME="CHANGEDBY" CONTENT="Walt Arman">
-	<META NAME="CHANGED" CONTENT="20260404;10253561">
-	<STYLE TYPE="text/css">
-	<!--
-		@page { margin: 0.79in }
-		P { margin-bottom: 0.08in }
-	-->
-	</STYLE>
-</HEAD>
-<BODY LANG="en-US" DIR="LTR">
-<P STYLE="margin-bottom: 0in">&lt;!DOCTYPE html&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;html lang=&quot;es&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;head&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;meta charset=&quot;UTF-8&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;meta name=&quot;viewport&quot;
-content=&quot;width=device-width,initial-scale=1.0&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;title&gt;Jorge Mera &ndash;
-Gobernador Loreto 2026&lt;/title&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;style&gt;</P>
-<P STYLE="margin-bottom: 0in">:root{</P>
-<P STYLE="margin-bottom: 0in"> 
---blue:#0d6efd;--blue-dark:#0a4fc4;--blue-deep:#062e7a;</P>
-<P STYLE="margin-bottom: 0in"> 
---blue-light:#e8f0fe;--white:#fff;--gray:#f4f7fc;</P>
-<P STYLE="margin-bottom: 0in">  --text:#1a1a2e;--muted:#5a6a85;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">*{margin:0;padding:0;box-sizing:border-box;}</P>
-<P STYLE="margin-bottom: 0in">html{scroll-behavior:smooth;}</P>
-<P STYLE="margin-bottom: 0in">body{font-family:'Segoe
-UI',Arial,sans-serif;color:var(--text);overflow-x:hidden;}</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">/* &#9472;&#9472; upload zone &#9472;&#9472;
-*/</P>
-<P STYLE="margin-bottom: 0in">.img-upload{</P>
-<P STYLE="margin-bottom: 0in"> 
-position:relative;cursor:pointer;overflow:hidden;</P>
-<P STYLE="margin-bottom: 0in"> 
-border-radius:inherit;width:100%;height:100%;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.img-upload input[type=file]{</P>
-<P STYLE="margin-bottom: 0in"> 
-position:absolute;inset:0;opacity:0;cursor:pointer;z-index:3;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.img-upload img{</P>
-<P STYLE="margin-bottom: 0in"> 
-width:100%;height:100%;object-fit:cover;object-position:center top;</P>
-<P STYLE="margin-bottom: 0in">  display:block;transition:transform
-.4s;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.img-upload:hover
-img{transform:scale(1.04);}</P>
-<P STYLE="margin-bottom: 0in">.upload-hint{</P>
-<P STYLE="margin-bottom: 0in"> 
-position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;</P>
-<P STYLE="margin-bottom: 0in"> 
-align-items:center;justify-content:center;gap:8px;</P>
-<P STYLE="margin-bottom: 0in"> 
-background:linear-gradient(135deg,var(--blue-deep),#1258c4);</P>
-<P STYLE="margin-bottom: 0in"> 
-color:white;font-size:.85rem;font-weight:600;text-align:center;padding:12px;</P>
-<P STYLE="margin-bottom: 0in">  transition:opacity .3s;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.upload-hint .ico{font-size:2rem;}</P>
-<P STYLE="margin-bottom: 0in">.upload-hint.hidden{opacity:0;pointer-events:none;}</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">/* &#9472;&#9472; NAV &#9472;&#9472; */</P>
-<P STYLE="margin-bottom: 0in">nav{</P>
-<P STYLE="margin-bottom: 0in"> 
-position:fixed;top:0;left:0;width:100%;z-index:999;</P>
-<P STYLE="margin-bottom: 0in"> 
-background:rgba(6,46,122,.93);backdrop-filter:blur(12px);</P>
-<P STYLE="margin-bottom: 0in">  padding:14px
-5%;display:flex;align-items:center;justify-content:space-between;</P>
-<P STYLE="margin-bottom: 0in">  transition:background .3s;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">nav.scrolled{background:var(--blue-deep);}</P>
-<P STYLE="margin-bottom: 0in">.nav-logo{display:flex;align-items:center;gap:10px;}</P>
-<P STYLE="margin-bottom: 0in">.r-badge{</P>
-<P STYLE="margin-bottom: 0in"> 
-width:38px;height:38px;background:var(--blue);border:2px solid white;</P>
-<P STYLE="margin-bottom: 0in"> 
-border-radius:6px;display:flex;align-items:center;justify-content:center;</P>
-<P STYLE="margin-bottom: 0in"> 
-font-weight:900;font-size:1.3rem;color:white;flex-shrink:0;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.nav-logo
-span{color:white;font-weight:700;font-size:.95rem;line-height:1.2;}</P>
-<P STYLE="margin-bottom: 0in">.nav-logo span
-small{font-weight:400;font-size:.72rem;display:block;opacity:.8;}</P>
-<P STYLE="margin-bottom: 0in">.nav-links{display:flex;gap:24px;list-style:none;}</P>
-<P STYLE="margin-bottom: 0in">.nav-links
-a{color:rgba(255,255,255,.88);text-decoration:none;font-size:.88rem;font-weight:500;transition:color
-.2s;cursor:pointer;}</P>
-<P STYLE="margin-bottom: 0in">.nav-links a:hover{color:white;}</P>
-<P STYLE="margin-bottom: 0in">.nav-cta{</P>
-<P STYLE="margin-bottom: 0in"> 
-background:var(--blue);color:white;padding:9px
-22px;border-radius:25px;</P>
-<P STYLE="margin-bottom: 0in"> 
-font-weight:700;font-size:.88rem;text-decoration:none;transition:.2s;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.nav-cta:hover{background:#1a7aff;}</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">/* &#9472;&#9472; HERO &#9472;&#9472;
-*/</P>
-<P STYLE="margin-bottom: 0in">#inicio{</P>
-<P STYLE="margin-bottom: 0in"> 
-min-height:100vh;position:relative;display:flex;align-items:center;</P>
-<P STYLE="margin-bottom: 0in"> 
-background:linear-gradient(135deg,var(--blue-deep) 0%,#1258c4
-60%,#2980f0 100%);</P>
-<P STYLE="margin-bottom: 0in">  overflow:hidden;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.hero-dots{</P>
-<P STYLE="margin-bottom: 0in">  position:absolute;inset:0;</P>
-<P STYLE="margin-bottom: 0in"> 
-background-image:radial-gradient(circle,rgba(255,255,255,.06)
-1px,transparent 1px);</P>
-<P STYLE="margin-bottom: 0in">  background-size:30px 30px;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.hero-wave{position:absolute;bottom:-2px;left:0;width:100%;}</P>
-<P STYLE="margin-bottom: 0in">.hero-wave svg{display:block;}</P>
-<P STYLE="margin-bottom: 0in">.hero-inner{</P>
-<P STYLE="margin-bottom: 0in"> 
-position:relative;z-index:2;width:100%;padding:120px 5% 100px;</P>
-<P STYLE="margin-bottom: 0in"> 
-display:grid;grid-template-columns:1fr
-1fr;gap:40px;align-items:center;</P>
-<P STYLE="margin-bottom: 0in">  max-width:1200px;margin:auto;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.htag{</P>
-<P STYLE="margin-bottom: 0in"> 
-display:inline-flex;align-items:center;gap:8px;</P>
-<P STYLE="margin-bottom: 0in"> 
-background:rgba(255,255,255,.15);color:white;padding:6px 16px;</P>
-<P STYLE="margin-bottom: 0in"> 
-border-radius:20px;font-size:.82rem;font-weight:600;margin-bottom:18px;</P>
-<P STYLE="margin-bottom: 0in">  border:1px solid
-rgba(255,255,255,.2);</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.hero-inner h1{</P>
-<P STYLE="margin-bottom: 0in"> 
-font-size:clamp(2.6rem,5vw,4rem);color:white;font-weight:900;</P>
-<P STYLE="margin-bottom: 0in">  line-height:1.08;margin-bottom:14px;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.hero-inner h1 span{color:#7ec8ff;}</P>
-<P STYLE="margin-bottom: 0in">.hero-sub{font-size:1.1rem;color:rgba(255,255,255,.85);margin-bottom:8px;font-weight:500;}</P>
-<P STYLE="margin-bottom: 0in">.hero-slogan{font-size:1.35rem;color:#7ec8ff;font-weight:800;margin-bottom:30px;font-style:italic;}</P>
-<P STYLE="margin-bottom: 0in">.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}</P>
-<P STYLE="margin-bottom: 0in">.btn-w{</P>
-<P STYLE="margin-bottom: 0in"> 
-background:white;color:var(--blue-dark);padding:14px
-30px;border-radius:30px;</P>
-<P STYLE="margin-bottom: 0in"> 
-font-weight:800;font-size:.95rem;text-decoration:none;transition:.2s;</P>
-<P STYLE="margin-bottom: 0in">  box-shadow:0 6px 24px rgba(0,0,0,.2);</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.btn-w:hover{transform:translateY(-2px);box-shadow:0
-10px 30px rgba(0,0,0,.25);}</P>
-<P STYLE="margin-bottom: 0in">.btn-o{</P>
-<P STYLE="margin-bottom: 0in">  border:2px solid
-rgba(255,255,255,.7);color:white;padding:12px 28px;</P>
-<P STYLE="margin-bottom: 0in"> 
-border-radius:30px;font-weight:700;font-size:.95rem;text-decoration:none;transition:.2s;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.btn-o:hover{background:rgba(255,255,255,.1);}</P>
-<P STYLE="margin-bottom: 0in">.hero-frame-wrap{position:relative;display:flex;justify-content:center;}</P>
-<P STYLE="margin-bottom: 0in">.hero-frame{</P>
-<P STYLE="margin-bottom: 0in"> 
-width:400px;max-width:100%;aspect-ratio:3/4;border-radius:24px;overflow:hidden;</P>
-<P STYLE="margin-bottom: 0in">  box-shadow:0 30px 80px
-rgba(0,0,0,.35);border:3px solid rgba(255,255,255,.2);</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.hero-badge-box{</P>
-<P STYLE="margin-bottom: 0in"> 
-position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);</P>
-<P STYLE="margin-bottom: 0in">  background:white;padding:10px
-22px;border-radius:40px;</P>
-<P STYLE="margin-bottom: 0in">  box-shadow:0 8px 24px
-rgba(0,0,0,.2);display:flex;align-items:center;gap:10px;</P>
-<P STYLE="margin-bottom: 0in">  white-space:nowrap;z-index:4;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.hero-badge-box .r{</P>
-<P STYLE="margin-bottom: 0in"> 
-width:28px;height:28px;background:var(--blue);border-radius:5px;</P>
-<P STYLE="margin-bottom: 0in"> 
-display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:1rem;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.hero-badge-box
-span{font-weight:700;font-size:.82rem;color:var(--blue-dark);}</P>
-<P STYLE="margin-bottom: 0in">.float-c{</P>
-<P STYLE="margin-bottom: 0in"> 
-position:absolute;background:white;border-radius:14px;padding:11px
-15px;</P>
-<P STYLE="margin-bottom: 0in">  box-shadow:0 10px 30px
-rgba(0,0,0,.15);font-size:.78rem;font-weight:600;color:var(--text);</P>
-<P STYLE="margin-bottom: 0in">  animation:fl 3s ease-in-out
-infinite;z-index:4;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.float-c.l{left:-28px;top:28%;animation-delay:.5s;}</P>
-<P STYLE="margin-bottom: 0in">.float-c.r{right:-18px;top:55%;animation-delay:1s;}</P>
-<P STYLE="margin-bottom: 0in">.float-c
-.i{font-size:1.3rem;display:block;margin-bottom:2px;}</P>
-<P STYLE="margin-bottom: 0in">@keyframes
-fl{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">/* &#9472;&#9472; COUNTERS &#9472;&#9472;
-*/</P>
-<P STYLE="margin-bottom: 0in">.counters{background:var(--blue-dark);padding:38px
-5%;}</P>
-<P STYLE="margin-bottom: 0in">.cnt-grid{max-width:900px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center;}</P>
-<P STYLE="margin-bottom: 0in">.cnt-item
-h3{font-size:2.4rem;font-weight:900;color:white;}</P>
-<P STYLE="margin-bottom: 0in">.cnt-item
-p{font-size:.84rem;color:rgba(255,255,255,.7);margin-top:4px;}</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">/* &#9472;&#9472; COMMON &#9472;&#9472;
-*/</P>
-<P STYLE="margin-bottom: 0in">section{padding:88px 5%;}</P>
-<P STYLE="margin-bottom: 0in">.stag{display:inline-block;background:var(--blue-light);color:var(--blue-dark);padding:5px
-16px;border-radius:20px;font-size:.82rem;font-weight:700;margin-bottom:14px;}</P>
-<P STYLE="margin-bottom: 0in">.stitle{font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:900;line-height:1.2;margin-bottom:14px;}</P>
-<P STYLE="margin-bottom: 0in">.slead{color:var(--muted);font-size:1rem;max-width:580px;}</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">/* &#9472;&#9472; SOBRE &#9472;&#9472;
-*/</P>
-<P STYLE="margin-bottom: 0in">#sobre{background:var(--gray);}</P>
-<P STYLE="margin-bottom: 0in">.sobre-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:1fr
-1fr;gap:60px;align-items:center;}</P>
-<P STYLE="margin-bottom: 0in">.sobre-imgs{position:relative;height:500px;}</P>
-<P STYLE="margin-bottom: 0in">.sobre-main-wrap{</P>
-<P STYLE="margin-bottom: 0in"> 
-position:absolute;left:0;top:0;width:68%;aspect-ratio:3/4;</P>
-<P STYLE="margin-bottom: 0in"> 
-border-radius:20px;overflow:hidden;box-shadow:0 20px 60px
-rgba(0,0,0,.15);</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.sobre-sec-wrap{</P>
-<P STYLE="margin-bottom: 0in"> 
-position:absolute;right:0;bottom:0;width:52%;aspect-ratio:1;</P>
-<P STYLE="margin-bottom: 0in"> 
-border-radius:16px;overflow:hidden;box-shadow:0 16px 40px
-rgba(0,0,0,.15);</P>
-<P STYLE="margin-bottom: 0in">  border:4px solid white;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.valores{display:grid;grid-template-columns:1fr
-1fr;gap:14px;margin-top:28px;}</P>
-<P STYLE="margin-bottom: 0in">.vcard{</P>
-<P STYLE="margin-bottom: 0in"> 
-background:white;border-radius:14px;padding:16px;</P>
-<P STYLE="margin-bottom: 0in">  box-shadow:0 4px 16px
-rgba(0,0,0,.07);border-left:4px solid
-var(--blue);transition:transform .2s;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.vcard:hover{transform:translateY(-3px);}</P>
-<P STYLE="margin-bottom: 0in">.vcard
-h4{font-size:.88rem;font-weight:700;margin-bottom:4px;color:var(--blue-dark);}</P>
-<P STYLE="margin-bottom: 0in">.vcard
-p{font-size:.78rem;color:var(--muted);}</P>
-<P STYLE="margin-bottom: 0in">.trayectoria{display:flex;flex-direction:column;gap:16px;margin:24px
-0;}</P>
-<P STYLE="margin-bottom: 0in">.titem{display:flex;gap:16px;align-items:flex-start;background:white;border-radius:14px;padding:16px
-18px;box-shadow:0 4px 16px rgba(0,0,0,.07);transition:transform .2s;}</P>
-<P STYLE="margin-bottom: 0in">.titem:hover{transform:translateX(4px);}</P>
-<P STYLE="margin-bottom: 0in">.ticon{font-size:1.8rem;flex-shrink:0;margin-top:2px;}</P>
-<P STYLE="margin-bottom: 0in">.titem
-h4{font-size:.92rem;font-weight:800;color:var(--blue-dark);margin-bottom:5px;}</P>
-<P STYLE="margin-bottom: 0in">.titem
-p{font-size:.82rem;color:var(--muted);line-height:1.5;}</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">/* &#9472;&#9472; PROPUESTAS &#9472;&#9472;
-*/</P>
-<P STYLE="margin-bottom: 0in">#propuestas{background:white;}</P>
-<P STYLE="margin-bottom: 0in">.ph{max-width:1100px;margin:0 auto
-46px;}</P>
-<P STYLE="margin-bottom: 0in">.pgrid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}</P>
-<P STYLE="margin-bottom: 0in">.pcard{</P>
-<P STYLE="margin-bottom: 0in"> 
-border-radius:18px;overflow:hidden;position:relative;</P>
-<P STYLE="margin-bottom: 0in"> 
-background:linear-gradient(135deg,var(--blue-deep),var(--blue));</P>
-<P STYLE="margin-bottom: 0in">  padding:34px
-26px;color:white;transition:transform .25s,box-shadow .25s;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.pcard:hover{transform:translateY(-6px);box-shadow:0
-20px 50px rgba(13,110,253,.3);}</P>
-<P STYLE="margin-bottom: 0in">.pcard
-.num{font-size:3rem;font-weight:900;opacity:.12;position:absolute;top:14px;right:18px;}</P>
-<P STYLE="margin-bottom: 0in">.pcard
-.ico{font-size:2rem;margin-bottom:14px;display:block;}</P>
-<P STYLE="margin-bottom: 0in">.pcard
-h3{font-size:1.05rem;font-weight:800;margin-bottom:8px;}</P>
-<P STYLE="margin-bottom: 0in">.pcard
-p{font-size:.83rem;opacity:.85;line-height:1.5;}</P>
-<P STYLE="margin-bottom: 0in">.pcard.lt{background:white;color:var(--text);border:2px
-solid var(--blue-light);}</P>
-<P STYLE="margin-bottom: 0in">.pcard.lt h3{color:var(--blue-dark);}</P>
-<P STYLE="margin-bottom: 0in">.pcard.lt p{color:var(--muted);}</P>
-<P STYLE="margin-bottom: 0in">.pcard.lt
-.num{color:var(--blue);opacity:.07;}</P>
-<P STYLE="margin-bottom: 0in">.pcard.lt:hover{box-shadow:0 20px 50px
-rgba(0,0,0,.09);}</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">/* &#9472;&#9472; GALER&Iacute;A &#9472;&#9472;
-*/</P>
-<P STYLE="margin-bottom: 0in">#campana{background:var(--gray);}</P>
-<P STYLE="margin-bottom: 0in">.gal-inner{max-width:1100px;margin:auto;}</P>
-<P STYLE="margin-bottom: 0in">.camp-estrategia{</P>
-<P STYLE="margin-bottom: 0in"> 
-display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:36px
-0 28px;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.ce-card{</P>
-<P STYLE="margin-bottom: 0in"> 
-background:white;border-radius:16px;padding:22px 18px;</P>
-<P STYLE="margin-bottom: 0in">  box-shadow:0 4px 18px
-rgba(0,0,0,.07);border-top:4px solid var(--blue-light);</P>
-<P STYLE="margin-bottom: 0in">  transition:transform .2s,box-shadow
-.2s;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.ce-card.azul{background:linear-gradient(135deg,var(--blue-deep),var(--blue));color:white;border-top:none;}</P>
-<P STYLE="margin-bottom: 0in">.ce-card.azul h4{color:white;}</P>
-<P STYLE="margin-bottom: 0in">.ce-card.azul
-p{color:rgba(255,255,255,.85);}</P>
-<P STYLE="margin-bottom: 0in">.ce-card.azul strong{color:#7ec8ff;}</P>
-<P STYLE="margin-bottom: 0in">.ce-card:hover{transform:translateY(-4px);box-shadow:0
-12px 30px rgba(0,0,0,.12);}</P>
-<P STYLE="margin-bottom: 0in">.ce-ico{font-size:2rem;display:block;margin-bottom:12px;}</P>
-<P STYLE="margin-bottom: 0in">.ce-card
-h4{font-size:.92rem;font-weight:800;color:var(--blue-dark);margin-bottom:8px;}</P>
-<P STYLE="margin-bottom: 0in">.ce-card
-p{font-size:.8rem;color:var(--muted);line-height:1.55;}</P>
-<P STYLE="margin-bottom: 0in">.camp-banner{</P>
-<P STYLE="margin-bottom: 0in"> 
-background:white;border-radius:18px;padding:28px
-30px;margin-bottom:32px;</P>
-<P STYLE="margin-bottom: 0in">  box-shadow:0 4px 18px
-rgba(0,0,0,.07);</P>
-<P STYLE="margin-bottom: 0in"> 
-display:flex;align-items:center;justify-content:space-between;gap:24px;</P>
-<P STYLE="margin-bottom: 0in">  border-left:6px solid
-var(--blue);flex-wrap:wrap;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.camp-banner-text
-h3{font-size:1.15rem;font-weight:800;color:var(--blue-dark);margin-bottom:8px;}</P>
-<P STYLE="margin-bottom: 0in">.camp-banner-text
-p{font-size:.85rem;color:var(--muted);max-width:560px;line-height:1.55;}</P>
-<P STYLE="margin-bottom: 0in">.camp-banner-badge{</P>
-<P STYLE="margin-bottom: 0in"> 
-display:flex;align-items:center;gap:14px;</P>
-<P STYLE="margin-bottom: 0in"> 
-background:var(--blue-light);padding:16px
-22px;border-radius:14px;flex-shrink:0;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.camp-banner-badge
-div{display:flex;flex-direction:column;}</P>
-<P STYLE="margin-bottom: 0in">.camp-banner-badge
-strong{font-size:.95rem;color:var(--blue-dark);}</P>
-<P STYLE="margin-bottom: 0in">.camp-banner-badge
-span{font-size:.78rem;color:var(--muted);}</P>
-<P STYLE="margin-bottom: 0in">@media(max-width:920px){</P>
-<P STYLE="margin-bottom: 0in"> 
-.camp-estrategia{grid-template-columns:1fr 1fr;}</P>
-<P STYLE="margin-bottom: 0in"> 
-.camp-banner{flex-direction:column;align-items:flex-start;}</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">@media(max-width:560px){</P>
-<P STYLE="margin-bottom: 0in"> 
-.camp-estrategia{grid-template-columns:1fr;}</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.gal-grid{</P>
-<P STYLE="margin-bottom: 0in"> 
-display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.git{border-radius:16px;overflow:hidden;position:relative;}</P>
-<P STYLE="margin-bottom: 0in">.git.tall{grid-row:span 2;}</P>
-<P STYLE="margin-bottom: 0in">.git .img-upload .upload-hint
-.lbl{font-size:.7rem;opacity:.8;margin-top:4px;}</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">/* &#9472;&#9472; &Uacute;NETE &#9472;&#9472;
-*/</P>
-<P STYLE="margin-bottom: 0in">#unete{</P>
-<P STYLE="margin-bottom: 0in"> 
-background:linear-gradient(135deg,var(--blue-deep),#1258c4);</P>
-<P STYLE="margin-bottom: 0in"> 
-text-align:center;position:relative;overflow:hidden;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">#unete::before{</P>
-<P STYLE="margin-bottom: 0in"> 
-content:'';position:absolute;width:600px;height:600px;border-radius:50%;</P>
-<P STYLE="margin-bottom: 0in"> 
-background:rgba(255,255,255,.04);top:-200px;left:-200px;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">#unete
-h2{font-size:clamp(1.9rem,4vw,3rem);font-weight:900;color:white;margin-bottom:14px;position:relative;}</P>
-<P STYLE="margin-bottom: 0in">#unete
-p{color:rgba(255,255,255,.8);font-size:1rem;max-width:500px;margin:0
-auto 32px;position:relative;}</P>
-<P STYLE="margin-bottom: 0in">.frow{display:flex;gap:10px;max-width:480px;margin:auto;flex-wrap:wrap;position:relative;}</P>
-<P STYLE="margin-bottom: 0in">.frow
-input{flex:1;min-width:180px;padding:13px
-18px;border-radius:30px;border:none;font-size:.9rem;outline:none;}</P>
-<P STYLE="margin-bottom: 0in">.frow button{</P>
-<P STYLE="margin-bottom: 0in"> 
-background:white;color:var(--blue-dark);padding:13px
-26px;border-radius:30px;</P>
-<P STYLE="margin-bottom: 0in"> 
-font-weight:800;border:none;cursor:pointer;transition:.2s;font-size:.9rem;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.frow button:hover{background:#e8f0fe;}</P>
-<P STYLE="margin-bottom: 0in">#fmsg{color:#7ec8ff;margin-top:14px;font-weight:700;font-size:.92rem;display:none;position:relative;}</P>
-<P STYLE="margin-bottom: 0in">.soc-row{display:flex;gap:12px;justify-content:center;margin-top:26px;position:relative;}</P>
-<P STYLE="margin-bottom: 0in">.sb{</P>
-<P STYLE="margin-bottom: 0in"> 
-width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.15);</P>
-<P STYLE="margin-bottom: 0in"> 
-display:flex;align-items:center;justify-content:center;color:white;</P>
-<P STYLE="margin-bottom: 0in">  text-decoration:none;border:1px solid
-rgba(255,255,255,.2);transition:.2s;font-size:.85rem;font-weight:700;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.sb:hover{background:rgba(255,255,255,.25);}</P>
-<P STYLE="margin-bottom: 0in">.setup-box{</P>
-<P STYLE="margin-bottom: 0in">  max-width:520px;margin:28px auto
-0;background:rgba(255,255,255,.12);</P>
-<P STYLE="margin-bottom: 0in">  border:1px solid
-rgba(255,255,255,.25);border-radius:16px;</P>
-<P STYLE="margin-bottom: 0in">  padding:20px
-24px;text-align:left;color:white;</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">.setup-box
-h4{font-size:.88rem;font-weight:800;margin-bottom:12px;color:#7ec8ff;}</P>
-<P STYLE="margin-bottom: 0in">.setup-box
-ol{padding-left:18px;display:flex;flex-direction:column;gap:8px;}</P>
-<P STYLE="margin-bottom: 0in">.setup-box
-li{font-size:.8rem;color:rgba(255,255,255,.85);line-height:1.5;}</P>
-<P STYLE="margin-bottom: 0in">.setup-box strong{color:white;}</P>
-<P STYLE="margin-bottom: 0in">.setup-box
-code{background:rgba(255,255,255,.15);padding:2px
-7px;border-radius:5px;font-size:.78rem;}</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">/* &#9472;&#9472; FOOTER &#9472;&#9472;
-*/</P>
-<P STYLE="margin-bottom: 0in">footer{background:#04204f;padding:36px
-5%;text-align:center;}</P>
-<P STYLE="margin-bottom: 0in">.flog{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:12px;}</P>
-<P STYLE="margin-bottom: 0in">.flog
-.r{width:32px;height:32px;background:var(--blue);border-radius:5px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;}</P>
-<P STYLE="margin-bottom: 0in">.flog
-span{color:white;font-weight:700;font-size:.95rem;}</P>
-<P STYLE="margin-bottom: 0in">footer
-p{color:rgba(255,255,255,.45);font-size:.82rem;}</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">/* &#9472;&#9472; REVEAL &#9472;&#9472;
-*/</P>
-<P STYLE="margin-bottom: 0in">.rv{opacity:0;transform:translateY(28px);transition:opacity
-.6s,transform .6s;}</P>
-<P STYLE="margin-bottom: 0in">.rv.vis{opacity:1;transform:none;}</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">/* &#9472;&#9472; RESPONSIVE &#9472;&#9472;
-*/</P>
-<P STYLE="margin-bottom: 0in">@media(max-width:920px){</P>
-<P STYLE="margin-bottom: 0in"> 
-.hero-inner{grid-template-columns:1fr;text-align:center;}</P>
-<P STYLE="margin-bottom: 0in">  .hero-frame-wrap{display:none;}</P>
-<P STYLE="margin-bottom: 0in"> 
-.sobre-grid{grid-template-columns:1fr;}</P>
-<P STYLE="margin-bottom: 0in">  .sobre-imgs{display:none;}</P>
-<P STYLE="margin-bottom: 0in">  .pgrid{grid-template-columns:1fr
-1fr;}</P>
-<P STYLE="margin-bottom: 0in">  .gal-grid{grid-template-columns:1fr
-1fr;}</P>
-<P STYLE="margin-bottom: 0in">  .git.tall{grid-row:span 1;}</P>
-<P STYLE="margin-bottom: 0in">  .cnt-grid{grid-template-columns:1fr;}</P>
-<P STYLE="margin-bottom: 0in">  .nav-links{display:none;}</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">@media(max-width:560px){</P>
-<P STYLE="margin-bottom: 0in">  .pgrid{grid-template-columns:1fr;}</P>
-<P STYLE="margin-bottom: 0in">  .gal-grid{grid-template-columns:1fr;}</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">&lt;/style&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;/head&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;body&gt;</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">&lt;!-- NAV --&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;nav id=&quot;nav&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;div class=&quot;nav-logo&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;r-badge&quot;&gt;R&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;span&gt;Jorge
-Mera&lt;small&gt;Renovaci&oacute;n Popular &middot;
-Loreto&lt;/small&gt;&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;ul class=&quot;nav-links&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;li&gt;&lt;a
-onclick=&quot;ir('inicio')&quot;&gt;Inicio&lt;/a&gt;&lt;/li&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;li&gt;&lt;a
-onclick=&quot;ir('sobre')&quot;&gt;Sobre m&iacute;&lt;/a&gt;&lt;/li&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;li&gt;&lt;a
-onclick=&quot;ir('propuestas')&quot;&gt;Propuestas&lt;/a&gt;&lt;/li&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;li&gt;&lt;a
-onclick=&quot;ir('campana')&quot;&gt;Campa&ntilde;a&lt;/a&gt;&lt;/li&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;li&gt;&lt;a
-onclick=&quot;ir('unete')&quot;&gt;Contacto&lt;/a&gt;&lt;/li&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;/ul&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;a onclick=&quot;ir('unete')&quot;
-class=&quot;nav-cta&quot;&gt;&Uacute;nete &#9994;&lt;/a&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;/nav&gt;</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">&lt;!-- HERO --&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;section id=&quot;inicio&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;div class=&quot;hero-dots&quot;&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;div class=&quot;hero-inner&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;rv&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;htag&quot;&gt;&#128499;&#65039;
-Elecciones Regionales 2026 &middot; Loreto&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;h1&gt;Soy&lt;br/&gt;&lt;span&gt;Jorge
-Mera&lt;/span&gt;&lt;/h1&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;p class=&quot;hero-sub&quot;&gt;Candidato
-al Gobierno Regional de Loreto&lt;/p&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;p class=&quot;hero-slogan&quot;&gt;&quot;Con
-Mera, Loreto tiene futuro&quot;&lt;/p&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;hero-btns&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;a
-onclick=&quot;ir('propuestas')&quot; class=&quot;btn-w&quot;&gt;Conoce
-mis propuestas&lt;/a&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;a onclick=&quot;ir('unete')&quot;
-class=&quot;btn-o&quot;&gt;&Uacute;nete al cambio&lt;/a&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;hero-frame-wrap
-rv&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;float-c
-l&quot;&gt;&lt;span class=&quot;i&quot;&gt;&#127807;&lt;/span&gt;Loreto,
-nuestra tierra&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;hero-frame&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;img-upload&quot;
-id=&quot;z-hero&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;input type=&quot;file&quot;
-accept=&quot;image/*&quot; onchange=&quot;loadImg(this,'z-hero')&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;div class=&quot;upload-hint&quot;
-id=&quot;h-hero&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">            &lt;span
-class=&quot;ico&quot;&gt;&#128248;&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">            &lt;span&gt;Haz clic
-aqu&iacute;&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">            &lt;span
-style=&quot;font-size:.7rem;opacity:.8&quot;&gt;Foto principal del
-candidato&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;img id=&quot;i-hero&quot;
-src=&quot;&quot; alt=&quot;Jorge Mera&quot; style=&quot;display:none&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;hero-badge-box&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;r&quot;&gt;R&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;span&gt;Renovaci&oacute;n
-Popular &middot; Loreto&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;float-c
-r&quot;&gt;&lt;span class=&quot;i&quot;&gt;&#128203;&lt;/span&gt;Plan
-de Gobierno 2026&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;div class=&quot;hero-wave&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;svg viewBox=&quot;0 0 1440 80&quot;
-xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;path fill=&quot;#f4f7fc&quot;
-d=&quot;M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;/svg&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;/section&gt;</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">&lt;!-- COUNTERS --&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;div class=&quot;counters&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;div class=&quot;cnt-grid&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;cnt-item
-rv&quot;&gt;&lt;h3 id=&quot;c1&quot;&gt;0&lt;/h3&gt;&lt;p&gt;Provincias
-comprometidas&lt;/p&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;cnt-item
-rv&quot;&gt;&lt;h3 id=&quot;c2&quot;&gt;0&lt;/h3&gt;&lt;p&gt;Propuestas
-concretas&lt;/p&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;cnt-item
-rv&quot;&gt;&lt;h3 id=&quot;c3&quot;&gt;0&lt;/h3&gt;&lt;p&gt;A&ntilde;os
-al servicio de Loreto&lt;/p&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">&lt;!-- SOBRE M&Iacute; --&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;section id=&quot;sobre&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;div class=&quot;sobre-grid&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;sobre-imgs rv&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;sobre-main-wrap&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;img-upload&quot;
-id=&quot;z-s1&quot; style=&quot;height:100%&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;input type=&quot;file&quot;
-accept=&quot;image/*&quot; onchange=&quot;loadImg(this,'z-s1')&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;div class=&quot;upload-hint&quot;
-id=&quot;h-s1&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">            &lt;span
-class=&quot;ico&quot;&gt;&#128248;&lt;/span&gt;&lt;span&gt;Foto
-principal&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">            &lt;span
-style=&quot;font-size:.7rem;opacity:.8&quot;&gt;Sobre m&iacute; &ndash;
-pose formal&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;img id=&quot;i-s1&quot;
-src=&quot;&quot; alt=&quot;Jorge Mera&quot;
-style=&quot;display:none;width:100%;height:100%;object-fit:cover;object-position:center
-top&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;sobre-sec-wrap&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;img-upload&quot;
-id=&quot;z-s2&quot; style=&quot;height:100%&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;input type=&quot;file&quot;
-accept=&quot;image/*&quot; onchange=&quot;loadImg(this,'z-s2')&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;div class=&quot;upload-hint&quot;
-id=&quot;h-s2&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">            &lt;span
-class=&quot;ico&quot;&gt;&#128248;&lt;/span&gt;&lt;span&gt;Foto con
-ciudadanos&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;img id=&quot;i-s2&quot;
-src=&quot;&quot; alt=&quot;Jorge Mera campa&ntilde;a&quot;
-style=&quot;display:none;width:100%;height:100%;object-fit:cover;object-position:center
-top&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;rv&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;span class=&quot;stag&quot;&gt;Sobre
-m&iacute;&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;h2 class=&quot;stitle&quot;&gt;Un
-liderazgo comprometido con Loreto&lt;/h2&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;p class=&quot;slead&quot;&gt;Loreto
-es mi tierra, mi hogar y mi compromiso. He recorrido sus r&iacute;os,
-escuchado a sus comunidades y entiendo los desaf&iacute;os que
-enfrentamos como regi&oacute;n. Juntos construiremos un Loreto con
-desarrollo, bienestar y oportunidades para todos.&lt;/p&gt;</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;trayectoria&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;titem&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;div
-class=&quot;ticon&quot;&gt;&#127963;&#65039;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;div&gt;</P>
-<P STYLE="margin-bottom: 0in">            &lt;h4&gt;Experiencia
-Legislativa&lt;/h4&gt;</P>
-<P STYLE="margin-bottom: 0in">            &lt;p&gt;Congresista por
-Loreto &lt;strong&gt;(2001&ndash;2006)&lt;/strong&gt; y Tercer
-Vicepresidente del Congreso de la Rep&uacute;blica.&lt;/p&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;titem&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;div
-class=&quot;ticon&quot;&gt;&#127807;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;div&gt;</P>
-<P STYLE="margin-bottom: 0in">            &lt;h4&gt;Liderazgo
-Regional&lt;/h4&gt;</P>
-<P STYLE="margin-bottom: 0in">            &lt;p&gt;Fundador del
-Movimiento &lt;strong&gt;Esperanza Regi&oacute;n Amaz&oacute;nica
-(MERA)&lt;/strong&gt;, ahora en alianza con Renovaci&oacute;n Popular
-para este proceso electoral.&lt;/p&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;titem&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;div
-class=&quot;ticon&quot;&gt;&#127919;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;div&gt;</P>
-<P STYLE="margin-bottom: 0in">            &lt;h4&gt;Candidato
-Persistente&lt;/h4&gt;</P>
-<P STYLE="margin-bottom: 0in">            &lt;p&gt;Ha postulado en
-m&uacute;ltiples ocasiones a la Gobernaci&oacute;n Regional y a la
-Alcald&iacute;a de Maynas, consolidando un &lt;strong&gt;alto nivel
-de recordaci&oacute;n&lt;/strong&gt; entre los electores
-loretanos.&lt;/p&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;valores&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;vcard&quot;&gt;&lt;h4&gt;&#129309;
-Cercan&iacute;a&lt;/h4&gt;&lt;p&gt;Gobierno con las puertas abiertas,
-escuchando a cada loretano.&lt;/p&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;vcard&quot;&gt;&lt;h4&gt;&#9889;
-Acci&oacute;n&lt;/h4&gt;&lt;p&gt;Resultados concretos desde el primer
-d&iacute;a de gesti&oacute;n.&lt;/p&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;vcard&quot;&gt;&lt;h4&gt;&#127807;
-Desarrollo&lt;/h4&gt;&lt;p&gt;Competitividad econ&oacute;mica y
-reactivaci&oacute;n para todos los sectores.&lt;/p&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;vcard&quot;&gt;&lt;h4&gt;&#128737;&#65039;
-Honestidad&lt;/h4&gt;&lt;p&gt;Transparencia y rendici&oacute;n de
-cuentas como base del gobierno.&lt;/p&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;/section&gt;</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">&lt;!-- PROPUESTAS --&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;section id=&quot;propuestas&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;div class=&quot;ph rv&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;span class=&quot;stag&quot;&gt;Plan
-de Gobierno&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;h2 class=&quot;stitle&quot;&gt;Propuestas
-para transformar Loreto&lt;/h2&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;p class=&quot;slead&quot;&gt;Un
-plan s&oacute;lido, realista y pensado para cada rinc&oacute;n de
-nuestra regi&oacute;n.&lt;/p&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;div class=&quot;pgrid&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;pcard rv&quot;&gt;&lt;span
-class=&quot;num&quot;&gt;01&lt;/span&gt;&lt;span
-class=&quot;ico&quot;&gt;&#127973;&lt;/span&gt;&lt;h3&gt;Salud para
-todos&lt;/h3&gt;&lt;p&gt;Mejora de hospitales, postas m&eacute;dicas
-en comunidades alejadas y acceso real a medicamentos.&lt;/p&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;pcard rv&quot;&gt;&lt;span
-class=&quot;num&quot;&gt;02&lt;/span&gt;&lt;span
-class=&quot;ico&quot;&gt;&#128218;&lt;/span&gt;&lt;h3&gt;Educaci&oacute;n
-de calidad&lt;/h3&gt;&lt;p&gt;Colegios equipados, conectividad rural
-y becas para estudiantes loretanos destacados.&lt;/p&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;pcard rv&quot;&gt;&lt;span
-class=&quot;num&quot;&gt;03&lt;/span&gt;&lt;span
-class=&quot;ico&quot;&gt;&#127754;&lt;/span&gt;&lt;h3&gt;Infraestructura
-fluvial&lt;/h3&gt;&lt;p&gt;Puertos modernos, embarcaderos seguros y
-v&iacute;as que integren todas las provincias.&lt;/p&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;pcard lt
-rv&quot;&gt;&lt;span class=&quot;num&quot;&gt;04&lt;/span&gt;&lt;span
-class=&quot;ico&quot;&gt;&#127793;&lt;/span&gt;&lt;h3&gt;Econom&iacute;a
-sostenible&lt;/h3&gt;&lt;p&gt;Impulso al agro, turismo amaz&oacute;nico
-y emprendimiento local con respeto al medio ambiente.&lt;/p&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;pcard lt
-rv&quot;&gt;&lt;span class=&quot;num&quot;&gt;05&lt;/span&gt;&lt;span
-class=&quot;ico&quot;&gt;&#128274;&lt;/span&gt;&lt;h3&gt;Seguridad
-ciudadana&lt;/h3&gt;&lt;p&gt;Mayor presencia policial, tecnolog&iacute;a
-para prevenci&oacute;n del delito y trabajo comunitario.&lt;/p&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;pcard lt
-rv&quot;&gt;&lt;span class=&quot;num&quot;&gt;06&lt;/span&gt;&lt;span
-class=&quot;ico&quot;&gt;&#128167;&lt;/span&gt;&lt;h3&gt;Agua y
-saneamiento&lt;/h3&gt;&lt;p&gt;Acceso a agua potable y servicios
-b&aacute;sicos dignos para familias de toda la regi&oacute;n.&lt;/p&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;/section&gt;</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">&lt;!-- GALER&Iacute;A --&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;section id=&quot;campana&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;div class=&quot;gal-inner&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;rv&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;span class=&quot;stag&quot;&gt;En
-campa&ntilde;a&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;h2 class=&quot;stitle&quot;&gt;Con
-la gente, en cada rinc&oacute;n de Loreto&lt;/h2&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">    &lt;!-- Estrategia de campa&ntilde;a
---&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;camp-estrategia
-rv&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;ce-card
-azul&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;span
-class=&quot;ce-ico&quot;&gt;&#129309;&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;h4&gt;Alianza Nacional&lt;/h4&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;p&gt;Integra el movimiento
-MERA a la &lt;strong&gt;&quot;Ola Celeste&quot;&lt;/strong&gt; de
-Rafael L&oacute;pez Aliaga, capitalizando el voto conservador y
-religioso de la Amazon&iacute;a.&lt;/p&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;ce-card&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;span
-class=&quot;ce-ico&quot;&gt;&#9878;&#65039;&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;h4&gt;Anti-corrupci&oacute;n&lt;/h4&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;p&gt;Su discurso principal
-se centra en la &lt;strong&gt;lucha contra la corrupci&oacute;n&lt;/strong&gt;
-en la gesti&oacute;n p&uacute;blica regional.&lt;/p&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;ce-card&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;span
-class=&quot;ce-ico&quot;&gt;&#128506;&#65039;&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;h4&gt;Presencia
-Territorial&lt;/h4&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;p&gt;Estrategia de
-&lt;strong&gt;&quot;perpetuidad&quot;&lt;/strong&gt; pol&iacute;tica
-con recorridos frecuentes por todas las provincias de Loreto para
-conectar con el electorado rural.&lt;/p&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;ce-card&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;span
-class=&quot;ce-ico&quot;&gt;&#128241;&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;h4&gt;Redes Sociales&lt;/h4&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;p&gt;Usa
-&lt;strong&gt;Facebook&lt;/strong&gt; para difundir mensajes de
-seguridad ciudadana y valores tradicionales alineados con Renovaci&oacute;n
-Popular.&lt;/p&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">    &lt;!-- Banner Anthony Mera --&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;camp-banner
-rv&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;camp-banner-text&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;span class=&quot;stag&quot;
-style=&quot;margin-bottom:8px&quot;&gt;Renovaci&oacute;n de
-cuadros&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;h3&gt;Impulso a nuevos
-l&iacute;deres&lt;/h3&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;p&gt;Como parte de su
-estrategia de renovaci&oacute;n y legado, Jorge Mera promueve figuras
-j&oacute;venes como &lt;strong&gt;Anthony Mera&lt;/strong&gt;,
-candidato a Diputado por Loreto con el &lt;strong&gt;N&deg;
-1&lt;/strong&gt;.&lt;/p&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div
-class=&quot;camp-banner-badge&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;r-badge&quot;
-style=&quot;width:52px;height:52px;font-size:1.8rem&quot;&gt;R&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;strong&gt;Anthony
-Mera&lt;/strong&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;span&gt;Candidato a
-Diputado &middot; N&deg; 1&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">    &lt;div class=&quot;gal-grid&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;!-- foto grande --&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;git tall rv&quot;
-style=&quot;height:380px&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;img-upload&quot;
-id=&quot;z-g1&quot; style=&quot;height:100%&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;input type=&quot;file&quot;
-accept=&quot;image/*&quot; onchange=&quot;loadImg(this,'z-g1')&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;div class=&quot;upload-hint&quot;
-id=&quot;h-g1&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">            &lt;span
-class=&quot;ico&quot;&gt;&#128248;&lt;/span&gt;&lt;span&gt;Foto
-discurso / mitin&lt;/span&gt;&lt;span class=&quot;lbl&quot;&gt;Foto
-grande&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;img id=&quot;i-g1&quot;
-src=&quot;&quot; alt=&quot;&quot;
-style=&quot;display:none;width:100%;height:100%;object-fit:cover;object-position:center
-top&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;!-- fotos peque&ntilde;as --&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;git rv&quot;
-style=&quot;height:180px&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;img-upload&quot;
-id=&quot;z-g2&quot; style=&quot;height:100%&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;input type=&quot;file&quot;
-accept=&quot;image/*&quot; onchange=&quot;loadImg(this,'z-g2')&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;div class=&quot;upload-hint&quot;
-id=&quot;h-g2&quot;&gt;&lt;span class=&quot;ico&quot;&gt;&#128248;&lt;/span&gt;&lt;span&gt;Foto
-con ciudadanos&lt;/span&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;img id=&quot;i-g2&quot;
-src=&quot;&quot; alt=&quot;&quot;
-style=&quot;display:none;width:100%;height:100%;object-fit:cover;object-position:center
-top&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;git rv&quot;
-style=&quot;height:180px&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;img-upload&quot;
-id=&quot;z-g3&quot; style=&quot;height:100%&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;input type=&quot;file&quot;
-accept=&quot;image/*&quot; onchange=&quot;loadImg(this,'z-g3')&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;div class=&quot;upload-hint&quot;
-id=&quot;h-g3&quot;&gt;&lt;span class=&quot;ico&quot;&gt;&#128248;&lt;/span&gt;&lt;span&gt;Foto
-calle / mercado&lt;/span&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;img id=&quot;i-g3&quot;
-src=&quot;&quot; alt=&quot;&quot;
-style=&quot;display:none;width:100%;height:100%;object-fit:cover;object-position:center
-top&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;git rv&quot;
-style=&quot;height:180px&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;img-upload&quot;
-id=&quot;z-g4&quot; style=&quot;height:100%&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;input type=&quot;file&quot;
-accept=&quot;image/*&quot; onchange=&quot;loadImg(this,'z-g4')&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;div class=&quot;upload-hint&quot;
-id=&quot;h-g4&quot;&gt;&lt;span class=&quot;ico&quot;&gt;&#128248;&lt;/span&gt;&lt;span&gt;Foto
-propuestas&lt;/span&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;img id=&quot;i-g4&quot;
-src=&quot;&quot; alt=&quot;&quot;
-style=&quot;display:none;width:100%;height:100%;object-fit:cover;object-position:center
-top&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;div class=&quot;git rv&quot;
-style=&quot;height:180px&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;div class=&quot;img-upload&quot;
-id=&quot;z-g5&quot; style=&quot;height:100%&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;input type=&quot;file&quot;
-accept=&quot;image/*&quot; onchange=&quot;loadImg(this,'z-g5')&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;div class=&quot;upload-hint&quot;
-id=&quot;h-g5&quot;&gt;&lt;span class=&quot;ico&quot;&gt;&#128248;&lt;/span&gt;&lt;span&gt;Foto
-evento regional&lt;/span&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">          &lt;img id=&quot;i-g5&quot;
-src=&quot;&quot; alt=&quot;&quot;
-style=&quot;display:none;width:100%;height:100%;object-fit:cover;object-position:center
-top&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">        &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">      &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;/section&gt;</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">&lt;!-- &Uacute;NETE --&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;section id=&quot;unete&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;span class=&quot;stag&quot;
-style=&quot;background:rgba(255,255,255,.15);color:white&quot;&gt;&Uacute;nete
-al movimiento&lt;/span&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;h2 class=&quot;rv&quot;&gt;&iexcl;El
-partido necesita tu ayuda como personero!&lt;/h2&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;p class=&quot;rv&quot;&gt;Juntos
-podemos construir la regi&oacute;n que merecemos. Deja tu contacto y
-s&eacute; parte del cambio.&lt;/p&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;div class=&quot;frow rv&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;input type=&quot;text&quot;
-placeholder=&quot;Tu nombre&quot; id=&quot;fn&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;input type=&quot;tel&quot;
-placeholder=&quot;Tu tel&eacute;fono&quot; id=&quot;ft&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;div class=&quot;frow rv&quot;
-style=&quot;margin-top:10px;&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;input type=&quot;text&quot;
-placeholder=&quot;Asunto (ej: Quiero ser personero, Propuesta,
-Consulta...)&quot; id=&quot;fasunto&quot;
-style=&quot;flex:1;min-width:280px;&quot;/&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;div class=&quot;frow rv&quot;
-style=&quot;margin-top:10px;&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;textarea id=&quot;fmensaje&quot;
-placeholder=&quot;Escribe tu mensaje aqu&iacute;...&quot; rows=&quot;4&quot;
-style=&quot;flex:1;min-width:280px;padding:13px
-18px;border-radius:18px;border:none;font-size:.9rem;outline:none;resize:vertical;font-family:inherit;&quot;&gt;&lt;/textarea&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;div class=&quot;frow rv&quot;
-style=&quot;margin-top:10px;justify-content:center;&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;button id=&quot;fbtn&quot;
-onclick=&quot;suscribir()&quot;&gt;Enviar mensaje &#9994;&lt;/button&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">  &lt;div id=&quot;fmsg&quot;&gt;&iexcl;Gracias!
-Tu registro fue recibido. Juntos por Loreto &#127477;&#127466;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;div class=&quot;soc-row rv&quot;&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;a class=&quot;sb&quot;
-href=&quot;#&quot;&gt;f&lt;/a&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;a class=&quot;sb&quot;
-href=&quot;#&quot;&gt;ig&lt;/a&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;a class=&quot;sb&quot;
-href=&quot;#&quot;&gt;tt&lt;/a&gt;</P>
-<P STYLE="margin-bottom: 0in">    &lt;a class=&quot;sb&quot;
-href=&quot;#&quot;&gt;yt&lt;/a&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;/section&gt;</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">&lt;!-- FOOTER --&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;footer&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;div class=&quot;flog&quot;&gt;&lt;div
-class=&quot;r&quot;&gt;R&lt;/div&gt;&lt;span&gt;Jorge Mera &ndash;
-Gobernador 2026&lt;/span&gt;&lt;/div&gt;</P>
-<P STYLE="margin-bottom: 0in">  &lt;p&gt;Renovaci&oacute;n Popular &middot;
-Loreto, Per&uacute; &middot; Material de campa&ntilde;a electoral&lt;/p&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;/footer&gt;</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">&lt;script&gt;</P>
-<P STYLE="margin-bottom: 0in">// &#9472;&#9472; Scroll suave sin href
-&#9472;&#9472;</P>
-<P STYLE="margin-bottom: 0in">function ir(id){</P>
-<P STYLE="margin-bottom: 0in"> 
-document.getElementById(id).scrollIntoView({behavior:'smooth'});</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">// &#9472;&#9472; Image upload handler
-&#9472;&#9472;</P>
-<P STYLE="margin-bottom: 0in">async function loadImg(input, zoneId){</P>
-<P STYLE="margin-bottom: 0in">  if(!input.files || !input.files[0])
-return;</P>
-<P STYLE="margin-bottom: 0in">  const reader = new FileReader();</P>
-<P STYLE="margin-bottom: 0in">  reader.onload = async e =&gt; {</P>
-<P STYLE="margin-bottom: 0in">    const key = 'img-' + zoneId;</P>
-<P STYLE="margin-bottom: 0in">    const data = e.target.result;</P>
-<P STYLE="margin-bottom: 0in">    setImg(zoneId, data);</P>
-<P STYLE="margin-bottom: 0in">    try { await window.storage.set(key,
-data); } catch(err){}</P>
-<P STYLE="margin-bottom: 0in">  };</P>
-<P STYLE="margin-bottom: 0in">  reader.readAsDataURL(input.files[0]);</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">function setImg(zoneId, data){</P>
-<P STYLE="margin-bottom: 0in">  const id = zoneId.replace('z-','');</P>
-<P STYLE="margin-bottom: 0in">  const img =
-document.getElementById('i-' + id);</P>
-<P STYLE="margin-bottom: 0in">  const hint =
-document.getElementById('h-' + id);</P>
-<P STYLE="margin-bottom: 0in">  if(img &amp;&amp; hint){</P>
-<P STYLE="margin-bottom: 0in">    img.src = data;</P>
-<P STYLE="margin-bottom: 0in">    img.style.display = 'block';</P>
-<P STYLE="margin-bottom: 0in">    hint.classList.add('hidden');</P>
-<P STYLE="margin-bottom: 0in">  }</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">// &#9472;&#9472; Cargar fotos
-guardadas al iniciar &#9472;&#9472;</P>
-<P STYLE="margin-bottom: 0in">const zones =
-['z-hero','z-s1','z-s2','z-g1','z-g2','z-g3','z-g4','z-g5'];</P>
-<P STYLE="margin-bottom: 0in">(async()=&gt;{</P>
-<P STYLE="margin-bottom: 0in">  for(const z of zones){</P>
-<P STYLE="margin-bottom: 0in">    try{</P>
-<P STYLE="margin-bottom: 0in">      const res = await
-window.storage.get('img-'+z);</P>
-<P STYLE="margin-bottom: 0in">      if(res &amp;&amp; res.value)
-setImg(z, res.value);</P>
-<P STYLE="margin-bottom: 0in">    } catch(e){}</P>
-<P STYLE="margin-bottom: 0in">  }</P>
-<P STYLE="margin-bottom: 0in">})();</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">// &#9472;&#9472; Scroll reveal &#9472;&#9472;</P>
-<P STYLE="margin-bottom: 0in">const obs = new
-IntersectionObserver(els=&gt;{</P>
-<P STYLE="margin-bottom: 0in">  els.forEach(e=&gt;{
-if(e.isIntersecting) e.target.classList.add('vis'); });</P>
-<P STYLE="margin-bottom: 0in">},{threshold:.1});</P>
-<P STYLE="margin-bottom: 0in">document.querySelectorAll('.rv').forEach(el=&gt;obs.observe(el));</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">// &#9472;&#9472; Nav scroll &#9472;&#9472;</P>
-<P STYLE="margin-bottom: 0in">window.addEventListener('scroll',()=&gt;{</P>
-<P STYLE="margin-bottom: 0in"> 
-document.getElementById('nav').classList.toggle('scrolled',
-scrollY&gt;60);</P>
-<P STYLE="margin-bottom: 0in">});</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">// &#9472;&#9472; Counters &#9472;&#9472;</P>
-<P STYLE="margin-bottom: 0in">function animCount(id, end, suf=''){</P>
-<P STYLE="margin-bottom: 0in">  let s=0, step=end/60;</P>
-<P STYLE="margin-bottom: 0in">  const el=document.getElementById(id);</P>
-<P STYLE="margin-bottom: 0in">  const t=setInterval(()=&gt;{</P>
-<P STYLE="margin-bottom: 0in">    s=Math.min(s+step,end);</P>
-<P STYLE="margin-bottom: 0in">    el.textContent=Math.floor(s)+suf;</P>
-<P STYLE="margin-bottom: 0in">    if(s&gt;=end) clearInterval(t);</P>
-<P STYLE="margin-bottom: 0in">  },22);</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">const cObs = new
-IntersectionObserver(e=&gt;{</P>
-<P STYLE="margin-bottom: 0in">  if(e[0].isIntersecting){</P>
-<P STYLE="margin-bottom: 0in">    animCount('c1',8);
-animCount('c2',24); animCount('c3',15,'+');</P>
-<P STYLE="margin-bottom: 0in">    cObs.disconnect();</P>
-<P STYLE="margin-bottom: 0in">  }</P>
-<P STYLE="margin-bottom: 0in">},{threshold:.5});</P>
-<P STYLE="margin-bottom: 0in">cObs.observe(document.querySelector('.counters'));</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">// &#9472;&#9472; Form &#9472;&#9472;</P>
-<P STYLE="margin-bottom: 0in">async function suscribir(){</P>
-<P STYLE="margin-bottom: 0in">  const n =
-document.getElementById('fn').value.trim();</P>
-<P STYLE="margin-bottom: 0in">  const t =
-document.getElementById('ft').value.trim();</P>
-<P STYLE="margin-bottom: 0in">  const a =
-document.getElementById('fasunto').value.trim();</P>
-<P STYLE="margin-bottom: 0in">  const m =
-document.getElementById('fmensaje').value.trim();</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">  if(!n||!t){ alert('Por favor completa
-nombre y tel&eacute;fono.'); return; }</P>
-<P STYLE="margin-bottom: 0in">  if(!a){ alert('Por favor escribe el
-asunto.'); return; }</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">  const cuerpo = `Nombre:
-${n}%0ATelefono: ${t}%0A%0AMensaje:%0A${encodeURIComponent(m)}`;</P>
-<P STYLE="margin-bottom: 0in">  const asunto =
-encodeURIComponent('Contacto Web &ndash; ' + a);</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in">  // Env&iacute;o a Formspree</P>
-<P STYLE="margin-bottom: 0in"><BR>
-</P>
-<P STYLE="margin-bottom: 0in"> 
-document.getElementById('fmsg').style.display = 'block';</P>
-<P STYLE="margin-bottom: 0in"> 
-document.getElementById('fmsg').style.color = '#7ec8ff';</P>
-<P STYLE="margin-bottom: 0in"> 
-document.getElementById('fmsg').innerHTML = '&#9989; &iexcl;Se abri&oacute;
-tu correo listo para enviar!';</P>
-<P STYLE="margin-bottom: 0in">}</P>
-<P STYLE="margin-bottom: 0in">&lt;/script&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;/body&gt;</P>
-<P STYLE="margin-bottom: 0in">&lt;/html&gt;</P>
-</BODY>
-</HTML>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Jorge Mera – Gobernador Loreto 2026</title>
+<style>
+:root{
+  --blue:#0d6efd;--blue-dark:#0a4fc4;--blue-deep:#062e7a;
+  --blue-light:#e8f0fe;--white:#fff;--gray:#f4f7fc;
+  --text:#1a1a2e;--muted:#5a6a85;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);overflow-x:hidden;}
+.img-upload{position:relative;cursor:pointer;overflow:hidden;border-radius:inherit;width:100%;height:100%;}
+.img-upload input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:3;}
+.img-upload img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s;}
+.img-upload:hover img{transform:scale(1.04);}
+.upload-hint{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--blue-deep),#1258c4);color:white;font-size:.85rem;font-weight:600;text-align:center;padding:12px;transition:opacity .3s;}
+.upload-hint .ico{font-size:2rem;}
+.upload-hint.hidden{opacity:0;pointer-events:none;}
+nav{position:fixed;top:0;left:0;width:100%;z-index:999;background:rgba(6,46,122,.93);backdrop-filter:blur(12px);padding:14px 5%;display:flex;align-items:center;justify-content:space-between;transition:background .3s;}
+nav.scrolled{background:var(--blue-deep);}
+.nav-logo{display:flex;align-items:center;gap:10px;}
+.r-badge{width:38px;height:38px;background:var(--blue);border:2px solid white;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.3rem;color:white;flex-shrink:0;}
+.nav-logo span{color:white;font-weight:700;font-size:.95rem;line-height:1.2;}
+.nav-logo span small{font-weight:400;font-size:.72rem;display:block;opacity:.8;}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,.88);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s;cursor:pointer;}
+.nav-links a:hover{color:white;}
+.nav-cta{background:var(--blue);color:white;padding:9px 22px;border-radius:25px;font-weight:700;font-size:.88rem;text-decoration:none;transition:.2s;cursor:pointer;}
+.nav-cta:hover{background:#1a7aff;}
+#inicio{min-height:100vh;position:relative;display:flex;align-items:center;background:linear-gradient(135deg,var(--blue-deep) 0%,#1258c4 60%,#2980f0 100%);overflow:hidden;}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:30px 30px;}
+.hero-wave{position:absolute;bottom:-2px;left:0;width:100%;}
+.hero-wave svg{display:block;}
+.hero-inner{position:relative;z-index:2;width:100%;padding:120px 5% 100px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;max-width:1200px;margin:auto;}
+.htag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);color:white;padding:6px 16px;border-radius:20px;font-size:.82rem;font-weight:600;margin-bottom:18px;border:1px solid rgba(255,255,255,.2);}
+.hero-inner h1{font-size:clamp(2.6rem,5vw,4rem);color:white;font-weight:900;line-height:1.08;margin-bottom:14px;}
+.hero-inner h1 span{color:#7ec8ff;}
+.hero-sub{font-size:1.1rem;color:rgba(255,255,255,.85);margin-bottom:8px;font-weight:500;}
+.hero-slogan{font-size:1.35rem;color:#7ec8ff;font-weight:800;margin-bottom:30px;font-style:italic;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-w{background:white;color:var(--blue-dark);padding:14px 30px;border-radius:30px;font-weight:800;font-size:.95rem;text-decoration:none;transition:.2s;box-shadow:0 6px 24px rgba(0,0,0,.2);cursor:pointer;}
+.btn-w:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.25);}
+.btn-o{border:2px solid rgba(255,255,255,.7);color:white;padding:12px 28px;border-radius:30px;font-weight:700;font-size:.95rem;text-decoration:none;transition:.2s;cursor:pointer;}
+.btn-o:hover{background:rgba(255,255,255,.1);}
+.hero-frame-wrap{position:relative;display:flex;justify-content:center;}
+.hero-frame{width:400px;max-width:100%;aspect-ratio:3/4;border-radius:24px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35);border:3px solid rgba(255,255,255,.2);}
+.hero-badge-box{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);background:white;padding:10px 22px;border-radius:40px;box-shadow:0 8px 24px rgba(0,0,0,.2);display:flex;align-items:center;gap:10px;white-space:nowrap;z-index:4;}
+.hero-badge-box .r{width:28px;height:28px;background:var(--blue);border-radius:5px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:1rem;}
+.hero-badge-box span{font-weight:700;font-size:.82rem;color:var(--blue-dark);}
+.float-c{position:absolute;background:white;border-radius:14px;padding:11px 15px;box-shadow:0 10px 30px rgba(0,0,0,.15);font-size:.78rem;font-weight:600;color:var(--text);animation:fl 3s ease-in-out infinite;z-index:4;}
+.float-c.l{left:-28px;top:28%;animation-delay:.5s;}
+.float-c.r{right:-18px;top:55%;animation-delay:1s;}
+.float-c .i{font-size:1.3rem;display:block;margin-bottom:2px;}
+@keyframes fl{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.counters{background:var(--blue-dark);padding:38px 5%;}
+.cnt-grid{max-width:900px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center;}
+.cnt-item h3{font-size:2.4rem;font-weight:900;color:white;}
+.cnt-item p{font-size:.84rem;color:rgba(255,255,255,.7);margin-top:4px;}
+section{padding:88px 5%;}
+.stag{display:inline-block;background:var(--blue-light);color:var(--blue-dark);padding:5px 16px;border-radius:20px;font-size:.82rem;font-weight:700;margin-bottom:14px;}
+.stitle{font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:900;line-height:1.2;margin-bottom:14px;}
+.slead{color:var(--muted);font-size:1rem;max-width:580px;}
+#sobre{background:var(--gray);}
+.sobre-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.sobre-imgs{position:relative;height:500px;}
+.sobre-main-wrap{position:absolute;left:0;top:0;width:68%;aspect-ratio:3/4;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.15);}
+.sobre-sec-wrap{position:absolute;right:0;bottom:0;width:52%;aspect-ratio:1;border-radius:16px;overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,.15);border:4px solid white;}
+.trayectoria{display:flex;flex-direction:column;gap:16px;margin:24px 0;}
+.titem{display:flex;gap:16px;align-items:flex-start;background:white;border-radius:14px;padding:16px 18px;box-shadow:0 4px 16px rgba(0,0,0,.07);transition:transform .2s;}
+.titem:hover{transform:translateX(4px);}
+.ticon{font-size:1.8rem;flex-shrink:0;margin-top:2px;}
+.titem h4{font-size:.92rem;font-weight:800;color:var(--blue-dark);margin-bottom:5px;}
+.titem p{font-size:.82rem;color:var(--muted);line-height:1.5;}
+.valores{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.vcard{background:white;border-radius:14px;padding:16px;box-shadow:0 4px 16px rgba(0,0,0,.07);border-left:4px solid var(--blue);transition:transform .2s;}
+.vcard:hover{transform:translateY(-3px);}
+.vcard h4{font-size:.88rem;font-weight:700;margin-bottom:4px;color:var(--blue-dark);}
+.vcard p{font-size:.78rem;color:var(--muted);}
+#propuestas{background:white;}
+.ph{max-width:1100px;margin:0 auto 46px;}
+.pgrid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.pcard{border-radius:18px;overflow:hidden;position:relative;background:linear-gradient(135deg,var(--blue-deep),var(--blue));padding:34px 26px;color:white;transition:transform .25s,box-shadow .25s;}
+.pcard:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(13,110,253,.3);}
+.pcard .num{font-size:3rem;font-weight:900;opacity:.12;position:absolute;top:14px;right:18px;}
+.pcard .ico{font-size:2rem;margin-bottom:14px;display:block;}
+.pcard h3{font-size:1.05rem;font-weight:800;margin-bottom:8px;}
+.pcard p{font-size:.83rem;opacity:.85;line-height:1.5;}
+.pcard.lt{background:white;color:var(--text);border:2px solid var(--blue-light);}
+.pcard.lt h3{color:var(--blue-dark);}
+.pcard.lt p{color:var(--muted);}
+.pcard.lt .num{color:var(--blue);opacity:.07;}
+.pcard.lt:hover{box-shadow:0 20px 50px rgba(0,0,0,.09);}
+#campana{background:var(--gray);}
+.gal-inner{max-width:1100px;margin:auto;}
+.camp-estrategia{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:36px 0 28px;}
+.ce-card{background:white;border-radius:16px;padding:22px 18px;box-shadow:0 4px 18px rgba(0,0,0,.07);border-top:4px solid var(--blue-light);transition:transform .2s,box-shadow .2s;}
+.ce-card.azul{background:linear-gradient(135deg,var(--blue-deep),var(--blue));color:white;border-top:none;}
+.ce-card.azul h4{color:white;}
+.ce-card.azul p{color:rgba(255,255,255,.85);}
+.ce-card.azul strong{color:#7ec8ff;}
+.ce-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.12);}
+.ce-ico{font-size:2rem;display:block;margin-bottom:12px;}
+.ce-card h4{font-size:.92rem;font-weight:800;color:var(--blue-dark);margin-bottom:8px;}
+.ce-card p{font-size:.8rem;color:var(--muted);line-height:1.55;}
+.camp-banner{background:white;border-radius:18px;padding:28px 30px;margin-bottom:32px;box-shadow:0 4px 18px rgba(0,0,0,.07);display:flex;align-items:center;justify-content:space-between;gap:24px;border-left:6px solid var(--blue);flex-wrap:wrap;}
+.camp-banner-text h3{font-size:1.15rem;font-weight:800;color:var(--blue-dark);margin-bottom:8px;}
+.camp-banner-text p{font-size:.85rem;color:var(--muted);max-width:560px;line-height:1.55;}
+.camp-banner-badge{display:flex;align-items:center;gap:14px;background:var(--blue-light);padding:16px 22px;border-radius:14px;flex-shrink:0;}
+.camp-banner-badge div{display:flex;flex-direction:column;}
+.camp-banner-badge strong{font-size:.95rem;color:var(--blue-dark);}
+.camp-banner-badge span{font-size:.78rem;color:var(--muted);}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px;}
+.git{border-radius:16px;overflow:hidden;position:relative;}
+.git.tall{grid-row:span 2;}
+#unete{background:linear-gradient(135deg,var(--blue-deep),#1258c4);text-align:center;position:relative;overflow:hidden;}
+#unete::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:rgba(255,255,255,.04);top:-200px;left:-200px;}
+#unete h2{font-size:clamp(1.9rem,4vw,3rem);font-weight:900;color:white;margin-bottom:14px;position:relative;}
+#unete p{color:rgba(255,255,255,.8);font-size:1rem;max-width:500px;margin:0 auto 32px;position:relative;}
+.frow{display:flex;gap:10px;max-width:480px;margin:auto;flex-wrap:wrap;position:relative;}
+.frow input{flex:1;min-width:180px;padding:13px 18px;border-radius:30px;border:none;font-size:.9rem;outline:none;}
+.frow button{background:white;color:var(--blue-dark);padding:13px 26px;border-radius:30px;font-weight:800;border:none;cursor:pointer;transition:.2s;font-size:.9rem;}
+.frow button:hover{background:#e8f0fe;}
+#fmsg{color:#7ec8ff;margin-top:14px;font-weight:700;font-size:.92rem;display:none;position:relative;}
+.soc-row{display:flex;gap:12px;justify-content:center;margin-top:26px;position:relative;}
+.sb{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.2);transition:.2s;font-size:.85rem;font-weight:700;}
+.sb:hover{background:rgba(255,255,255,.25);}
+footer{background:#04204f;padding:36px 5%;text-align:center;}
+.flog{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:12px;}
+.flog .r{width:32px;height:32px;background:var(--blue);border-radius:5px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;}
+.flog span{color:white;font-weight:700;font-size:.95rem;}
+footer p{color:rgba(255,255,255,.45);font-size:.82rem;}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .6s,transform .6s;}
+.rv.vis{opacity:1;transform:none;}
+@media(max-width:920px){
+  .hero-inner{grid-template-columns:1fr;text-align:center;}
+  .hero-frame-wrap{display:none;}
+  .sobre-grid{grid-template-columns:1fr;}
+  .sobre-imgs{display:none;}
+  .pgrid{grid-template-columns:1fr 1fr;}
+  .gal-grid{grid-template-columns:1fr 1fr;}
+  .git.tall{grid-row:span 1;}
+  .cnt-grid{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  .camp-estrategia{grid-template-columns:1fr 1fr;}
+  .camp-banner{flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:560px){
+  .pgrid{grid-template-columns:1fr;}
+  .gal-grid{grid-template-columns:1fr;}
+  .camp-estrategia{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="r-badge">R</div>
+    <span>Jorge Mera<small>Renovación Popular · Loreto</small></span>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="ir('inicio')">Inicio</a></li>
+    <li><a onclick="ir('sobre')">Sobre mí</a></li>
+    <li><a onclick="ir('propuestas')">Propuestas</a></li>
+    <li><a onclick="ir('campana')">Campaña</a></li>
+    <li><a onclick="ir('unete')">Contacto</a></li>
+  </ul>
+  <a onclick="ir('unete')" class="nav-cta">Únete ✊</a>
+</nav>
+
+<section id="inicio">
+  <div class="hero-dots"></div>
+  <div class="hero-inner">
+    <div class="rv">
+      <div class="htag">🗳️ Elecciones Regionales 2026 · Loreto</div>
+      <h1>Soy<br/><span>Jorge Mera</span></h1>
+      <p class="hero-sub">Candidato al Gobierno Regional de Loreto</p>
+      <p class="hero-slogan">"Con Mera, Loreto tiene futuro"</p>
+      <div class="hero-btns">
+        <a onclick="ir('propuestas')" class="btn-w">Conoce mis propuestas</a>
+        <a onclick="ir('unete')" class="btn-o">Únete al cambio</a>
+      </div>
+    </div>
+    <div class="hero-frame-wrap rv">
+      <div class="float-c l"><span class="i">🌿</span>Loreto, nuestra tierra</div>
+      <div class="hero-frame">
+        <div class="img-upload" id="z-hero">
+          <input type="file" accept="image/*" onchange="loadImg(this,'z-hero')"/>
+          <div class="upload-hint" id="h-hero">
+            <span class="ico">📸</span>
+            <span>Haz clic aquí</span>
+            <span style="font-size:.7rem;opacity:.8">Foto principal del candidato</span>
+          </div>
+          <img id="i-hero" src="" alt="Jorge Mera" style="display:none"/>
+        </div>
+      </div>
+      <div class="hero-badge-box">
+        <div class="r">R</div>
+        <span>Renovación Popular · Loreto</span>
+      </div>
+      <div class="float-c r"><span class="i">📋</span>Plan de Gobierno 2026</div>
+    </div>
+  </div>
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#f4f7fc" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"/>
+    </svg>
+  </div>
+</section>
+
+<div class="counters">
+  <div class="cnt-grid">
+    <div class="cnt-item rv"><h3 id="c1">0</h3><p>Provincias comprometidas</p></div>
+    <div class="cnt-item rv"><h3 id="c2">0</h3><p>Propuestas concretas</p></div>
+    <div class="cnt-item rv"><h3 id="c3">0</h3><p>Años al servicio de Loreto</p></div>
+  </div>
+</div>
+
+<section id="sobre">
+  <div class="sobre-grid">
+    <div class="sobre-imgs rv">
+      <div class="sobre-main-wrap">
+        <div class="img-upload" id="z-s1" style="height:100%">
+          <input type="file" accept="image/*" onchange="loadImg(this,'z-s1')"/>
+          <div class="upload-hint" id="h-s1"><span class="ico">📸</span><span>Foto principal</span></div>
+          <img id="i-s1" src="" alt="Jorge Mera" style="display:none;width:100%;height:100%;object-fit:cover;object-position:center top"/>
+        </div>
+      </div>
+      <div class="sobre-sec-wrap">
+        <div class="img-upload" id="z-s2" style="height:100%">
+          <input type="file" accept="image/*" onchange="loadImg(this,'z-s2')"/>
+          <div class="upload-hint" id="h-s2"><span class="ico">📸</span><span>Foto con ciudadanos</span></div>
+          <img id="i-s2" src="" alt="Jorge Mera campaña" style="display:none;width:100%;height:100%;object-fit:cover;object-position:center top"/>
+        </div>
+      </div>
+    </div>
+    <div class="rv">
+      <span class="stag">Sobre mí</span>
+      <h2 class="stitle">Un liderazgo comprometido con Loreto</h2>
+      <p class="slead">Loreto es mi tierra, mi hogar y mi compromiso. He recorrido sus ríos, escuchado a sus comunidades y entiendo los desafíos que enfrentamos como región. Juntos construiremos un Loreto con desarrollo, bienestar y oportunidades para todos.</p>
+      <div class="trayectoria">
+        <div class="titem">
+          <div class="ticon">🏛️</div>
+          <div><h4>Experiencia Legislativa</h4><p>Congresista por Loreto <strong>(2001–2006)</strong> y Tercer Vicepresidente del Congreso de la República.</p></div>
+        </div>
+        <div class="titem">
+          <div class="ticon">🌿</div>
+          <div><h4>Liderazgo Regional</h4><p>Fundador del Movimiento <strong>Esperanza Región Amazónica (MERA)</strong>, ahora en alianza con Renovación Popular para este proceso electoral.</p></div>
+        </div>
+        <div class="titem">
+          <div class="ticon">🎯</div>
+          <div><h4>Candidato Persistente</h4><p>Ha postulado en múltiples ocasiones a la Gobernación Regional y a la Alcaldía de Maynas, consolidando un <strong>alto nivel de recordación</strong> entre los electores loretanos.</p></div>
+        </div>
+      </div>
+      <div class="valores">
+        <div class="vcard"><h4>🤝 Cercanía</h4><p>Gobierno con las puertas abiertas, escuchando a cada loretano.</p></div>
+        <div class="vcard"><h4>⚡ Acción</h4><p>Resultados concretos desde el primer día de gestión.</p></div>
+        <div class="vcard"><h4>🌿 Desarrollo</h4><p>Competitividad económica y reactivación para todos los sectores.</p></div>
+        <div class="vcard"><h4>🛡️ Honestidad</h4><p>Transparencia y rendición de cuentas como base del gobierno.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="propuestas">
+  <div class="ph rv">
+    <span class="stag">Plan de Gobierno</span>
+    <h2 class="stitle">Propuestas para transformar Loreto</h2>
+    <p class="slead">Un plan sólido, realista y pensado para cada rincón de nuestra región.</p>
+  </div>
+  <div class="pgrid">
+    <div class="pcard rv"><span class="num">01</span><span class="ico">🏥</span><h3>Salud para todos</h3><p>Mejora de hospitales, postas médicas en comunidades alejadas y acceso real a medicamentos.</p></div>
+    <div class="pcard rv"><span class="num">02</span><span class="ico">📚</span><h3>Educación de calidad</h3><p>Colegios equipados, conectividad rural y becas para estudiantes loretanos destacados.</p></div>
+    <div class="pcard rv"><span class="num">03</span><span class="ico">🌊</span><h3>Infraestructura fluvial</h3><p>Puertos modernos, embarcaderos seguros y vías que integren todas las provincias.</p></div>
+    <div class="pcard lt rv"><span class="num">04</span><span class="ico">🌱</span><h3>Economía sostenible</h3><p>Impulso al agro, turismo amazónico y emprendimiento local con respeto al medio ambiente.</p></div>
+    <div class="pcard lt rv"><span class="num">05</span><span class="ico">🔒</span><h3>Seguridad ciudadana</h3><p>Mayor presencia policial, tecnología para prevención del delito y trabajo comunitario.</p></div>
+    <div class="pcard lt rv"><span class="num">06</span><span class="ico">💧</span><h3>Agua y saneamiento</h3><p>Acceso a agua potable y servicios básicos dignos para familias de toda la región.</p></div>
+  </div>
+</section>
+
+<section id="campana">
+  <div class="gal-inner">
+    <div class="rv">
+      <span class="stag">En campaña</span>
+      <h2 class="stitle">Con la gente, en cada rincón de Loreto</h2>
+    </div>
+    <div class="camp-estrategia rv">
+      <div class="ce-card azul"><span class="ce-ico">🤝</span><h4>Alianza Nacional</h4><p>Integra el movimiento MERA a la <strong>"Ola Celeste"</strong> de Rafael López Aliaga, capitalizando el voto conservador y religioso de la Amazonía.</p></div>
+      <div class="ce-card"><span class="ce-ico">⚖️</span><h4>Anti-corrupción</h4><p>Su discurso principal se centra en la <strong>lucha contra la corrupción</strong> en la gestión pública regional.</p></div>
+      <div class="ce-card"><span class="ce-ico">🗺️</span><h4>Presencia Territorial</h4><p>Estrategia de <strong>"perpetuidad"</strong> política con recorridos frecuentes por todas las provincias de Loreto.</p></div>
+      <div class="ce-card"><span class="ce-ico">📱</span><h4>Redes Sociales</h4><p>Usa <strong>Facebook</strong> para difundir mensajes de seguridad ciudadana y valores tradicionales alineados con Renovación Popular.</p></div>
+    </div>
+    <div class="camp-banner rv">
+      <div class="camp-banner-text">
+        <span class="stag" style="margin-bottom:8px">Renovación de cuadros</span>
+        <h3>Impulso a nuevos líderes</h3>
+        <p>Como parte de su estrategia de renovación y legado, Jorge Mera promueve figuras jóvenes como <strong>Anthony Mera</strong>, candidato a Diputado por Loreto con el <strong>N° 1</strong>.</p>
+      </div>
+      <div class="camp-banner-badge">
+        <div class="r-badge" style="width:52px;height:52px;font-size:1.8rem">R</div>
+        <div><strong>Anthony Mera</strong><span>Candidato a Diputado · N° 1</span></div>
+      </div>
+    </div>
+    <div class="gal-grid">
+      <div class="git tall rv" style="height:380px">
+        <div class="img-upload" id="z-g1" style="height:100%">
+          <input type="file" accept="image/*" onchange="loadImg(this,'z-g1')"/>
+          <div class="upload-hint" id="h-g1"><span class="ico">📸</span><span>Foto discurso / mitin</span></div>
+          <img id="i-g1" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;object-position:center top"/>
+        </div>
+      </div>
+      <div class="git rv" style="height:180px">
+        <div class="img-upload" id="z-g2" style="height:100%">
+          <input type="file" accept="image/*" onchange="loadImg(this,'z-g2')"/>
+          <div class="upload-hint" id="h-g2"><span class="ico">📸</span><span>Foto con ciudadanos</span></div>
+          <img id="i-g2" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;object-position:center top"/>
+        </div>
+      </div>
+      <div class="git rv" style="height:180px">
+        <div class="img-upload" id="z-g3" style="height:100%">
+          <input type="file" accept="image/*" onchange="loadImg(this,'z-g3')"/>
+          <div class="upload-hint" id="h-g3"><span class="ico">📸</span><span>Foto calle / mercado</span></div>
+          <img id="i-g3" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;object-position:center top"/>
+        </div>
+      </div>
+      <div class="git rv" style="height:180px">
+        <div class="img-upload" id="z-g4" style="height:100%">
+          <input type="file" accept="image/*" onchange="loadImg(this,'z-g4')"/>
+          <div class="upload-hint" id="h-g4"><span class="ico">📸</span><span>Foto propuestas</span></div>
+          <img id="i-g4" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;object-position:center top"/>
+        </div>
+      </div>
+      <div class="git rv" style="height:180px">
+        <div class="img-upload" id="z-g5" style="height:100%">
+          <input type="file" accept="image/*" onchange="loadImg(this,'z-g5')"/>
+          <div class="upload-hint" id="h-g5"><span class="ico">📸</span><span>Foto evento regional</span></div>
+          <img id="i-g5" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;object-position:center top"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="unete">
+  <span class="stag" style="background:rgba(255,255,255,.15);color:white">Únete al movimiento</span>
+  <h2 class="rv">¡El partido necesita tu ayuda como personero!</h2>
+  <p class="rv">Juntos podemos construir la región que merecemos. Deja tu contacto y sé parte del cambio.</p>
+  <div class="frow rv">
+    <input type="text" placeholder="Tu nombre" id="fn"/>
+    <input type="tel" placeholder="Tu teléfono" id="ft"/>
+  </div>
+  <div class="frow rv" style="margin-top:10px;">
+    <input type="text" placeholder="Asunto (ej: Quiero ser personero, Propuesta, Consulta...)" id="fasunto" style="flex:1;min-width:280px;"/>
+  </div>
+  <div class="frow rv" style="margin-top:10px;">
+    <textarea id="fmensaje" placeholder="Escribe tu mensaje aquí..." rows="4" style="flex:1;min-width:280px;padding:13px 18px;border-radius:18px;border:none;font-size:.9rem;outline:none;resize:vertical;font-family:inherit;"></textarea>
+  </div>
+  <div class="frow rv" style="margin-top:10px;justify-content:center;">
+    <button id="fbtn" onclick="suscribir()">Enviar mensaje ✊</button>
+  </div>
+  <div id="fmsg"></div>
+  <div class="soc-row rv">
+    <a class="sb" href="#">f</a>
+    <a class="sb" href="#">ig</a>
+    <a class="sb" href="#">tt</a>
+    <a class="sb" href="#">yt</a>
+  </div>
+</section>
+
+<footer>
+  <div class="flog"><div class="r">R</div><span>Jorge Mera – Gobernador 2026</span></div>
+  <p>Renovación Popular · Loreto, Perú · Material de campaña electoral</p>
+</footer>
+
+<script>
+function ir(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+
+async function loadImg(input, zoneId){
+  if(!input.files || !input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = async e => {
+    setImg(zoneId, e.target.result);
+    try{ await window.storage.set('img-'+zoneId, e.target.result); }catch(err){}
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function setImg(zoneId, data){
+  const id = zoneId.replace('z-','');
+  const img = document.getElementById('i-'+id);
+  const hint = document.getElementById('h-'+id);
+  if(img && hint){ img.src=data; img.style.display='block'; hint.classList.add('hidden'); }
+}
+
+const zones=['z-hero','z-s1','z-s2','z-g1','z-g2','z-g3','z-g4','z-g5'];
+(async()=>{ for(const z of zones){ try{ const r=await window.storage.get('img-'+z); if(r&&r.value) setImg(z,r.value); }catch(e){} } })();
+
+const obs=new IntersectionObserver(els=>{ els.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('vis'); }); },{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+window.addEventListener('scroll',()=>{ document.getElementById('nav').classList.toggle('scrolled',scrollY>60); });
+
+function animCount(id,end,suf=''){
+  let s=0,step=end/60;
+  const el=document.getElementById(id);
+  const t=setInterval(()=>{ s=Math.min(s+step,end); el.textContent=Math.floor(s)+suf; if(s>=end) clearInterval(t); },22);
+}
+const cObs=new IntersectionObserver(e=>{ if(e[0].isIntersecting){ animCount('c1',8); animCount('c2',24); animCount('c3',15,'+'); cObs.disconnect(); } },{threshold:.5});
+cObs.observe(document.querySelector('.counters'));
+
+async function suscribir(){
+  const n=document.getElementById('fn').value.trim();
+  const t=document.getElementById('ft').value.trim();
+  const a=document.getElementById('fasunto').value.trim();
+  const m=document.getElementById('fmensaje').value.trim();
+  const msg=document.getElementById('fmsg');
+  const btn=document.getElementById('fbtn');
+  if(!n||!t){ alert('Por favor completa nombre y teléfono.'); return; }
+  if(!a){ alert('Por favor escribe el asunto.'); return; }
+  btn.textContent='Enviando...'; btn.disabled=true;
+  try{
+    const res=await fetch('https://formspree.io/f/xaqllnny',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({nombre:n,telefono:t,asunto:a,mensaje:m})
+    });
+    if(res.ok){
+      msg.style.display='block'; msg.style.color='#7ec8ff';
+      msg.innerHTML='✅ ¡Mensaje enviado! Nos contactaremos contigo pronto. 🇵🇪';
+      document.getElementById('fn').value='';
+      document.getElementById('ft').value='';
+      document.getElementById('fasunto').value='';
+      document.getElementById('fmensaje').value='';
+    } else {
+      msg.style.display='block'; msg.style.color='#ff6b6b';
+      msg.innerHTML='❌ Hubo un error. Intenta de nuevo.';
+    }
+  } catch(e){
+    msg.style.display='block'; msg.style.color='#ff6b6b';
+    msg.innerHTML='❌ Error de conexión. Verifica tu internet.';
+  }
+  btn.textContent='Enviar mensaje ✊'; btn.disabled=false;
+}
+</script>
+</body>
+</html>
