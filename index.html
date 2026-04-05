@@ -5,215 +5,276 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Jorge Mera – Gobernador Loreto 2026</title>
 <style>
-:root{
-  --blue:#00AEEF;
-  --bd:#0085C3;
-  --bdeep:#006B9F;
-  --bl:#E0F5FF;
-  --gray:#f4f9ff;
-  --text:#1a1a2e;
-  --muted:#5a6a85;
-}
+:root{--cel:#00AEEF;--bd:#0085C3;--bdeep:#006B9F;--bl:#E0F6FF;--cel-ll:#F0FAFF;--gray:#F7FAFB;--text:#0D1B2A;--text2:#3A5068;--muted:#7A9BB5;--border:#D6EEF9;}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);overflow-x:hidden;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;color:var(--text);overflow-x:hidden;background:white;}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;width:100%;z-index:999;background:rgba(0,107,159,.96);backdrop-filter:blur(12px);padding:12px 4%;display:flex;align-items:center;justify-content:space-between;}
+/* ── MODAL DE CARGA DE FOTOS ── */
+#photo-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:none;z-index:9999;align-items:center;justify-content:center;padding:20px;}
+#photo-modal.active{display:flex;}
+.photo-modal-content{background:white;border-radius:18px;padding:40px;max-width:500px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3);position:relative;}
+.photo-modal-close{position:absolute;top:16px;right:16px;background:rgba(0,0,0,.1);color:var(--text);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;}
+.photo-modal-close:hover{background:rgba(0,0,0,.2);}
+.photo-modal-title{font-size:1.3rem;font-weight:900;color:var(--text);margin-bottom:12px;}
+.photo-modal-subtitle{color:var(--text2);font-size:.9rem;margin-bottom:28px;}
+.photo-upload-tabs{display:flex;gap:10px;margin-bottom:24px;border-bottom:2px solid var(--border);padding-bottom:16px;}
+.photo-upload-tabs button{background:none;border:none;padding:8px 0;color:var(--muted);font-weight:700;font-size:.9rem;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-19px;}
+.photo-upload-tabs button.active{color:var(--bd);border-bottom-color:var(--bd);}
+.photo-upload-section{display:none;}
+.photo-upload-section.active{display:block;}
+.photo-input-label{display:block;margin-bottom:10px;color:var(--text);font-weight:700;font-size:.95rem;}
+.photo-file-input{display:block;width:100%;padding:12px;border:2px dashed var(--border);border-radius:9px;background:var(--gray);cursor:pointer;font-size:.9rem;color:var(--text2);margin-bottom:16px;transition:.2s;}
+.photo-file-input:hover{border-color:var(--bd);background:var(--bl);}
+.photo-url-input{width:100%;padding:12px;border:1.5px solid var(--border);border-radius:9px;font-size:.9rem;margin-bottom:16px;outline:none;transition:.2s;font-family:inherit;}
+.photo-url-input:focus{border-color:var(--cel);box-shadow:0 0 0 3px rgba(0,174,239,.1);}
+.photo-actions{display:flex;gap:10px;}
+.photo-btn-upload{background:var(--cel);color:white;border:none;padding:12px 24px;border-radius:9px;font-weight:700;cursor:pointer;flex:1;transition:.2s;}
+.photo-btn-upload:hover{background:var(--bd);}
+.photo-btn-cancel{background:var(--gray);color:var(--text2);border:1px solid var(--border);padding:12px 24px;border-radius:9px;font-weight:700;cursor:pointer;flex:1;transition:.2s;}
+.photo-btn-cancel:hover{background:var(--border);}
+.photo-preview{width:100%;height:200px;background:linear-gradient(135deg,var(--bdeep),var(--cel));border-radius:9px;display:flex;align-items:center;justify-content:center;color:white;font-size:.9rem;margin-bottom:16px;overflow:hidden;}
+.photo-preview img{width:100%;height:100%;object-fit:cover;}
+.photo-icon-btn{position:absolute;bottom:12px;right:12px;background:var(--cel);color:white;border:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;opacity:0;transition:.2s;z-index:10;}
+.cimg:hover .photo-icon-btn,.git:hover .photo-icon-btn,.sobre-photos:hover .photo-icon-btn,.hframe:hover .photo-icon-btn{opacity:1;}
+.photo-icon-btn:hover{background:var(--bd);}
+.photo-icon-btn:active{transform:scale(.95);}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;width:100%;z-index:999;background:rgba(0,107,159,.96);backdrop-filter:blur(14px);padding:0 5%;height:68px;display:flex;align-items:center;justify-content:space-between;}
 nav.scrolled{background:var(--bdeep);}
-.nlogo{display:flex;align-items:center;gap:10px;cursor:pointer;}
-.rb{width:36px;height:36px;background:var(--blue);border:2px solid white;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.2rem;color:white;flex-shrink:0;}
+.nlogo{display:flex;align-items:center;gap:12px;cursor:pointer;}
+.rb{width:36px;height:36px;background:var(--cel);border:2px solid white;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1rem;color:white;flex-shrink:0;}
 .nlogo span{color:white;font-weight:700;font-size:.9rem;line-height:1.2;}
-.nlogo span small{font-weight:400;font-size:.7rem;display:block;opacity:.8;}
-.nlinks{display:flex;gap:20px;list-style:none;}
-.nlinks a{color:rgba(255,255,255,.9);text-decoration:none;font-size:.83rem;font-weight:600;cursor:pointer;transition:color .2s;}
-.nlinks a:hover{color:white;}
-.ncta{background:var(--blue);color:white;padding:8px 20px;border-radius:25px;font-weight:700;font-size:.82rem;cursor:pointer;border:none;transition:.2s;}
-.ncta:hover{background:var(--bd);}
+.nlogo span small{font-weight:400;font-size:.68rem;display:block;opacity:.75;text-transform:uppercase;letter-spacing:.04em;}
+.nlinks{display:flex;gap:2px;list-style:none;}
+.nlinks a{color:rgba(255,255,255,.88);text-decoration:none;font-size:.8rem;font-weight:500;cursor:pointer;padding:7px 12px;border-radius:6px;transition:.2s;}
+.nlinks a:hover{color:white;background:rgba(255,255,255,.12);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.ncta{background:var(--cel);color:white;padding:9px 22px;border-radius:8px;font-weight:700;font-size:.82rem;cursor:pointer;border:none;transition:.2s;}
+.ncta:hover{background:#00C3FF;}
+.admin-btn{background:rgba(255,255,255,.15);color:white;border:1px solid rgba(255,255,255,.3);padding:7px 14px;border-radius:7px;font-size:.75rem;font-weight:700;cursor:pointer;transition:.2s;}
+.admin-btn:hover{background:rgba(255,255,255,.25);}
 
-/* UPLOAD */
-.upl{position:relative;cursor:pointer;overflow:hidden;width:100%;height:100%;}
-.upl input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:3;}
-.upl img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s;}
-.upl:hover img{transform:scale(1.05);}
-.upl-hint{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:linear-gradient(135deg,var(--bdeep),var(--blue));color:white;font-size:.82rem;font-weight:600;text-align:center;padding:12px;transition:opacity .3s;}
-.upl-hint span{font-size:2rem;}
-.upl-hint.h{opacity:0;pointer-events:none;}
+/* ── FOTO FRAME simple ── */
+.fphoto{width:100%;height:100%;border-radius:inherit;overflow:hidden;background:linear-gradient(135deg,var(--bdeep),var(--cel));display:flex;align-items:center;justify-content:center;color:white;font-size:.8rem;font-weight:600;text-align:center;padding:10px;}
+.fphoto img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
 
 /* COMMON */
-.stag{display:inline-block;background:var(--bl);color:var(--bd);padding:5px 16px;border-radius:20px;font-size:.8rem;font-weight:700;margin-bottom:12px;}
-.stitle{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;line-height:1.2;margin-bottom:12px;}
-.slead{color:var(--muted);font-size:.97rem;max-width:560px;}
-.rv{opacity:0;transform:translateY(24px);transition:opacity .55s,transform .55s;}
+.tag{display:inline-flex;align-items:center;gap:6px;background:var(--bl);color:var(--bd);padding:5px 14px;border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:14px;border-left:3px solid var(--cel);}
+.stitle{font-size:clamp(1.9rem,3.2vw,2.8rem);font-weight:900;line-height:1.12;margin-bottom:14px;letter-spacing:-.025em;color:var(--text);}
+.slead{color:var(--text2);font-size:1rem;line-height:1.72;max-width:540px;}
+.divider{width:48px;height:4px;background:var(--cel);border-radius:2px;margin:16px 0 24px;}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .55s,transform .55s;}
 .rv.vis{opacity:1;transform:none;}
 
 /* HERO */
-#hero{min-height:100vh;position:relative;display:flex;align-items:center;background:linear-gradient(135deg,var(--bdeep) 0%,var(--bd) 50%,var(--blue) 100%);overflow:hidden;}
-.hdots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:30px 30px;}
-.hwave{position:absolute;bottom:-2px;left:0;width:100%;}
+#hero{min-height:100vh;position:relative;display:flex;align-items:center;background:linear-gradient(150deg,var(--bdeep) 0%,var(--bd) 50%,var(--cel) 100%);overflow:hidden;}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:30px 30px;}
+.hwave{position:absolute;bottom:-1px;left:0;width:100%;z-index:2;}
 .hwave svg{display:block;}
-.hinner{position:relative;z-index:2;width:100%;padding:120px 4% 100px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;max-width:1200px;margin:auto;}
-.htag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.2);color:white;padding:6px 16px;border-radius:20px;font-size:.8rem;font-weight:600;margin-bottom:16px;border:1px solid rgba(255,255,255,.3);}
-.hinner h1{font-size:clamp(2.4rem,5vw,3.8rem);color:white;font-weight:900;line-height:1.08;margin-bottom:12px;}
-.hinner h1 span{color:#fff;}
-.hsub{font-size:1rem;color:rgba(255,255,255,.85);margin-bottom:6px;font-weight:500;}
-.hslogan{font-size:1.25rem;color:white;font-weight:800;margin-bottom:26px;font-style:italic;opacity:.9;}
-.hbtns{display:flex;gap:12px;flex-wrap:wrap;}
-.bw{background:white;color:var(--bd);padding:13px 28px;border-radius:30px;font-weight:800;font-size:.9rem;cursor:pointer;border:none;transition:.2s;box-shadow:0 6px 24px rgba(0,0,0,.2);}
-.bw:hover{transform:translateY(-2px);}
-.bo{border:2px solid rgba(255,255,255,.8);color:white;padding:11px 26px;border-radius:30px;font-weight:700;font-size:.9rem;cursor:pointer;background:none;transition:.2s;}
-.bo:hover{background:rgba(255,255,255,.15);}
-.hframe-wrap{position:relative;display:flex;justify-content:center;}
-.hframe{width:380px;max-width:100%;aspect-ratio:3/4;border-radius:22px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35);border:3px solid rgba(255,255,255,.3);}
-.hbadge{position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);background:white;padding:9px 20px;border-radius:40px;box-shadow:0 8px 24px rgba(0,0,0,.2);display:flex;align-items:center;gap:9px;white-space:nowrap;z-index:4;}
-.hbadge .r{width:26px;height:26px;background:var(--blue);border-radius:5px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:.95rem;}
-.hbadge span{font-weight:700;font-size:.8rem;color:var(--bd);}
+.hinner{position:relative;z-index:3;width:100%;padding:80px 5% 60px;display:flex;justify-content:center;align-items:center;max-width:1600px;margin:auto;}
+.hphoto-wrap{width:1089px;max-width:98%;display:flex;flex-direction:column;gap:0;}
+.hframe{width:100%;aspect-ratio:3/2;border-radius:18px;overflow:hidden;box-shadow:0 36px 80px rgba(0,0,0,.3);border:2px solid rgba(255,255,255,.2);position:relative;}
+.hframe-overlay{position:absolute;inset:0;z-index:4;background:linear-gradient(to top,rgba(0,30,60,.82) 0%,rgba(0,30,60,.35) 50%,transparent 100%);pointer-events:none;}
+.hframe-eyebrow-top{position:absolute;top:20px;left:24px;z-index:6;text-align:left;pointer-events:none;}
+.hframe-eyebrow-top span{display:block;font-size:1.4rem;font-weight:900;color:white;text-transform:uppercase;letter-spacing:.08em;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,.7);}
+.hframe-text{position:absolute;bottom:0;left:0;z-index:5;padding:28px 30px;width:100%;pointer-events:none;}
+.ht-cargo{font-size:.8rem;font-weight:500;color:rgba(255,255,255,.75);text-shadow:0 1px 6px rgba(0,0,0,.5);display:block;margin-bottom:12px;letter-spacing:.02em;}
+.ht-name{font-size:clamp(1.4rem,2.8vw,2.2rem);font-weight:900;color:white;line-height:1.05;letter-spacing:-.025em;text-shadow:0 2px 12px rgba(0,0,0,.6);display:block;margin-bottom:4px;}
+.ht-slogan{font-size:.85rem;font-weight:700;color:white;font-style:italic;text-shadow:0 1px 8px rgba(0,0,0,.6);display:block;border-left:3px solid var(--cel);padding-left:10px;line-height:1.4;}
+.hframe-btns{position:absolute;bottom:24px;right:24px;z-index:6;display:flex;gap:10px;}
+.hframe-btns .bw{padding:10px 20px;font-size:.82rem;border-radius:7px;box-shadow:0 4px 14px rgba(0,0,0,.3);background:white;color:var(--bdeep);border:none;cursor:pointer;font-weight:800;transition:.2s;}
+.hframe-btns .bo{padding:9px 18px;font-size:.82rem;border-radius:7px;border:2px solid rgba(255,255,255,.7);color:white;background:rgba(255,255,255,.1);cursor:pointer;font-weight:600;transition:.2s;}
+.hcards-row{display:flex;flex-direction:row;gap:12px;margin-top:12px;flex-wrap:wrap;}
+.hcard{background:rgba(255,255,255,.13);backdrop-filter:blur(18px);border-radius:12px;padding:13px 18px;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;gap:12px;width:fit-content;}
+.hcard-ico{width:38px;height:38px;background:var(--cel);border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+.hcard strong{color:white;font-size:.83rem;font-weight:700;display:block;margin-bottom:2px;}
+.hcard span{color:rgba(255,255,255,.58);font-size:.7rem;line-height:1.35;}
 
-/* COUNTERS */
-.cnts{background:var(--bd);padding:36px 4%;}
-.cgrid{max-width:860px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center;}
-.ci h3{font-size:2.2rem;font-weight:900;color:white;}
-.ci p{font-size:.82rem;color:rgba(255,255,255,.75);margin-top:4px;}
+/* STATS */
+.stats{background:var(--bd);padding:0 5%;}
+.stats-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid rgba(255,255,255,.1);}
+.stat{padding:32px 36px;border-right:1px solid rgba(255,255,255,.1);text-align:center;}
+.stat h3{font-size:2.8rem;font-weight:900;color:white;letter-spacing:-.04em;}
+.stat p{font-size:.74rem;color:rgba(255,255,255,.58);text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-top:5px;}
 
 /* SOBRE */
-#sobre{background:var(--gray);padding:86px 4%;}
-.sgrid{max-width:1080px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
-.simgs{position:relative;height:480px;}
-.smain{position:absolute;left:0;top:0;width:67%;aspect-ratio:3/4;border-radius:18px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.15);}
-.ssec{position:absolute;right:0;bottom:0;width:50%;aspect-ratio:1;border-radius:14px;overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,.15);border:4px solid white;}
-.tray{display:flex;flex-direction:column;gap:14px;margin:22px 0;}
-.ti{display:flex;gap:14px;align-items:flex-start;background:white;border-radius:13px;padding:15px 17px;box-shadow:0 4px 16px rgba(0,0,0,.07);transition:transform .2s;}
-.ti:hover{transform:translateX(4px);}
-.tico{font-size:1.7rem;flex-shrink:0;margin-top:2px;}
-.ti h4{font-size:.88rem;font-weight:800;color:var(--bd);margin-bottom:4px;}
-.ti p{font-size:.8rem;color:var(--muted);line-height:1.5;}
-.vals{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:26px;}
-.vc{background:white;border-radius:13px;padding:15px;box-shadow:0 4px 16px rgba(0,0,0,.07);border-left:4px solid var(--blue);transition:transform .2s;}
-.vc:hover{transform:translateY(-3px);}
-.vc h4{font-size:.85rem;font-weight:700;margin-bottom:4px;color:var(--bd);}
-.vc p{font-size:.76rem;color:var(--muted);}
+#sobre{background:var(--gray);padding:56px 5% 32px;}
+.sgrid{max-width:1100px;margin:auto;display:grid;grid-template-columns:480px 1fr;gap:72px;align-items:start;}
+.sobre-photos{position:relative;height:520px;}
+.smain{position:absolute;left:0;top:0;width:71%;height:88%;border-radius:18px;overflow:hidden;box-shadow:0 22px 64px rgba(0,95,142,.2);}
+.ssec{position:absolute;right:0;bottom:0;width:49%;height:49%;border-radius:13px;overflow:hidden;box-shadow:0 14px 40px rgba(0,95,142,.18);border:5px solid white;}
+.sbadge{position:absolute;left:0;bottom:0;background:var(--cel);color:white;padding:12px 18px;border-radius:0 13px 0 18px;font-weight:700;font-size:.78rem;letter-spacing:.02em;}
+.tray{display:flex;flex-direction:column;gap:13px;margin:22px 0;}
+.ti{display:flex;gap:15px;align-items:flex-start;background:white;border-radius:11px;padding:16px 18px;border:1px solid var(--border);transition:.2s;}
+.ti:hover{border-color:var(--cel);transform:translateX(4px);}
+.tico{font-size:1.65rem;flex-shrink:0;margin-top:2px;}
+.ti h4{font-size:.86rem;font-weight:700;color:var(--bd);margin-bottom:4px;}
+.ti p{font-size:.79rem;color:var(--text2);line-height:1.6;}
+.vals{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:24px;}
+.vc{background:white;border-radius:11px;padding:16px 18px;border:1px solid var(--border);border-top:3px solid var(--cel);transition:.2s;}
+.vc:hover{box-shadow:0 5px 18px rgba(0,174,239,.1);}
+.vc h4{font-size:.82rem;font-weight:700;color:var(--bd);margin-bottom:4px;}
+.vc p{font-size:.74rem;color:var(--muted);line-height:1.55;}
 
 /* PROPUESTAS */
-#propuestas{background:white;padding:86px 4%;}
-.ph{max-width:1080px;margin:0 auto 42px;}
-.pgrid{max-width:1080px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.pc{border-radius:18px;position:relative;background:linear-gradient(135deg,var(--bdeep),var(--blue));padding:32px 24px;color:white;transition:transform .25s,box-shadow .25s;overflow:hidden;}
-.pc:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,174,239,.3);}
-.pc .n{font-size:3rem;font-weight:900;opacity:.1;position:absolute;top:12px;right:16px;}
-.pc .i{font-size:1.9rem;margin-bottom:12px;display:block;}
-.pc h3{font-size:1rem;font-weight:800;margin-bottom:7px;}
-.pc p{font-size:.81rem;opacity:.85;line-height:1.5;}
-.pc.lt{background:white;color:var(--text);border:2px solid var(--bl);}
-.pc.lt h3{color:var(--bd);}.pc.lt p{color:var(--muted);}.pc.lt .n{color:var(--blue);opacity:.1;}
-.pc.lt:hover{box-shadow:0 20px 50px rgba(0,174,239,.15);}
+#propuestas{background:white;padding:32px 5% 56px;}
+.ph{max-width:1100px;margin:0 auto 52px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;}
+.pgrid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.pc{border-radius:14px;position:relative;padding:34px 28px;transition:transform .25s,box-shadow .25s;overflow:hidden;border:1px solid var(--border);}
+.pc.dark{background:linear-gradient(150deg,var(--bdeep),var(--cel));color:white;border:none;}
+.pc.light{background:var(--cel-ll);}
+.pc:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,174,239,.15);}
+.pc.dark:hover{box-shadow:0 16px 48px rgba(0,95,142,.35);}
+.pcn{font-size:4.5rem;font-weight:900;opacity:.08;position:absolute;top:8px;right:16px;line-height:1;}
+.pci{font-size:2rem;margin-bottom:15px;display:block;}
+.pc h3{font-size:1rem;font-weight:800;margin-bottom:8px;}
+.pc.dark h3{color:white;}.pc.light h3{color:var(--bd);}
+.pc p{font-size:.81rem;line-height:1.6;}
+.pc.dark p{color:rgba(255,255,255,.82);}.pc.light p{color:var(--text2);}
 
 /* CAMPAÑA */
-#campana{background:var(--gray);padding:86px 4%;}
-.ginn{max-width:1080px;margin:auto;}
-.cestr{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:32px 0 26px;}
-.cec{background:white;border-radius:15px;padding:20px 16px;box-shadow:0 4px 18px rgba(0,0,0,.07);border-top:4px solid var(--bl);transition:transform .2s;}
-.cec.az{background:linear-gradient(135deg,var(--bdeep),var(--blue));color:white;border-top:none;}
-.cec.az h4{color:white;}.cec.az p{color:rgba(255,255,255,.85);}.cec.az strong{color:#fff;}
-.cec:hover{transform:translateY(-4px);}
-.ceico{font-size:1.9rem;display:block;margin-bottom:10px;}
-.cec h4{font-size:.88rem;font-weight:800;color:var(--bd);margin-bottom:7px;}
-.cec p{font-size:.78rem;color:var(--muted);line-height:1.5;}
-.cban{background:white;border-radius:17px;padding:26px 28px;margin-bottom:28px;box-shadow:0 4px 18px rgba(0,0,0,.07);display:flex;align-items:center;justify-content:space-between;gap:22px;border-left:6px solid var(--blue);flex-wrap:wrap;}
-.cban h3{font-size:1.1rem;font-weight:800;color:var(--bd);margin-bottom:7px;}
-.cban p{font-size:.83rem;color:var(--muted);max-width:540px;line-height:1.5;}
-.cbadge{display:flex;align-items:center;gap:13px;background:var(--bl);padding:14px 20px;border-radius:13px;flex-shrink:0;}
+#campana{background:var(--gray);padding:48px 5% 56px;}
+.ginn{max-width:1100px;margin:auto;}
+.cestr{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin:36px 0 28px;}
+.cec{background:white;border-radius:13px;padding:22px 18px;border:1px solid var(--border);transition:.2s;}
+.cec:first-child{background:linear-gradient(150deg,var(--bdeep),var(--cel));border:none;}
+.cec:first-child h4{color:white;}.cec:first-child p{color:rgba(255,255,255,.82);}
+.cec:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,174,239,.12);}
+.ceico{font-size:1.9rem;display:block;margin-bottom:11px;}
+.cec h4{font-size:.87rem;font-weight:700;color:var(--bd);margin-bottom:7px;}
+.cec p{font-size:.78rem;color:var(--text2);line-height:1.6;}
+.cban{background:white;border-radius:15px;padding:28px 30px;border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:22px;border-left:5px solid var(--cel);flex-wrap:wrap;margin-bottom:30px;}
+.cban h3{font-size:1.08rem;font-weight:800;color:var(--text);margin-bottom:7px;}
+.cban p{font-size:.83rem;color:var(--text2);line-height:1.6;max-width:520px;}
+.cbadge{display:flex;align-items:center;gap:14px;background:var(--bl);padding:15px 22px;border-radius:11px;flex-shrink:0;}
+.cbico{width:46px;height:46px;background:var(--cel);border-radius:9px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:1.5rem;}
 .cbadge div{display:flex;flex-direction:column;}
-.cbadge strong{font-size:.9rem;color:var(--bd);}
-.cbadge span{font-size:.76rem;color:var(--muted);}
-.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:32px;}
-.git{border-radius:15px;overflow:hidden;}.git.tall{grid-row:span 2;}
+.cbadge strong{font-size:.9rem;color:var(--bd);font-weight:700;}
+.cbadge span{font-size:.71rem;color:var(--muted);}
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;}
+.git{border-radius:13px;overflow:hidden;border:1px solid var(--border);}
+.git.tall{grid-row:span 2;}
 
 /* CONTACTO */
-#unete{background:linear-gradient(135deg,var(--bdeep),var(--blue));text-align:center;padding:86px 4%;position:relative;overflow:hidden;}
-#unete::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:rgba(255,255,255,.05);top:-180px;left:-180px;}
-#unete h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:white;margin-bottom:12px;position:relative;}
-#unete .desc{color:rgba(255,255,255,.85);font-size:.97rem;max-width:480px;margin:0 auto 28px;position:relative;}
-.fr{display:flex;gap:10px;max-width:460px;margin:auto;flex-wrap:wrap;position:relative;}
-.fr input{flex:1;min-width:170px;padding:12px 17px;border-radius:30px;border:none;font-size:.88rem;outline:none;}
-.fr button{background:white;color:var(--bd);padding:12px 24px;border-radius:30px;font-weight:800;border:none;cursor:pointer;font-size:.88rem;transition:.2s;}
-.fr button:hover{background:var(--bl);}
-#fmsg{color:white;margin-top:12px;font-weight:700;font-size:.9rem;display:none;position:relative;}
-.srow{display:flex;gap:11px;justify-content:center;margin-top:24px;position:relative;}
-.sb{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.3);transition:.2s;font-size:.82rem;font-weight:700;}
-.sb:hover{background:rgba(255,255,255,.35);}
+#unete{background:linear-gradient(150deg,var(--bdeep),var(--cel));padding:72px 5%;position:relative;overflow:hidden;text-align:center;}
+.upat{position:absolute;inset:0;opacity:.05;background-image:radial-gradient(circle,white 1px,transparent 1px);background-size:24px 24px;}
+.uinn{max-width:640px;margin:auto;position:relative;z-index:2;}
+.utag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);color:white;padding:5px 14px;border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px;border:1px solid rgba(255,255,255,.25);}
+#unete h2{font-size:clamp(1.9rem,3.8vw,2.8rem);font-weight:900;color:white;margin-bottom:12px;letter-spacing:-.025em;line-height:1.12;}
+#unete .desc{color:rgba(255,255,255,.8);font-size:.98rem;max-width:460px;margin:0 auto 30px;line-height:1.72;}
+.fbox{background:white;border-radius:18px;padding:32px 34px;display:flex;flex-direction:column;gap:13px;text-align:left;}
+.frow2{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+.fi{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:9px;font-size:.88rem;font-family:inherit;outline:none;transition:.2s;color:var(--text);}
+.fi:focus{border-color:var(--cel);box-shadow:0 0 0 3px rgba(0,174,239,.1);}
+.fta{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:9px;font-size:.88rem;font-family:inherit;outline:none;resize:none;min-height:88px;transition:.2s;color:var(--text);}
+.fta:focus{border-color:var(--cel);box-shadow:0 0 0 3px rgba(0,174,239,.1);}
+.fsel{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:9px;font-size:.88rem;font-family:inherit;outline:none;color:var(--text);background:white;cursor:pointer;}
+.fbtn{background:var(--cel);color:white;padding:14px;border-radius:9px;font-weight:800;border:none;cursor:pointer;font-size:.92rem;transition:.2s;}
+.fbtn:hover{background:var(--bd);}
+#fmsg{color:var(--bd);font-weight:700;font-size:.85rem;text-align:center;display:none;padding:10px;background:var(--bl);border-radius:9px;}
+.srow{display:flex;gap:11px;justify-content:center;margin-top:24px;}
+.sb{width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;color:white;text-decoration:none;border:1px solid rgba(255,255,255,.25);transition:.2s;font-size:.8rem;font-weight:700;}
+.sb:hover{background:rgba(255,255,255,.28);}
+footer{background:var(--bdeep);padding:34px 5%;}
+.finner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.flogo{display:flex;align-items:center;gap:12px;}
+.flogo-ico{width:34px;height:34px;background:var(--cel);border-radius:6px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:1.15rem;}
+.flogo span{color:white;font-weight:700;font-size:.9rem;}
+footer p{color:rgba(255,255,255,.42);font-size:.78rem;}
+.wa{position:fixed;bottom:26px;right:26px;z-index:9999;background:#25D366;color:white;display:flex;align-items:center;gap:9px;padding:12px 18px 12px 14px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.86rem;box-shadow:0 6px 26px rgba(37,211,102,.42);animation:wap 2.5s ease-in-out infinite;}
+.wa:hover{transform:translateY(-3px) scale(1.03);animation:none;}
+@keyframes wap{0%,100%{box-shadow:0 6px 26px rgba(37,211,102,.42);}50%{box-shadow:0 6px 34px rgba(37,211,102,.72),0 0 0 8px rgba(37,211,102,.11);}}
 
-/* FOOTER */
-footer{background:#004d73;padding:32px 4%;text-align:center;}
-.flog{display:flex;align-items:center;gap:9px;justify-content:center;margin-bottom:10px;}
-.flog .r{width:30px;height:30px;background:var(--blue);border-radius:5px;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;}
-.flog span{color:white;font-weight:700;font-size:.9rem;}
-footer p{color:rgba(255,255,255,.5);font-size:.8rem;}
-
-/* WHATSAPP */
-.wa{position:fixed;bottom:26px;right:26px;z-index:9999;background:#25D366;color:white;display:flex;align-items:center;gap:9px;padding:12px 18px 12px 14px;border-radius:50px;text-decoration:none;font-weight:700;font-size:.87rem;box-shadow:0 6px 24px rgba(37,211,102,.45);animation:wap 2.5s ease-in-out infinite;}
-.wa:hover{transform:translateY(-3px) scale(1.04);animation:none;}
-@keyframes wap{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.45);}50%{box-shadow:0 6px 32px rgba(37,211,102,.8),0 0 0 8px rgba(37,211,102,.15);}}
-
-/* PÁGINAS DIPUTADOS / SENADORES */
-.pg-hero{position:relative;padding:120px 4% 100px;overflow:hidden;background:linear-gradient(135deg,var(--bdeep) 0%,var(--bd) 50%,var(--blue) 100%);}
-.pg-hero-inner{max-width:1080px;margin:auto;position:relative;z-index:2;}
-.back-btn{background:rgba(255,255,255,.2);color:white;border:1px solid rgba(255,255,255,.4);padding:8px 18px;border-radius:25px;font-weight:700;font-size:.85rem;cursor:pointer;transition:.2s;}
-.back-btn:hover{background:rgba(255,255,255,.35);}
-.pg-hero h1{font-size:clamp(1.9rem,4vw,3rem);color:white;font-weight:900;margin:14px 0 10px;}
-.pg-hero h1 span{color:white;}
-.pg-hero p{color:rgba(255,255,255,.85);font-size:1rem;max-width:500px;}
-.pg-section{background:var(--gray);padding:68px 4%;}
-.cards-grid{max-width:1080px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
-.card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,.08);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;border-top:4px solid var(--blue);}
-.card:hover{transform:translateY(-7px);box-shadow:0 20px 50px rgba(0,174,239,.2);}
-.card-img{position:relative;width:100%;height:270px;cursor:pointer;overflow:hidden;background:linear-gradient(135deg,var(--bdeep),var(--blue));}
-.card-img input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:3;}
-.card-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s;}
-.card:hover .card-img img{transform:scale(1.05);}
-.card-hint{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:white;font-size:.85rem;font-weight:600;transition:opacity .3s;}
-.card-hint span{font-size:2.2rem;}
-.card-hint.h{opacity:0;pointer-events:none;}
-.num-badge{position:absolute;top:13px;right:13px;background:white;color:var(--bd);font-weight:900;font-size:.85rem;padding:5px 13px;border-radius:20px;z-index:4;box-shadow:0 2px 10px rgba(0,0,0,.15);}
-.card-body{padding:22px 24px 26px;flex:1;display:flex;flex-direction:column;}
-.cargo{display:inline-block;background:var(--bl);color:var(--bd);font-size:.73rem;font-weight:700;padding:4px 13px;border-radius:20px;margin-bottom:11px;}
-.card-nombre{font-size:1.2rem;font-weight:900;color:var(--text);margin-bottom:9px;outline:none;border-bottom:2px dashed transparent;transition:.2s;}
-.card-nombre:hover,.card-nombre:focus{border-bottom-color:var(--bl);}
-.card-desc{font-size:.84rem;color:var(--muted);line-height:1.6;flex:1;margin-bottom:16px;outline:none;border-bottom:2px dashed transparent;transition:.2s;}
-.card-desc:hover,.card-desc:focus{border-bottom-color:var(--bl);}
-.card-redes{display:flex;gap:9px;}
-.red{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.75rem;text-decoration:none;transition:.2s;}
-.red.fb{background:#1877f2;color:white;}
-.red.ig{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366);color:white;}
-.red:hover{transform:scale(1.12);}
-.pg-cta{text-align:center;margin-top:56px;}
-.pg-cta p{color:var(--muted);margin-bottom:14px;font-size:.93rem;}
-.pg-cta button{background:var(--blue);color:white;border:none;cursor:pointer;padding:13px 30px;border-radius:30px;font-weight:800;font-size:.92rem;transition:.2s;}
+/* PÁGINAS */
+.pg-hero{position:relative;padding:140px 5% 100px;overflow:hidden;background:linear-gradient(150deg,var(--bdeep),var(--bd),var(--cel));}
+.pg-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:30px 30px;}
+.pg-inner{max-width:1100px;margin:auto;position:relative;z-index:2;}
+.back-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.13);color:white;border:1px solid rgba(255,255,255,.25);padding:8px 18px;border-radius:7px;font-weight:600;font-size:.83rem;cursor:pointer;transition:.2s;margin-bottom:28px;}
+.back-btn:hover{background:rgba(255,255,255,.22);}
+.pg-hero h1{font-size:clamp(2.2rem,4.5vw,3.6rem);color:white;font-weight:900;margin:13px 0 11px;letter-spacing:-.028em;line-height:1.08;}
+.pg-hero p{color:rgba(255,255,255,.8);font-size:.98rem;max-width:520px;line-height:1.72;}
+.pg-sec{background:var(--gray);padding:72px 5%;}
+.cgrid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
+.card{background:white;border-radius:16px;overflow:hidden;box-shadow:0 2px 18px rgba(0,95,142,.07);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;border:1px solid var(--border);}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,174,239,.15);}
+.cimg{position:relative;width:100%;height:270px;overflow:hidden;background:linear-gradient(150deg,var(--bdeep),var(--cel));display:flex;align-items:center;justify-content:center;color:white;font-size:.82rem;font-weight:600;}
+.cimg img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.cnb{position:absolute;top:14px;right:14px;background:white;color:var(--bd);font-weight:800;font-size:.82rem;padding:5px 14px;border-radius:5px;z-index:4;}
+.cbody{padding:24px 26px 28px;flex:1;display:flex;flex-direction:column;border-top:3px solid var(--cel);}
+.ccargo{display:inline-block;background:var(--bl);color:var(--bd);font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:4px;margin-bottom:11px;letter-spacing:.05em;text-transform:uppercase;}
+.cnombre{font-size:1.18rem;font-weight:800;color:var(--text);margin-bottom:9px;outline:none;border-bottom:2px dashed transparent;transition:.2s;}
+.cnombre:hover,.cnombre:focus{border-bottom-color:var(--bl);}
+.cdesc{font-size:.83rem;color:var(--text2);line-height:1.68;flex:1;margin-bottom:16px;outline:none;border-bottom:2px dashed transparent;transition:.2s;}
+.cdesc:hover,.cdesc:focus{border-bottom-color:var(--bl);}
+.credes{display:flex;gap:8px;}
+.red{width:30px;height:30px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.72rem;text-decoration:none;transition:.2s;}
+.red.fb{background:#1877f2;color:white;}.red.ig{background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);color:white;}
+.red:hover{transform:scale(1.1);}
+.pg-cta{text-align:center;margin-top:60px;}
+.pg-cta p{color:var(--muted);margin-bottom:14px;font-size:.92rem;}
+.pg-cta button{background:var(--cel);color:white;border:none;cursor:pointer;padding:13px 32px;border-radius:9px;font-weight:800;font-size:.92rem;transition:.2s;}
 .pg-cta button:hover{background:var(--bd);}
-
-/* RESPONSIVE */
-@media(max-width:920px){
-  .hinner{grid-template-columns:1fr;text-align:center;}
-  .hframe-wrap{display:none;}
-  .sgrid{grid-template-columns:1fr;}
-  .simgs{display:none;}
-  .pgrid{grid-template-columns:1fr 1fr;}
-  .ggrid{grid-template-columns:1fr 1fr;}
-  .git.tall{grid-row:span 1;}
-  .cgrid{grid-template-columns:1fr;}
-  .nlinks{display:none;}
-  .cestr{grid-template-columns:1fr 1fr;}
-  .cban{flex-direction:column;}
-  .cards-grid{grid-template-columns:1fr;}
-}
-@media(max-width:560px){
-  .pgrid{grid-template-columns:1fr;}
-  .ggrid{grid-template-columns:1fr;}
-  .cestr{grid-template-columns:1fr;}
-}
+.news-card{background:white;border-radius:14px;overflow:hidden;border:1px solid var(--border);transition:transform .25s,box-shadow .25s;position:relative;}
+.news-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(0,174,239,.14);}
+.news-top{height:120px;display:flex;align-items:center;justify-content:center;font-size:3.2rem;background:var(--bl);}
+.news-body{padding:18px 20px 22px;}
+.ncbadge{display:inline-block;background:var(--bl);color:var(--bd);font-size:.68rem;font-weight:700;padding:3px 11px;border-radius:4px;margin-bottom:9px;letter-spacing:.05em;text-transform:uppercase;}
+.news-card h3{font-size:.93rem;font-weight:800;color:var(--text);margin-bottom:7px;line-height:1.4;}
+.news-card p{font-size:.79rem;color:var(--text2);line-height:1.62;margin-bottom:11px;}
+.news-date{font-size:.7rem;color:var(--muted);font-weight:500;}
+.ndel{position:absolute;top:10px;right:10px;background:rgba(220,38,38,.85);color:white;border:none;border-radius:6px;width:24px;height:24px;font-size:.65rem;cursor:pointer;opacity:0;transition:opacity .2s;display:flex;align-items:center;justify-content:center;font-weight:700;}
+.news-card:hover .ndel{opacity:1;}
+.aviso-card{background:white;border-radius:14px;overflow:hidden;border:2px solid #FFD600;transition:transform .25s;position:relative;}
+.aviso-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(245,166,35,.2);}
+.aviso-top{height:110px;display:flex;align-items:center;justify-content:center;font-size:3rem;background:#FFF8E1;}
+.aviso-body{padding:18px 20px 22px;border-top:3px solid #FFD600;}
+.av-badge{display:inline-block;background:#FFF8E1;color:#7B5800;font-size:.68rem;font-weight:700;padding:3px 11px;border-radius:4px;margin-bottom:9px;letter-spacing:.05em;text-transform:uppercase;}
+.aviso-card h3{font-size:.93rem;font-weight:800;color:var(--text);margin-bottom:7px;line-height:1.4;}
+.aviso-card p{font-size:.79rem;color:var(--text2);line-height:1.62;margin-bottom:11px;}
+.aviso-date{font-size:.7rem;color:var(--muted);}
+.aviso-del{position:absolute;top:10px;right:10px;background:rgba(220,38,38,.85);color:white;border:none;border-radius:6px;width:24px;height:24px;font-size:.65rem;cursor:pointer;opacity:0;transition:opacity .2s;display:flex;align-items:center;justify-content:center;}
+.aviso-card:hover .aviso-del{opacity:1;}
+@media(max-width:1000px){.hinner{padding:80px 4% 60px;}.hphoto-wrap{width:100%;max-width:100%;}.sgrid{grid-template-columns:1fr;}.sobre-photos{display:none;}.ph{grid-template-columns:1fr;}.pgrid{grid-template-columns:1fr 1fr;}.cestr{grid-template-columns:1fr 1fr;}.stats-grid{grid-template-columns:1fr;}.nlinks{display:none;}.cgrid{grid-template-columns:1fr;}.cban{flex-direction:column;}.finner{flex-direction:column;text-align:center;}.admin-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:580px){.pgrid{grid-template-columns:1fr;}.ggrid{grid-template-columns:1fr;}.cestr{grid-template-columns:1fr;}.vals{grid-template-columns:1fr;}.frow2{grid-template-columns:1fr;}.admin-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 
+<!-- ══ PANEL ADMIN FOTOS ══ -->
+<!-- ── MODAL DE CARGA DE FOTOS ── -->
+<div id="photo-modal">
+  <div class="photo-modal-content">
+    <button class="photo-modal-close" onclick="closePhotoModal()">✕</button>
+    <h3 class="photo-modal-title">Cargar Foto</h3>
+    <p class="photo-modal-subtitle" id="photo-modal-subtitle">Sube tu foto desde disco duro o URL</p>
+    
+    <div class="photo-upload-tabs">
+      <button class="active" onclick="switchPhotoTab('file')">Desde computadora</button>
+      <button onclick="switchPhotoTab('url')">Desde URL</button>
+    </div>
+    
+    <div id="photo-tab-file" class="photo-upload-section active">
+      <label class="photo-input-label">📁 Selecciona una imagen</label>
+      <input type="file" id="photo-file-input" accept="image/*" class="photo-file-input" onchange="previewPhotoFile(this)"/>
+      <div class="photo-preview" id="photo-preview-file" style="display:none;"></div>
+    </div>
+    
+    <div id="photo-tab-url" class="photo-upload-section">
+      <label class="photo-input-label">🔗 Pega la URL de la imagen</label>
+      <input type="text" id="photo-url-input" class="photo-url-input" placeholder="https://ejemplo.com/foto.jpg" onchange="previewPhotoURL(this)"/>
+      <div class="photo-preview" id="photo-preview-url" style="display:none;"></div>
+    </div>
+    
+    <div class="photo-actions">
+      <button class="photo-btn-upload" onclick="uploadSelectedPhoto()">✓ Cargar foto</button>
+      <button class="photo-btn-cancel" onclick="closePhotoModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
 <nav id="nav">
   <div class="nlogo" onclick="goTo('inicio')">
     <div class="rb">R</div>
@@ -223,70 +284,82 @@ footer p{color:rgba(255,255,255,.5);font-size:.8rem;}
     <li><a onclick="goTo('inicio')">Inicio</a></li>
     <li><a onclick="goTo('diputados')">Diputados</a></li>
     <li><a onclick="goTo('senadores')">Senadores</a></li>
+    <li><a onclick="goTo('noticias')">Noticias</a></li>
+    <li><a onclick="goTo('avisos')">Avisos</a></li>
     <li><a onclick="goTo('inicio');setTimeout(()=>ir('sobre'),300)">Sobre mí</a></li>
     <li><a onclick="goTo('inicio');setTimeout(()=>ir('propuestas'),300)">Propuestas</a></li>
-    <li><a onclick="goTo('inicio');setTimeout(()=>ir('campana'),300)">Campaña</a></li>
     <li><a onclick="goTo('inicio');setTimeout(()=>ir('unete'),300)">Contacto</a></li>
   </ul>
-  <button class="ncta" onclick="goTo('inicio');setTimeout(()=>ir('unete'),300)">Únete ✊</button>
+  <div class="nav-right">
+    <button class="ncta" onclick="goTo('inicio');setTimeout(()=>ir('unete'),300)">Únete ✊</button>
+  </div>
 </nav>
 
-<!-- INICIO -->
+<!-- ══ INICIO ══ -->
 <div id="p-inicio">
 <section id="hero">
-  <div class="hdots"></div>
+  <div class="hero-dots"></div>
   <div class="hinner">
-    <div class="rv">
-      <div class="htag">🗳️ Elecciones Regionales 2026 · Loreto</div>
-      <h1>Soy<br/><span>Jorge Mera</span></h1>
-      <p class="hsub">Candidato al Gobierno Regional de Loreto</p>
-      <p class="hslogan">"Con Mera, Loreto tiene futuro"</p>
-      <div class="hbtns">
-        <button class="bw" onclick="ir('propuestas')">Conoce mis propuestas</button>
-        <button class="bo" onclick="ir('unete')">Únete al cambio</button>
-      </div>
-    </div>
-    <div class="hframe-wrap rv">
+    <div class="hphoto-wrap">
       <div class="hframe">
-        <div class="upl" id="z-hero">
-          <input type="file" accept="image/*" onchange="loadImg(this,'hero')"/>
-          <div class="upl-hint" id="uh-hero"><span>📸</span><small>Foto principal</small></div>
-          <img id="ui-hero" src="" alt="Jorge Mera" style="display:none"/>
+        <div style="width:100%;height:100%;position:relative;">
+          <img id="img-hero" src="https://drive.google.com/thumbnail?id=15s6pxJti6iNconW7grLIQjPMuSXZfPxC&sz=w2000" style="width:100%;height:100%;object-fit:cover;object-position:center top;" alt="Jorge Mera"/>
+          <button class="photo-icon-btn" onclick="openPhotoModal('hero')" title="Cambiar foto">📸</button>
+        </div>
+        <div class="hframe-overlay"></div>
+        <div class="hframe-eyebrow-top">
+          <span>ELECCIONES REGIONALES 2026</span>
+          <span>LORETO, PERÚ</span>
+        </div>
+        <div class="hframe-text">
+          <span class="ht-cargo">Candidato al Gobierno Regional</span>
+          <span class="ht-name">Jorge Mera</span>
+          <span class="ht-cargo">Renovación Popular · Región Loreto</span>
+          <span class="ht-slogan">"Con Mera, Loreto tiene futuro"</span>
+        </div>
+        <div class="hframe-btns">
+          <button class="bw" onclick="ir('propuestas')">Ver propuestas</button>
+          <button class="bo" onclick="ir('unete')">Únete al equipo</button>
         </div>
       </div>
-      <div class="hbadge"><div class="r">R</div><span>Renovación Popular · Loreto</span></div>
+      <div class="hcards-row">
+        <div class="hcard"><div class="hcard-ico">🏛️</div><div><strong>Ex Congresista · Loreto</strong><span>Tercer Vicepresidente del Congreso (2001–2006)</span></div></div>
+        <div class="hcard"><div class="hcard-ico">🌿</div><div><strong>Fundador Movimiento MERA</strong><span>Alianza con Renovación Popular 2026</span></div></div>
+      </div>
     </div>
   </div>
-  <div class="hwave"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path fill="#f4f9ff" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"/></svg></div>
+  <div class="hwave"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path fill="#F7FAFB" d="M0,40 C480,80 960,0 1440,50 L1440,80 L0,80 Z"/></svg></div>
 </section>
 
-<div class="cnts">
-  <div class="cgrid">
-    <div class="ci rv"><h3 id="c1">0</h3><p>Provincias comprometidas</p></div>
-    <div class="ci rv"><h3 id="c2">0</h3><p>Propuestas concretas</p></div>
-    <div class="ci rv"><h3 id="c3">0</h3><p>Años al servicio de Loreto</p></div>
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat rv"><h3 id="c1">0</h3><p>Provincias comprometidas</p></div>
+    <div class="stat rv"><h3 id="c2">0</h3><p>Propuestas de gobierno</p></div>
+    <div class="stat rv"><h3 id="c3">0</h3><p>Años de trayectoria</p></div>
   </div>
 </div>
 
 <section id="sobre">
   <div class="sgrid">
-    <div class="simgs rv">
-      <div class="smain"><div class="upl" id="z-s1" style="height:100%"><input type="file" accept="image/*" onchange="loadImg(this,'s1')"/><div class="upl-hint" id="uh-s1"><span>📸</span><small>Foto principal</small></div><img id="ui-s1" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;object-position:center top"/></div></div>
-      <div class="ssec"><div class="upl" id="z-s2" style="height:100%"><input type="file" accept="image/*" onchange="loadImg(this,'s2')"/><div class="upl-hint" id="uh-s2"><span>📸</span><small>Foto campaña</small></div><img id="ui-s2" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;object-position:center top"/></div></div>
+    <div class="sobre-photos rv">
+      <div class="smain" style="position:relative;"><img id="img-s1" src="" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;border-radius:18px;"/><button class="photo-icon-btn" onclick="openPhotoModal('s1')" title="Cambiar foto">📸</button></div>
+      <div class="ssec" style="position:relative;"><img id="img-s2" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:13px;"/><button class="photo-icon-btn" onclick="openPhotoModal('s2')" title="Cambiar foto">📸</button></div>
+      <div class="sbadge">Loreto, nuestra tierra 🌊</div>
     </div>
     <div class="rv">
-      <span class="stag">Sobre mí</span>
+      <div class="tag">Sobre el candidato</div>
       <h2 class="stitle">Un liderazgo comprometido con Loreto</h2>
+      <div class="divider"></div>
       <p class="slead">Loreto es mi tierra, mi hogar y mi compromiso. He recorrido sus ríos, escuchado a sus comunidades y entiendo los desafíos que enfrentamos como región.</p>
       <div class="tray">
         <div class="ti"><div class="tico">🏛️</div><div><h4>Experiencia Legislativa</h4><p>Congresista por Loreto <strong>(2001–2006)</strong> y Tercer Vicepresidente del Congreso de la República.</p></div></div>
         <div class="ti"><div class="tico">🌿</div><div><h4>Liderazgo Regional</h4><p>Fundador del Movimiento <strong>MERA</strong>, ahora en alianza con Renovación Popular.</p></div></div>
-        <div class="ti"><div class="tico">🎯</div><div><h4>Candidato Persistente</h4><p>Alta <strong>recordación entre los electores loretanos</strong> por su trayectoria constante.</p></div></div>
+        <div class="ti"><div class="tico">🎯</div><div><h4>Candidato Persistente</h4><p>Alta <strong>recordación entre los electores loretanos</strong> gracias a su trayectoria constante.</p></div></div>
       </div>
       <div class="vals">
-        <div class="vc"><h4>🤝 Cercanía</h4><p>Gobierno con las puertas abiertas.</p></div>
-        <div class="vc"><h4>⚡ Acción</h4><p>Resultados desde el primer día.</p></div>
-        <div class="vc"><h4>🌿 Desarrollo</h4><p>Competitividad y reactivación.</p></div>
+        <div class="vc"><h4>🤝 Cercanía</h4><p>Gobierno con las puertas abiertas al ciudadano.</p></div>
+        <div class="vc"><h4>⚡ Acción</h4><p>Resultados concretos desde el primer día.</p></div>
+        <div class="vc"><h4>🌿 Desarrollo</h4><p>Competitividad y reactivación económica.</p></div>
         <div class="vc"><h4>🛡️ Honestidad</h4><p>Transparencia y rendición de cuentas.</p></div>
       </div>
     </div>
@@ -294,151 +367,338 @@ footer p{color:rgba(255,255,255,.5);font-size:.8rem;}
 </section>
 
 <section id="propuestas">
-  <div class="ph rv"><span class="stag">Plan de Gobierno</span><h2 class="stitle">Propuestas para transformar Loreto</h2><p class="slead">Un plan sólido, realista y pensado para cada rincón de nuestra región.</p></div>
+  <div class="ph rv"><div><div class="tag">Plan de Gobierno 2026</div><h2 class="stitle">Propuestas para transformar Loreto</h2><div class="divider"></div></div><p class="slead">Un plan sólido, realista y pensado para cada rincón de nuestra región amazónica.</p></div>
   <div class="pgrid">
-    <div class="pc rv"><span class="n">01</span><span class="i">🏥</span><h3>Salud para todos</h3><p>Mejora de hospitales y postas médicas en comunidades alejadas.</p></div>
-    <div class="pc rv"><span class="n">02</span><span class="i">📚</span><h3>Educación de calidad</h3><p>Colegios equipados y becas para estudiantes loretanos.</p></div>
-    <div class="pc rv"><span class="n">03</span><span class="i">🌊</span><h3>Infraestructura fluvial</h3><p>Puertos modernos y vías que integren todas las provincias.</p></div>
-    <div class="pc lt rv"><span class="n">04</span><span class="i">🌱</span><h3>Economía sostenible</h3><p>Turismo amazónico y emprendimiento con respeto al medio ambiente.</p></div>
-    <div class="pc lt rv"><span class="n">05</span><span class="i">🔒</span><h3>Seguridad ciudadana</h3><p>Mayor presencia policial y trabajo comunitario coordinado.</p></div>
-    <div class="pc lt rv"><span class="n">06</span><span class="i">💧</span><h3>Agua y saneamiento</h3><p>Acceso a agua potable para familias de toda la región.</p></div>
+    <div class="pc dark rv"><span class="pcn">01</span><span class="pci">🏥</span><h3>Salud para todos</h3><p>Mejora de hospitales, postas médicas y acceso real a medicamentos en toda la región.</p></div>
+    <div class="pc dark rv"><span class="pcn">02</span><span class="pci">📚</span><h3>Educación de calidad</h3><p>Colegios equipados, conectividad rural y becas para estudiantes loretanos.</p></div>
+    <div class="pc dark rv"><span class="pcn">03</span><span class="pci">🌊</span><h3>Infraestructura fluvial</h3><p>Puertos modernos y vías que integren todas las provincias de Loreto.</p></div>
+    <div class="pc light rv"><span class="pcn">04</span><span class="pci">🌱</span><h3>Economía sostenible</h3><p>Turismo amazónico y emprendimiento local con respeto al medio ambiente.</p></div>
+    <div class="pc light rv"><span class="pcn">05</span><span class="pci">🔒</span><h3>Seguridad ciudadana</h3><p>Mayor presencia policial y trabajo comunitario coordinado.</p></div>
+    <div class="pc light rv"><span class="pcn">06</span><span class="pci">💧</span><h3>Agua y saneamiento</h3><p>Acceso a agua potable para familias de toda la región.</p></div>
   </div>
 </section>
 
 <section id="campana">
   <div class="ginn">
-    <div class="rv"><span class="stag">En campaña</span><h2 class="stitle">Con la gente, en cada rincón de Loreto</h2></div>
+    <div class="rv"><div class="tag">En campaña</div><h2 class="stitle">Con la gente, en cada rincón de Loreto</h2><div class="divider"></div></div>
     <div class="cestr rv">
-      <div class="cec az"><span class="ceico">🤝</span><h4>Alianza Nacional</h4><p>MERA se une a la <strong>"Ola Celeste"</strong> de Rafael López Aliaga.</p></div>
+      <div class="cec"><span class="ceico">🤝</span><h4>Alianza Nacional</h4><p>MERA se une a la <strong>"Ola Celeste"</strong> de Rafael López Aliaga.</p></div>
       <div class="cec"><span class="ceico">⚖️</span><h4>Anti-corrupción</h4><p>Lucha contra la <strong>corrupción</strong> en la gestión pública regional.</p></div>
       <div class="cec"><span class="ceico">🗺️</span><h4>Presencia Territorial</h4><p>Recorridos por todas las <strong>provincias de Loreto</strong>.</p></div>
       <div class="cec"><span class="ceico">📱</span><h4>Redes Sociales</h4><p>Mensajes de seguridad y valores en <strong>Facebook</strong>.</p></div>
     </div>
     <div class="cban rv">
-      <div><span class="stag" style="margin-bottom:8px">Renovación de cuadros</span><h3>Impulso a nuevos líderes</h3><p>Jorge Mera promueve a <strong>Anthony Mera</strong>, candidato a Diputado N° 1.</p></div>
-      <div class="cbadge"><div class="rb" style="width:48px;height:48px;font-size:1.7rem">R</div><div><strong>Anthony Mera</strong><span>Candidato a Diputado · N° 1</span></div></div>
+      <div><div class="tag" style="margin-bottom:10px">Renovación de cuadros</div><h3>Impulso a nuevos líderes</h3><p>Jorge Mera promueve a <strong>Anthony Mera</strong>, candidato a Diputado N° 1.</p></div>
+      <div class="cbadge"><div class="cbico">R</div><div><strong>Anthony Mera</strong><span>Candidato a Diputado · N° 1</span></div></div>
     </div>
     <div class="ggrid">
-      <div class="git tall rv" style="height:360px"><div class="upl" id="z-g1" style="height:100%"><input type="file" accept="image/*" onchange="loadImg(this,'g1')"/><div class="upl-hint" id="uh-g1"><span>📸</span><small>Foto discurso</small></div><img id="ui-g1" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover"/></div></div>
-      <div class="git rv" style="height:172px"><div class="upl" id="z-g2" style="height:100%"><input type="file" accept="image/*" onchange="loadImg(this,'g2')"/><div class="upl-hint" id="uh-g2"><span>📸</span><small>Con ciudadanos</small></div><img id="ui-g2" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover"/></div></div>
-      <div class="git rv" style="height:172px"><div class="upl" id="z-g3" style="height:100%"><input type="file" accept="image/*" onchange="loadImg(this,'g3')"/><div class="upl-hint" id="uh-g3"><span>📸</span><small>Calle / mercado</small></div><img id="ui-g3" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover"/></div></div>
-      <div class="git rv" style="height:172px"><div class="upl" id="z-g4" style="height:100%"><input type="file" accept="image/*" onchange="loadImg(this,'g4')"/><div class="upl-hint" id="uh-g4"><span>📸</span><small>Propuestas</small></div><img id="ui-g4" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover"/></div></div>
-      <div class="git rv" style="height:172px"><div class="upl" id="z-g5" style="height:100%"><input type="file" accept="image/*" onchange="loadImg(this,'g5')"/><div class="upl-hint" id="uh-g5"><span>📸</span><small>Evento regional</small></div><img id="ui-g5" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover"/></div></div>
+      <div class="git tall rv" style="height:360px;position:relative;"><img id="img-g1" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:none;"/><div id="ph-g1" style="width:100%;height:100%;background:linear-gradient(135deg,var(--bdeep),var(--cel));display:flex;align-items:center;justify-content:center;color:white;font-size:.8rem;">📸 Foto 1</div><button class="photo-icon-btn" onclick="openPhotoModal('g1')" title="Cambiar foto">📸</button></div>
+      <div class="git rv" style="height:172px;position:relative;"><img id="img-g2" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:none;"/><div id="ph-g2" style="width:100%;height:100%;background:linear-gradient(135deg,var(--bdeep),var(--cel));display:flex;align-items:center;justify-content:center;color:white;font-size:.8rem;">📸 Foto 2</div><button class="photo-icon-btn" onclick="openPhotoModal('g2')" title="Cambiar foto">📸</button></div>
+      <div class="git rv" style="height:172px;position:relative;"><img id="img-g3" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:none;"/><div id="ph-g3" style="width:100%;height:100%;background:linear-gradient(135deg,var(--bdeep),var(--cel));display:flex;align-items:center;justify-content:center;color:white;font-size:.8rem;">📸 Foto 3</div><button class="photo-icon-btn" onclick="openPhotoModal('g3')" title="Cambiar foto">📸</button></div>
+      <div class="git rv" style="height:172px;position:relative;"><img id="img-g4" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:none;"/><div id="ph-g4" style="width:100%;height:100%;background:linear-gradient(135deg,var(--bdeep),var(--cel));display:flex;align-items:center;justify-content:center;color:white;font-size:.8rem;">📸 Foto 4</div><button class="photo-icon-btn" onclick="openPhotoModal('g4')" title="Cambiar foto">📸</button></div>
+      <div class="git rv" style="height:172px;position:relative;"><img id="img-g5" src="" alt="" style="width:100%;height:100%;object-fit:cover;display:none;"/><div id="ph-g5" style="width:100%;height:100%;background:linear-gradient(135deg,var(--bdeep),var(--cel));display:flex;align-items:center;justify-content:center;color:white;font-size:.8rem;">📸 Foto 5</div><button class="photo-icon-btn" onclick="openPhotoModal('g5')" title="Cambiar foto">📸</button></div>
     </div>
   </div>
 </section>
 
 <section id="unete">
-  <span class="stag" style="background:rgba(255,255,255,.2);color:white">Únete al movimiento</span>
-  <h2 class="rv">¡El partido necesita tu ayuda como personero!</h2>
-  <p class="desc rv">Juntos podemos construir la región que merecemos.</p>
-  <div class="fr rv"><input type="text" placeholder="Tu nombre" id="fn"/><input type="tel" placeholder="Tu teléfono" id="ft"/></div>
-  <div class="fr rv" style="margin-top:10px"><input type="text" placeholder="Asunto (ej: Quiero ser personero...)" id="fasunto" style="flex:1;min-width:260px"/></div>
-  <div class="fr rv" style="margin-top:10px"><textarea id="fmensaje" placeholder="Escribe tu mensaje aquí..." rows="4" style="flex:1;min-width:260px;padding:12px 17px;border-radius:18px;border:none;font-size:.88rem;outline:none;resize:vertical;font-family:inherit"></textarea></div>
-  <div class="fr rv" style="margin-top:10px;justify-content:center"><button id="fbtn" onclick="suscribir()">Enviar mensaje ✊</button></div>
-  <div id="fmsg"></div>
-  <div class="srow rv"><a class="sb" href="#">f</a><a class="sb" href="#">ig</a><a class="sb" href="#">tt</a><a class="sb" href="#">yt</a></div>
+  <div class="upat"></div>
+  <div class="uinn">
+    <div class="utag">Únete al movimiento</div>
+    <h2 class="rv">¡El partido necesita tu ayuda como personero!</h2>
+    <p class="desc rv">Juntos podemos construir la región que merecemos.</p>
+    <div class="fbox rv">
+      <div class="frow2"><input class="fi" type="text" placeholder="Tu nombre completo" id="fn"/><input class="fi" type="tel" placeholder="Tu teléfono" id="ft"/></div>
+      <select class="fsel" id="fasunto"><option value="">Selecciona el asunto...</option><option>Quiero ser personero</option><option>Quiero ser voluntario</option><option>Propuesta ciudadana</option><option>Alianza o apoyo</option><option>Consulta general</option></select>
+      <textarea class="fta" id="fmensaje" placeholder="Escribe tu mensaje aquí..."></textarea>
+      <button class="fbtn" id="fbtn" onclick="suscribir()">Enviar mensaje ✊</button>
+      <div id="fmsg"></div>
+    </div>
+    <div class="srow rv"><a class="sb" href="#">f</a><a class="sb" href="#">ig</a><a class="sb" href="#">tt</a><a class="sb" href="#">yt</a></div>
+  </div>
 </section>
-<footer><div class="flog"><div class="r">R</div><span>Jorge Mera – Gobernador 2026</span></div><p>Renovación Popular · Loreto, Perú · Material de campaña electoral</p></footer>
+<footer><div class="finner"><div class="flogo"><div class="flogo-ico">R</div><span>Jorge Mera – Gobernador Loreto 2026</span></div><p>Renovación Popular · Loreto, Perú · Material de campaña electoral</p></div></footer>
 </div>
 
-<!-- DIPUTADOS -->
+<!-- ══ NOTICIAS ══ -->
+<div id="p-noticias" style="display:none">
+  <div class="pg-hero"><div class="pg-dots"></div><div class="pg-inner"><button class="back-btn" onclick="goTo('inicio')">← Volver al inicio</button><div class="tag">Comunicación oficial · Loreto 2026</div><h1>Noticias y Avisos</h1><p>Mantente informado sobre las actividades y comunicados oficiales de la campaña.</p></div><div class="hwave"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path fill="#F7FAFB" d="M0,40 C480,80 960,0 1440,50 L1440,80 L0,80 Z"/></svg></div></div>
+  <div style="background:var(--bl);padding:22px 5%;border-bottom:1px solid var(--border);">
+    <div style="max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+      <div><strong style="color:var(--bd);font-size:.95rem;">📢 Publicar nueva noticia</strong><p style="color:var(--text2);font-size:.8rem;margin-top:3px;">Solo el equipo de campaña puede publicar.</p></div>
+      <button onclick="toggleNewsForm()" style="background:var(--cel);color:white;padding:10px 22px;border-radius:8px;font-weight:700;font-size:.86rem;border:none;cursor:pointer;">+ Nueva publicación</button>
+    </div>
+    <div id="news-form-box" style="display:none;max-width:1100px;margin:18px auto 0;background:white;border-radius:13px;padding:26px 30px;border:1px solid var(--border);">
+      <h3 style="font-size:.98rem;font-weight:800;color:var(--bd);margin-bottom:18px;">Crear publicación</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px;"><input class="fi" type="text" id="nq-titulo" placeholder="Título *"/><select class="fsel" id="nq-cat"><option value="📢">📢 Comunicado</option><option value="🗺️">🗺️ Recorrido</option><option value="📋">📋 Propuesta</option><option value="🤝">🤝 Alianza</option><option value="🎉">🎉 Evento</option><option value="⚠️">⚠️ Aviso urgente</option></select></div>
+      <textarea class="fta" id="nq-texto" placeholder="Contenido..." style="margin-bottom:13px;min-height:72px;"></textarea>
+      <div style="display:flex;gap:10px;"><button onclick="publicarPost()" style="background:var(--cel);color:white;padding:10px 22px;border-radius:8px;font-weight:800;border:none;cursor:pointer;">Publicar ✊</button><button onclick="toggleNewsForm()" style="background:var(--gray);color:var(--text2);padding:10px 18px;border-radius:8px;font-weight:600;border:1px solid var(--border);cursor:pointer;">Cancelar</button></div>
+    </div>
+  </div>
+  <div style="background:var(--gray);padding:48px 5%;min-height:360px;"><div style="max-width:1100px;margin:auto;"><div id="news-public-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;"></div><div id="news-empty-msg" style="text-align:center;padding:60px 20px;color:var(--muted);"><div style="font-size:2.8rem;margin-bottom:12px;">📭</div><p style="font-size:.98rem;font-weight:600;">Aún no hay noticias.</p></div></div></div>
+  <footer><div class="finner"><div class="flogo"><div class="flogo-ico">R</div><span>Jorge Mera – Gobernador 2026</span></div><p>Renovación Popular · Loreto, Perú</p></div></footer>
+</div>
+
+<!-- ══ AVISOS ══ -->
+<div id="p-avisos" style="display:none">
+  <div class="pg-hero"><div class="pg-dots"></div><div class="pg-inner"><button class="back-btn" onclick="goTo('inicio')">← Volver al inicio</button><div class="tag">⚠️ Avisos Oficiales</div><h1>Avisos de Campaña</h1><p>Comunicados urgentes y alertas importantes del equipo de campaña.</p></div><div class="hwave"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path fill="#FFF8E1" d="M0,40 C480,80 960,0 1440,50 L1440,80 L0,80 Z"/></svg></div></div>
+  <div style="background:#FFF8E1;padding:22px 5%;border-bottom:2px solid #FFD600;">
+    <div style="max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+      <div><strong style="color:#7B5800;font-size:.95rem;">⚠️ Publicar nuevo aviso</strong></div>
+      <button onclick="toggleAvisoForm()" style="background:#F5A623;color:white;padding:10px 22px;border-radius:8px;font-weight:700;font-size:.86rem;border:none;cursor:pointer;">+ Nuevo aviso</button>
+    </div>
+    <div id="aviso-form-box" style="display:none;max-width:1100px;margin:18px auto 0;background:white;border-radius:13px;padding:26px 30px;border:2px solid #FFD600;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px;"><input class="fi" type="text" id="av-titulo" placeholder="Título del aviso *"/><select class="fsel" id="av-tipo"><option value="⚠️">⚠️ Aviso urgente</option><option value="📅">📅 Cambio de fecha</option><option value="📍">📍 Cambio de lugar</option><option value="🚨">🚨 Alerta</option><option value="✅">✅ Confirmación</option><option value="❌">❌ Cancelación</option></select></div>
+      <textarea class="fta" id="av-texto" placeholder="Contenido del aviso..." style="margin-bottom:13px;min-height:72px;"></textarea>
+      <div style="display:flex;gap:10px;"><button onclick="publicarAviso()" style="background:#F5A623;color:white;padding:10px 22px;border-radius:8px;font-weight:800;border:none;cursor:pointer;">Publicar ⚠️</button><button onclick="toggleAvisoForm()" style="background:var(--gray);color:var(--text2);padding:10px 18px;border-radius:8px;font-weight:600;border:1px solid var(--border);cursor:pointer;">Cancelar</button></div>
+    </div>
+  </div>
+  <div style="background:var(--gray);padding:48px 5%;min-height:360px;"><div style="max-width:1100px;margin:auto;"><div id="avisos-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;"></div><div id="avisos-empty" style="text-align:center;padding:60px 20px;color:var(--muted);"><div style="font-size:2.8rem;margin-bottom:12px;">📭</div><p style="font-size:.98rem;font-weight:600;">No hay avisos publicados.</p></div></div></div>
+  <footer><div class="finner"><div class="flogo"><div class="flogo-ico">R</div><span>Jorge Mera – Gobernador 2026</span></div><p>Renovación Popular · Loreto, Perú</p></div></footer>
+</div>
+
+<!-- ══ DIPUTADOS ══ -->
 <div id="p-diputados" style="display:none">
-  <div class="pg-hero"><div class="hdots"></div><div class="pg-hero-inner"><button class="back-btn" onclick="goTo('inicio')">← Volver al inicio</button><div class="htag" style="margin-top:14px">🏛️ Renovación Popular · Loreto 2026</div><h1>Candidatos a <span>Diputado</span></h1><p>Personas comprometidas con el cambio para representar a Loreto en el Congreso.</p></div><div class="hwave"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path fill="#f4f9ff" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"/></svg></div></div>
-  <div class="pg-section"><div class="cards-grid">
-    <div class="card rv"><div class="card-img"><input type="file" accept="image/*" onchange="loadCard(this,'d1')"/><div class="card-hint" id="ch-d1"><span>📸</span>Subir foto</div><img id="ci-d1" src="" alt="" style="display:none"/><div class="num-badge">N° 1</div></div><div class="card-body"><span class="cargo">Candidato a Diputado</span><h3 class="card-nombre" contenteditable="true">Anthony Mera</h3><p class="card-desc" contenteditable="true">Joven líder loretano comprometido con la renovación política y el desarrollo de la región amazónica.</p><div class="card-redes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
-    <div class="card rv"><div class="card-img"><input type="file" accept="image/*" onchange="loadCard(this,'d2')"/><div class="card-hint" id="ch-d2"><span>📸</span>Subir foto</div><img id="ci-d2" src="" alt="" style="display:none"/><div class="num-badge">N° 2</div></div><div class="card-body"><span class="cargo">Candidato/a a Diputado/a</span><h3 class="card-nombre" contenteditable="true">Nombre Apellido</h3><p class="card-desc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="card-redes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
-    <div class="card rv"><div class="card-img"><input type="file" accept="image/*" onchange="loadCard(this,'d3')"/><div class="card-hint" id="ch-d3"><span>📸</span>Subir foto</div><img id="ci-d3" src="" alt="" style="display:none"/><div class="num-badge">N° 3</div></div><div class="card-body"><span class="cargo">Candidato/a a Diputado/a</span><h3 class="card-nombre" contenteditable="true">Nombre Apellido</h3><p class="card-desc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="card-redes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
-    <div class="card rv"><div class="card-img"><input type="file" accept="image/*" onchange="loadCard(this,'d4')"/><div class="card-hint" id="ch-d4"><span>📸</span>Subir foto</div><img id="ci-d4" src="" alt="" style="display:none"/><div class="num-badge">N° 4</div></div><div class="card-body"><span class="cargo">Candidato/a a Diputado/a</span><h3 class="card-nombre" contenteditable="true">Nombre Apellido</h3><p class="card-desc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="card-redes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
-  </div><div class="pg-cta"><p>¿Quieres apoyar a nuestros candidatos?</p><button onclick="goTo('inicio');setTimeout(()=>ir('unete'),300)">Únete al equipo ✊</button></div></div>
-  <footer><div class="flog"><div class="r">R</div><span>Jorge Mera – Gobernador 2026</span></div><p>Renovación Popular · Loreto, Perú</p></footer>
+  <div class="pg-hero"><div class="pg-dots"></div><div class="pg-inner"><button class="back-btn" onclick="goTo('inicio')">← Volver al inicio</button><div class="tag">🏛️ Renovación Popular · Loreto 2026</div><h1>Candidatos a Diputado</h1><p>Personas comprometidas con el cambio para representar a Loreto en el Congreso.</p></div><div class="hwave"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path fill="#F7FAFB" d="M0,40 C480,80 960,0 1440,50 L1440,80 L0,80 Z"/></svg></div></div>
+  <div class="pg-sec"><div class="cgrid">
+    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-d1" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-d1">📸 Diputado N°1</span><button class="photo-icon-btn" onclick="openPhotoModal('d1')" title="Cambiar foto">📸</button><div class="cnb">N° 1</div></div><div class="cbody"><span class="ccargo">Candidato a Diputado</span><h3 class="cnombre" contenteditable="true">Anthony Mera</h3><p class="cdesc" contenteditable="true">Joven líder loretano comprometido con la renovación política y el desarrollo de la región amazónica.</p><div class="credes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
+    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-d2" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-d2">📸 Diputado N°2</span><button class="photo-icon-btn" onclick="openPhotoModal('d2')" title="Cambiar foto">📸</button><div class="cnb">N° 2</div></div><div class="cbody"><span class="ccargo">Candidato/a a Diputado/a</span><h3 class="cnombre" contenteditable="true">Nombre Apellido</h3><p class="cdesc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="credes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
+    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-d3" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-d3">📸 Diputado N°3</span><button class="photo-icon-btn" onclick="openPhotoModal('d3')" title="Cambiar foto">📸</button><div class="cnb">N° 3</div></div><div class="cbody"><span class="ccargo">Candidato/a a Diputado/a</span><h3 class="cnombre" contenteditable="true">Nombre Apellido</h3><p class="cdesc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="credes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
+    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-d4" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-d4">📸 Diputado N°4</span><button class="photo-icon-btn" onclick="openPhotoModal('d4')" title="Cambiar foto">📸</button><div class="cnb">N° 4</div></div><div class="cbody"><span class="ccargo">Candidato/a a Diputado/a</span><h3 class="cnombre" contenteditable="true">Nombre Apellido</h3><p class="cdesc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="credes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
+  </div><div class="pg-cta"><p>¿Quieres apoyar?</p><button onclick="goTo('inicio');setTimeout(()=>ir('unete'),300)">Únete al equipo ✊</button></div></div>
+  <footer><div class="finner"><div class="flogo"><div class="flogo-ico">R</div><span>Jorge Mera – Gobernador 2026</span></div><p>Renovación Popular · Loreto, Perú</p></div></footer>
 </div>
 
-<!-- SENADORES -->
+<!-- ══ SENADORES ══ -->
 <div id="p-senadores" style="display:none">
-  <div class="pg-hero"><div class="hdots"></div><div class="pg-hero-inner"><button class="back-btn" onclick="goTo('inicio')">← Volver al inicio</button><div class="htag" style="margin-top:14px">⭐ Renovación Popular · Loreto 2026</div><h1>Candidatos al <span>Senado</span></h1><p>Líderes comprometidos con Loreto en el Senado de la República.</p></div><div class="hwave"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path fill="#f4f9ff" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"/></svg></div></div>
-  <div class="pg-section"><div class="cards-grid">
-    <div class="card rv"><div class="card-img"><input type="file" accept="image/*" onchange="loadCard(this,'s1')"/><div class="card-hint" id="ch-s1"><span>📸</span>Subir foto</div><img id="ci-s1" src="" alt="" style="display:none"/><div class="num-badge">N° 1</div></div><div class="card-body"><span class="cargo">Candidato/a a Senador/a</span><h3 class="card-nombre" contenteditable="true">Nombre Apellido</h3><p class="card-desc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="card-redes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
-    <div class="card rv"><div class="card-img"><input type="file" accept="image/*" onchange="loadCard(this,'s2')"/><div class="card-hint" id="ch-s2"><span>📸</span>Subir foto</div><img id="ci-s2" src="" alt="" style="display:none"/><div class="num-badge">N° 2</div></div><div class="card-body"><span class="cargo">Candidato/a a Senador/a</span><h3 class="card-nombre" contenteditable="true">Nombre Apellido</h3><p class="card-desc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="card-redes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
-    <div class="card rv"><div class="card-img"><input type="file" accept="image/*" onchange="loadCard(this,'s3')"/><div class="card-hint" id="ch-s3"><span>📸</span>Subir foto</div><img id="ci-s3" src="" alt="" style="display:none"/><div class="num-badge">N° 3</div></div><div class="card-body"><span class="cargo">Candidato/a a Senador/a</span><h3 class="card-nombre" contenteditable="true">Nombre Apellido</h3><p class="card-desc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="card-redes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
-    <div class="card rv"><div class="card-img"><input type="file" accept="image/*" onchange="loadCard(this,'s4')"/><div class="card-hint" id="ch-s4"><span>📸</span>Subir foto</div><img id="ci-s4" src="" alt="" style="display:none"/><div class="num-badge">N° 4</div></div><div class="card-body"><span class="cargo">Candidato/a a Senador/a</span><h3 class="card-nombre" contenteditable="true">Nombre Apellido</h3><p class="card-desc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="card-redes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
-  </div><div class="pg-cta"><p>¿Quieres apoyar a nuestros candidatos?</p><button onclick="goTo('inicio');setTimeout(()=>ir('unete'),300)">Únete al equipo ✊</button></div></div>
-  <footer><div class="flog"><div class="r">R</div><span>Jorge Mera – Gobernador 2026</span></div><p>Renovación Popular · Loreto, Perú</p></footer>
+  <div class="pg-hero"><div class="pg-dots"></div><div class="pg-inner"><button class="back-btn" onclick="goTo('inicio')">← Volver al inicio</button><div class="tag">⭐ Renovación Popular · Loreto 2026</div><h1>Candidatos al Senado</h1><p>Líderes comprometidos con Loreto en el Senado de la República.</p></div><div class="hwave"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path fill="#F7FAFB" d="M0,40 C480,80 960,0 1440,50 L1440,80 L0,80 Z"/></svg></div></div>
+  <div class="pg-sec"><div class="cgrid">
+    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-s1c" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-s1c">📸 Senador N°1</span><button class="photo-icon-btn" onclick="openPhotoModal('s1c')" title="Cambiar foto">📸</button><div class="cnb">N° 1</div></div><div class="cbody"><span class="ccargo">Candidato/a a Senador/a</span><h3 class="cnombre" contenteditable="true">Nombre Apellido</h3><p class="cdesc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="credes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
+    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-s2c" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-s2c">📸 Senador N°2</span><button class="photo-icon-btn" onclick="openPhotoModal('s2c')" title="Cambiar foto">📸</button><div class="cnb">N° 2</div></div><div class="cbody"><span class="ccargo">Candidato/a a Senador/a</span><h3 class="cnombre" contenteditable="true">Nombre Apellido</h3><p class="cdesc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="credes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
+    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-s3c" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-s3c">📸 Senador N°3</span><button class="photo-icon-btn" onclick="openPhotoModal('s3c')" title="Cambiar foto">📸</button><div class="cnb">N° 3</div></div><div class="cbody"><span class="ccargo">Candidato/a a Senador/a</span><h3 class="cnombre" contenteditable="true">Nombre Apellido</h3><p class="cdesc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="credes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
+    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-s4c" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-s4c">📸 Senador N°4</span><button class="photo-icon-btn" onclick="openPhotoModal('s4c')" title="Cambiar foto">📸</button><div class="cnb">N° 4</div></div><div class="cbody"><span class="ccargo">Candidato/a a Senador/a</span><h3 class="cnombre" contenteditable="true">Nombre Apellido</h3><p class="cdesc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="credes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
+  </div><div class="pg-cta"><p>¿Quieres apoyar?</p><button onclick="goTo('inicio');setTimeout(()=>ir('unete'),300)">Únete al equipo ✊</button></div></div>
+  <footer><div class="finner"><div class="flogo"><div class="flogo-ico">R</div><span>Jorge Mera – Gobernador 2026</span></div><p>Renovación Popular · Loreto, Perú</p></div></footer>
 </div>
 
 <a href="https://wa.me/51958188762?text=Hola%20Jorge%20Mera%2C%20me%20comunico%20desde%20tu%20p%C3%A1gina%20web." target="_blank" class="wa">
-  <svg viewBox="0 0 32 32" width="26" height="26" fill="white"><path d="M16 1C7.716 1 1 7.716 1 16c0 2.628.672 5.1 1.845 7.264L1 31l7.94-1.82A14.94 14.94 0 0016 31c8.284 0 15-6.716 15-15S24.284 1 16 1zm0 27.2a12.16 12.16 0 01-6.19-1.694l-.444-.263-4.714 1.08 1.112-4.593-.29-.47A12.2 12.2 0 1116 28.2zm6.71-9.153c-.368-.184-2.17-1.07-2.506-1.192-.336-.122-.58-.184-.824.184-.244.368-.944 1.192-1.158 1.436-.213.244-.427.274-.795.09-.368-.183-1.554-.572-2.96-1.826-1.094-.976-1.833-2.18-2.047-2.548-.214-.368-.023-.567.16-.75.165-.164.368-.428.552-.641.184-.214.244-.368.368-.612.122-.244.06-.458-.03-.641-.092-.184-.824-1.988-1.13-2.72-.298-.714-.6-.617-.824-.63-.213-.01-.457-.013-.7-.013-.244 0-.64.092-.976.458-.336.367-1.28 1.25-1.28 3.048s1.31 3.537 1.494 3.781c.183.244 2.578 3.936 6.247 5.52.874.378 1.556.603 2.087.772.877.28 1.676.24 2.308.146.704-.105 2.17-.887 2.476-1.743.306-.856.306-1.59.214-1.743-.092-.153-.336-.244-.703-.428z"/></svg>
+  <svg viewBox="0 0 32 32" width="24" height="24" fill="white"><path d="M16 1C7.716 1 1 7.716 1 16c0 2.628.672 5.1 1.845 7.264L1 31l7.94-1.82A14.94 14.94 0 0016 31c8.284 0 15-6.716 15-15S24.284 1 16 1zm0 27.2a12.16 12.16 0 01-6.19-1.694l-.444-.263-4.714 1.08 1.112-4.593-.29-.47A12.2 12.2 0 1116 28.2zm6.71-9.153c-.368-.184-2.17-1.07-2.506-1.192-.336-.122-.58-.184-.824.184-.244.368-.944 1.192-1.158 1.436-.213.244-.427.274-.795.09-.368-.183-1.554-.572-2.96-1.826-1.094-.976-1.833-2.18-2.047-2.548-.214-.368-.023-.567.16-.75.165-.164.368-.428.552-.641.184-.214.244-.368.368-.612.122-.244.06-.458-.03-.641-.092-.184-.824-1.988-1.13-2.72-.298-.714-.6-.617-.824-.63-.213-.01-.457-.013-.7-.013-.244 0-.64.092-.976.458-.336.367-1.28 1.25-1.28 3.048s1.31 3.537 1.494 3.781c.183.244 2.578 3.936 6.247 5.52.874.378 1.556.603 2.087.772.877.28 1.676.24 2.308.146.704-.105 2.17-.887 2.476-1.743.306-.856.306-1.59.214-1.743-.092-.153-.336-.244-.703-.428z"/></svg>
   ¡Escríbenos!
 </a>
 
 <script>
+// ── Navegación ──
 function goTo(p){
-  ['inicio','diputados','senadores'].forEach(id=>{
-    document.getElementById('p-'+id).style.display = id===p ? 'block' : 'none';
+  ['inicio','diputados','senadores','noticias','avisos'].forEach(id=>{
+    document.getElementById('p-'+id).style.display=id===p?'block':'none';
   });
   window.scrollTo({top:0,behavior:'smooth'});
   document.querySelectorAll('#p-'+p+' .rv').forEach(el=>obs.observe(el));
+  if(p==='noticias') renderPublicNews();
+  if(p==='avisos') renderAvisos();
 }
-function ir(id){ document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); }
-const obs = new IntersectionObserver(els=>{
-  els.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('vis'); });
-},{threshold:.1});
+function ir(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'});}
+
+// ── Scroll reveal ──
+const obs=new IntersectionObserver(els=>{els.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:.1});
 document.querySelectorAll('#p-inicio .rv').forEach(el=>obs.observe(el));
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
-function animCount(id,end,suf=''){
-  let s=0,step=end/60,el=document.getElementById(id);
-  const t=setInterval(()=>{ s=Math.min(s+step,end); el.textContent=Math.floor(s)+suf; if(s>=end)clearInterval(t); },22);
+
+// ── Contadores ──
+function animCount(id,end,suf=''){let s=0,step=end/60,el=document.getElementById(id);const t=setInterval(()=>{s=Math.min(s+step,end);el.textContent=Math.floor(s)+suf;if(s>=end)clearInterval(t);},22);}
+new IntersectionObserver(e=>{if(e[0].isIntersecting){animCount('c1',8);animCount('c2',24);animCount('c3',15,'+');}},{threshold:.5}).observe(document.querySelector('.stats'));
+
+// ── Modal de fotos ──
+let currentPhotoId=null;
+function openPhotoModal(photoId){
+  currentPhotoId=photoId;
+  document.getElementById('photo-modal').classList.add('active');
+  document.getElementById('photo-file-input').value='';
+  document.getElementById('photo-url-input').value='';
+  document.getElementById('photo-preview-file').style.display='none';
+  document.getElementById('photo-preview-url').style.display='none';
 }
-new IntersectionObserver(e=>{
-  if(e[0].isIntersecting){ animCount('c1',8); animCount('c2',24); animCount('c3',15,'+'); }
-},{threshold:.5}).observe(document.querySelector('.cnts'));
-async function loadImg(input,id){
-  if(!input.files||!input.files[0]) return;
+function closePhotoModal(){
+  currentPhotoId=null;
+  document.getElementById('photo-modal').classList.remove('active');
+}
+function switchPhotoTab(tab){
+  document.querySelectorAll('.photo-upload-section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.photo-upload-tabs button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('photo-tab-'+tab).classList.add('active');
+  event.target.classList.add('active');
+}
+function previewPhotoFile(input){
+  if(!input.files||!input.files[0]){document.getElementById('photo-preview-file').style.display='none';return;}
   const r=new FileReader();
-  r.onload=async e=>{ setImg(id,e.target.result); try{ await window.storage.set('img-'+id,e.target.result); }catch(err){} };
+  r.onload=e=>{
+    const prev=document.getElementById('photo-preview-file');
+    prev.innerHTML=`<img src="${e.target.result}"/>`;
+    prev.style.display='flex';
+  };
   r.readAsDataURL(input.files[0]);
 }
-function setImg(id,data){
-  const img=document.getElementById('ui-'+id);
-  const hint=document.getElementById('uh-'+id);
-  if(img){ img.src=data; img.style.display='block'; }
-  if(hint) hint.classList.add('h');
+function previewPhotoURL(input){
+  const url=input.value.trim();
+  if(!url){document.getElementById('photo-preview-url').style.display='none';return;}
+  const prev=document.getElementById('photo-preview-url');
+  prev.innerHTML=`<img src="${url}" onerror="this.src=''; this.parentElement.innerHTML='Error: URL no válida'"/>`;
+  prev.style.display='flex';
 }
-['hero','s1','s2','g1','g2','g3','g4','g5'].forEach(async z=>{
-  try{ const r=await window.storage.get('img-'+z); if(r?.value) setImg(z,r.value); }catch(e){}
-});
-async function loadCard(input,id){
+async function uploadSelectedPhoto(){
+  if(!currentPhotoId){alert('Error: no se seleccionó foto.');return;}
+  const fileInput=document.getElementById('photo-file-input');
+  const urlInput=document.getElementById('photo-url-input');
+  let url=null;
+  if(fileInput.files&&fileInput.files[0]){
+    const r=new FileReader();
+    r.onload=async e=>{
+      url=e.target.result;
+      await applyPhoto(url);
+    };
+    r.readAsDataURL(fileInput.files[0]);
+  }else if(urlInput.value.trim()){
+    url=urlInput.value.trim();
+    await applyPhoto(url);
+  }else{
+    alert('Selecciona una foto o pega una URL.');
+  }
+}
+async function applyPhoto(url){
+  const img=document.getElementById('img-'+currentPhotoId);
+  const ph=document.getElementById('ph-'+currentPhotoId);
+  if(!img){alert('Error: marco no encontrado.');return;}
+  img.onload=()=>{
+    img.style.display='block';
+    if(ph)ph.style.display='none';
+    try{window.storage.set('photo-'+currentPhotoId,url);}catch(e){}
+    closePhotoModal();
+  };
+  img.onerror=()=>{alert('❌ No se pudo cargar la foto. Verifica la URL.');};
+  img.src=url;
+}
+
+// ── Subir desde PC ──
+function uploadPC(input, photoId){
   if(!input.files||!input.files[0]) return;
   const r=new FileReader();
-  r.onload=async e=>{ setCard(id,e.target.result); try{ await window.storage.set('card-'+id,e.target.result); }catch(err){} };
+  r.onload=async e=>{
+    const url=e.target.result;
+    const img=document.getElementById('img-'+photoId);
+    const ph=document.getElementById('ph-'+photoId);
+    if(img){img.src=url;img.style.display='block';}
+    if(ph)ph.style.display='none';
+    try{await window.storage.set('photo-'+photoId,url);}catch(err){}
+  };
   r.readAsDataURL(input.files[0]);
 }
-function setCard(id,data){
-  const img=document.getElementById('ci-'+id);
-  const hint=document.getElementById('ch-'+id);
-  if(img){ img.src=data; img.style.display='block'; }
-  if(hint) hint.classList.add('h');
+// ── Aplicar foto por URL ──
+function driveUrl(link){
+  const m=link.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  if(m) return `https://lh3.googleusercontent.com/d/${m[1]}`;
+  // Si ya es una URL directa de imagen, úsala tal cual
+  return link;
 }
-['d1','d2','d3','d4','s1','s2','s3','s4'].forEach(async z=>{
-  try{ const r=await window.storage.get('card-'+z); if(r?.value) setCard(z,r.value); }catch(e){}
+function setPhoto(inputId, photoId){
+  const val=document.getElementById(inputId)?.value.trim();
+  if(!val){alert('Pega el enlace primero.');return;}
+  // Convertir cualquier formato de Drive o URL directa
+  let url=val;
+  const m=val.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  if(m) url=`https://lh3.googleusercontent.com/d/${m[1]}=s1600`;
+  const img=document.getElementById('img-'+photoId);
+  const ph=document.getElementById('ph-'+photoId);
+  if(!img){alert('Error: imagen no encontrada.');return;}
+  img.onload=()=>{img.style.display='block';if(ph)ph.style.display='none';try{window.storage.set('photo-'+photoId,url);}catch(e){}};
+  img.onerror=()=>{
+    // Si falla lh3, intentar con uc?export=view
+    if(url.includes('lh3.googleusercontent')){
+      const id2=url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+      if(id2){
+        img.src=`https://drive.google.com/uc?export=view&id=${id2[1]}`;
+        return;
+      }
+    }
+    alert('❌ No se pudo cargar la foto.\n\nSolución: Sube la foto a postimages.org y usa ese enlace directo.');
+  };
+  img.src=url;
+}
+
+// ── Restaurar fotos guardadas ──
+['hero','s1','s2','g1','g2','g3','g4','g5','d1','d2','d3','d4','s1c','s2c','s3c','s4c'].forEach(async id=>{
+  try{
+    const r=await window.storage.get('photo-'+id);
+    if(r?.value){
+      const img=document.getElementById('img-'+id);
+      const ph=document.getElementById('ph-'+id);
+      if(img){img.src=r.value;img.style.display='block';}
+      if(ph)ph.style.display='none';
+    }
+  }catch(e){}
 });
+
+// ── NOTICIAS ──
+let posts=[];
+async function cargarPosts(){try{const r=await window.storage.get('posts-data');posts=r?.value?JSON.parse(r.value):[];}catch(e){posts=[];}}
+async function guardarPosts(){try{await window.storage.set('posts-data',JSON.stringify(posts));}catch(e){}}
+function toggleNewsForm(){const f=document.getElementById('news-form-box');f.style.display=f.style.display==='none'?'block':'none';}
+function publicarPost(){
+  const titulo=document.getElementById('nq-titulo').value.trim();
+  const texto=document.getElementById('nq-texto').value.trim();
+  const cat=document.getElementById('nq-cat').value;
+  if(!titulo){alert('Escribe un título.');return;}
+  posts.unshift({id:Date.now(),titulo,texto,cat,fecha:new Date().toLocaleDateString('es-PE',{day:'numeric',month:'long',year:'numeric'})});
+  guardarPosts();renderPublicNews();
+  document.getElementById('nq-titulo').value='';document.getElementById('nq-texto').value='';toggleNewsForm();
+}
+function eliminarPost(id){if(!confirm('¿Eliminar?'))return;posts=posts.filter(p=>p.id!==id);guardarPosts();renderPublicNews();}
+function renderPublicNews(){
+  const grid=document.getElementById('news-public-grid'),empty=document.getElementById('news-empty-msg');
+  if(!posts.length){grid.innerHTML='';empty.style.display='block';return;}
+  empty.style.display='none';
+  grid.innerHTML=posts.map(p=>`<div class="news-card"><button class="ndel" onclick="eliminarPost(${p.id})">✕</button><div class="news-top">${p.cat}</div><div class="news-body"><span class="ncbadge">${p.cat}</span><h3>${p.titulo}</h3>${p.texto?`<p>${p.texto}</p>`:''}<div class="news-date">📅 ${p.fecha}</div></div></div>`).join('');
+}
+
+// ── AVISOS ──
+let avisos=[];
+async function cargarAvisos(){try{const r=await window.storage.get('avisos-data');avisos=r?.value?JSON.parse(r.value):[];}catch(e){avisos=[];}}
+async function guardarAvisos(){try{await window.storage.set('avisos-data',JSON.stringify(avisos));}catch(e){}}
+function toggleAvisoForm(){const f=document.getElementById('aviso-form-box');f.style.display=f.style.display==='none'?'block':'none';}
+function publicarAviso(){
+  const titulo=document.getElementById('av-titulo').value.trim();
+  const texto=document.getElementById('av-texto').value.trim();
+  const tipo=document.getElementById('av-tipo').value;
+  if(!titulo){alert('Escribe un título.');return;}
+  avisos.unshift({id:Date.now(),titulo,texto,tipo,fecha:new Date().toLocaleDateString('es-PE',{day:'numeric',month:'long',year:'numeric'})});
+  guardarAvisos();renderAvisos();
+  document.getElementById('av-titulo').value='';document.getElementById('av-texto').value='';toggleAvisoForm();
+}
+function eliminarAviso(id){if(!confirm('¿Eliminar?'))return;avisos=avisos.filter(a=>a.id!==id);guardarAvisos();renderAvisos();}
+function renderAvisos(){
+  const grid=document.getElementById('avisos-grid'),empty=document.getElementById('avisos-empty');
+  if(!avisos.length){grid.innerHTML='';empty.style.display='block';return;}
+  empty.style.display='none';
+  grid.innerHTML=avisos.map(a=>`<div class="aviso-card"><button class="aviso-del" onclick="eliminarAviso(${a.id})">✕</button><div class="aviso-top">${a.tipo}</div><div class="aviso-body"><span class="av-badge">${a.tipo}</span><h3>${a.titulo}</h3>${a.texto?`<p>${a.texto}</p>`:''}<div class="aviso-date">📅 ${a.fecha}</div></div></div>`).join('');
+}
+
+// ── Formulario contacto ──
 async function suscribir(){
-  const n=document.getElementById('fn').value.trim();
-  const t=document.getElementById('ft').value.trim();
-  const a=document.getElementById('fasunto').value.trim();
-  const m=document.getElementById('fmensaje').value.trim();
-  const msg=document.getElementById('fmsg');
-  const btn=document.getElementById('fbtn');
-  if(!n||!t){ alert('Por favor completa nombre y teléfono.'); return; }
-  if(!a){ alert('Por favor escribe el asunto.'); return; }
-  btn.textContent='Enviando...'; btn.disabled=true;
+  const n=document.getElementById('fn').value.trim(),t=document.getElementById('ft').value.trim(),a=document.getElementById('fasunto').value.trim(),m=document.getElementById('fmensaje').value.trim();
+  const msg=document.getElementById('fmsg'),btn=document.getElementById('fbtn');
+  if(!n||!t){alert('Completa nombre y teléfono.');return;}
+  if(!a){alert('Selecciona el asunto.');return;}
+  btn.textContent='Enviando...';btn.disabled=true;
   try{
     const res=await fetch('https://formspree.io/f/xaqllnny',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({nombre:n,telefono:t,asunto:a,mensaje:m})});
-    if(res.ok){ msg.style.display='block'; msg.innerHTML='✅ ¡Mensaje enviado! 🇵🇪'; ['fn','ft','fasunto','fmensaje'].forEach(i=>document.getElementById(i).value=''); }
-    else{ msg.style.display='block'; msg.innerHTML='❌ Hubo un error.'; }
-  }catch(e){ msg.style.display='block'; msg.innerHTML='❌ Error de conexión.'; }
-  btn.textContent='Enviar mensaje ✊'; btn.disabled=false;
+    if(res.ok){msg.style.display='block';msg.innerHTML='✅ ¡Mensaje enviado! 🇵🇪';['fn','ft','fasunto','fmensaje'].forEach(i=>document.getElementById(i).value='');}
+    else{msg.style.display='block';msg.innerHTML='❌ Hubo un error.';}
+  }catch(e){msg.style.display='block';msg.innerHTML='❌ Error de conexión.';}
+  btn.textContent='Enviar mensaje ✊';btn.disabled=false;
 }
+
+cargarPosts();
+cargarAvisos();
 </script>
 </body>
 </html>
+"Actualización de diseño en index"
