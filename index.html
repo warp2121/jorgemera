@@ -93,7 +93,8 @@ nav.scrolled{background:var(--bdeep);}
 .rv.vis{opacity:1;transform:none;}
 
 /* HERO */
-#hero{min-height:100vh;position:relative;display:flex;align-items:center;background:linear-gradient(150deg,var(--bdeep) 0%,var(--bd) 50%,var(--cel) 100%);overflow:hidden;}
+#hero{min-height:100vh;position:relative;display:flex;align-items:center;background-image:url('https://i.imgur.com/boCgK5p.jpeg');background-size:cover;background-position:center;background-attachment:fixed;overflow:hidden;}
+#hero::before{content:'';position:absolute;inset:0;background:linear-gradient(150deg,rgba(0,107,159,.85) 0%,rgba(0,133,195,.85) 50%,rgba(0,174,239,.85) 100%);z-index:1;}
 .hero-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:30px 30px;}
 .hwave{position:absolute;bottom:-1px;left:0;width:100%;z-index:2;}
 .hwave svg{display:block;}
@@ -212,7 +213,7 @@ footer p{color:rgba(255,255,255,.42);font-size:.78rem;}
 @keyframes wap{0%,100%{box-shadow:0 6px 26px rgba(37,211,102,.42);}50%{box-shadow:0 6px 34px rgba(37,211,102,.72),0 0 0 8px rgba(37,211,102,.11);}}
 
 /* PÁGINAS */
-.pg-hero{position:relative;padding:140px 5% 100px;overflow:hidden;background:linear-gradient(150deg,var(--bdeep),var(--bd),var(--cel));}
+.pg-hero{position:relative;padding:80px 5% 60px;overflow:hidden;background:linear-gradient(150deg,var(--bdeep),var(--bd),var(--cel));}
 .pg-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:30px 30px;}
 .pg-inner{max-width:1100px;margin:auto;position:relative;z-index:2;}
 .back-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.13);color:white;border:1px solid rgba(255,255,255,.25);padding:8px 18px;border-radius:7px;font-weight:600;font-size:.83rem;cursor:pointer;transition:.2s;margin-bottom:28px;}
@@ -454,10 +455,11 @@ footer p{color:rgba(255,255,255,.42);font-size:.78rem;}
       <div class="frow2"><input class="fi" type="text" placeholder="Tu nombre completo" id="fn"/><input class="fi" type="tel" placeholder="Tu teléfono" id="ft"/></div>
       <select class="fsel" id="fasunto"><option value="">Selecciona el asunto...</option><option>Quiero ser personero</option><option>Quiero ser voluntario</option><option>Propuesta ciudadana</option><option>Alianza o apoyo</option><option>Consulta general</option></select>
       <textarea class="fta" id="fmensaje" placeholder="Escribe tu mensaje aquí..."></textarea>
+      <input type="file" class="fi" id="farchivo" accept="image/*,.pdf,.doc,.docx,.xls,.xlsx,video/mp4,video/quicktime,video/x-msvideo,video/x-ms-wmv" placeholder="Adjuntar archivo (opcional)" style="padding:12px;border:1px solid rgba(255,255,255,.2);border-radius:8px;color:rgba(255,255,255,.8);cursor:pointer;"/>
       <button class="fbtn" id="fbtn" onclick="suscribir()">Enviar mensaje ✊</button>
       <div id="fmsg"></div>
     </div>
-    <div class="srow rv"><a class="sb" href="#">f</a><a class="sb" href="#">ig</a><a class="sb" href="#">tt</a><a class="sb" href="#">yt</a></div>
+    <div class="srow rv"><a class="sb" href="https://www.facebook.com/elgallomera" target="_blank">f</a><a class="sb" href="https://www.youtube.com/@jorgemeraramirez5104" target="_blank">yt</a></div>
   </div>
 </section>
 <footer><div class="finner"><div class="flogo"><div class="flogo-ico">R</div><span>Jorge Mera – Gobernador Loreto 2026</span></div><p>Renovación Popular · Loreto, Perú · Material de campaña electoral</p></div></footer>
@@ -504,10 +506,10 @@ footer p{color:rgba(255,255,255,.42);font-size:.78rem;}
 <div id="p-diputados" style="display:none">
   <div class="pg-hero"><div class="pg-dots"></div><div class="pg-inner"><button class="back-btn" onclick="goTo('inicio')">← Volver al inicio</button><div class="tag">🏛️ Renovación Popular · Loreto 2026</div><h1>Candidatos a Diputado</h1><p>Personas comprometidas con el cambio para representar a Loreto en el Congreso.</p></div><div class="hwave"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path fill="#F7FAFB" d="M0,40 C480,80 960,0 1440,50 L1440,80 L0,80 Z"/></svg></div></div>
   <div class="pg-sec"><div class="cgrid">
-    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-d1" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-d1">📸 Diputado N°1</span><button class="photo-icon-btn" onclick="openPhotoModal('d1')" title="Cambiar foto">📸</button><div class="cnb">N° 1</div></div><div class="cbody"><span class="ccargo">Candidato a Diputado</span><h3 class="cnombre" contenteditable="true">Anthony Mera</h3><p class="cdesc" contenteditable="true">Joven líder loretano comprometido con la renovación política y el desarrollo de la región amazónica.</p><div class="credes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
-    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-d2" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-d2">📸 Diputado N°2</span><button class="photo-icon-btn" onclick="openPhotoModal('d2')" title="Cambiar foto">📸</button><div class="cnb">N° 2</div></div><div class="cbody"><span class="ccargo">Candidato/a a Diputado/a</span><h3 class="cnombre" contenteditable="true">Nombre Apellido</h3><p class="cdesc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="credes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
-    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-d3" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-d3">📸 Diputado N°3</span><button class="photo-icon-btn" onclick="openPhotoModal('d3')" title="Cambiar foto">📸</button><div class="cnb">N° 3</div></div><div class="cbody"><span class="ccargo">Candidato/a a Diputado/a</span><h3 class="cnombre" contenteditable="true">Nombre Apellido</h3><p class="cdesc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="credes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
-    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-d4" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-d4">📸 Diputado N°4</span><button class="photo-icon-btn" onclick="openPhotoModal('d4')" title="Cambiar foto">📸</button><div class="cnb">N° 4</div></div><div class="cbody"><span class="ccargo">Candidato/a a Diputado/a</span><h3 class="cnombre" contenteditable="true">Nombre Apellido</h3><p class="cdesc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="credes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
+    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-d1" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-d1">📸 Diputado N°1</span><button class="photo-icon-btn" onclick="openPhotoModal('d1')" title="Cambiar foto">📸</button><div class="cnb">N° 1</div></div><div class="cbody"><span class="ccargo">Candidato a Diputado</span><h3 class="cnombre" contenteditable="true">Anthony Mera</h3><p class="cdesc" contenteditable="true">Joven líder loretano comprometido con la renovación política y el desarrollo de la región amazónica.</p><div class="credes"><a href="https://www.facebook.com/elgallomera" target="_blank" class="red fb">f</a></div></div></div>
+    <div class="card rv"><div class="cbody"><span class="ccargo">Candidato/a a Diputado/a</span><h3 class="cnombre" contenteditable="true"></h3><p class="cdesc" contenteditable="true"></p><div class="credes"><a href="https://www.facebook.com/elgallomera" target="_blank" class="red fb">f</a></div></div></div>
+    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-d3" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-d3">📸 Diputado N°3</span><button class="photo-icon-btn" onclick="openPhotoModal('d3')" title="Cambiar foto">📸</button><div class="cnb">N° 3</div></div><div class="cbody"><span class="ccargo">Candidato/a a Diputado/a</span><h3 class="cnombre" contenteditable="true">Victor J. Chung Garazatua</h3><p class="cdesc" contenteditable="true">Centralismo regional limita la inversión y gestión en su provincia, por lo que propone mecanismos para una mayor autonomía administrativa y presupuestaria. Busca impulsar sectores basados en su formación profesional, como el turismo y los negocios internacionales en la Amazonía</p><div class="credes"><a href="https://www.facebook.com/elgallomera" target="_blank" class="red fb">f</a></div></div></div>
+    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-d4" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-d4">📸 Diputado N°4</span><button class="photo-icon-btn" onclick="openPhotoModal('d4')" title="Cambiar foto">📸</button><div class="cnb">N° 4</div></div><div class="cbody"><span class="ccargo">Candidato/a a Diputado/a</span><h3 class="cnombre" contenteditable="true">Evelyn Cardenas Tafur</h3><p class="cdesc" contenteditable="true">Su agenda legislativa se centra en el desarrollo regional y la educación. Ha manifestado que su postulación busca representar a las mujeres y a las poblaciones más vulnerables de la Amazonía peruana</p><div class="credes"><a href="https://www.facebook.com/elgallomera" target="_blank" class="red fb">f</a></div></div></div>
   </div><div class="pg-cta"><p>¿Quieres apoyar?</p><button onclick="goTo('inicio');setTimeout(()=>ir('unete'),300)">Únete al equipo ✊</button></div></div>
   <footer><div class="finner"><div class="flogo"><div class="flogo-ico">R</div><span>Jorge Mera – Gobernador 2026</span></div><p>Renovación Popular · Loreto, Perú</p></div></footer>
 </div>
@@ -516,10 +518,10 @@ footer p{color:rgba(255,255,255,.42);font-size:.78rem;}
 <div id="p-senadores" style="display:none">
   <div class="pg-hero"><div class="pg-dots"></div><div class="pg-inner"><button class="back-btn" onclick="goTo('inicio')">← Volver al inicio</button><div class="tag">⭐ Renovación Popular · Loreto 2026</div><h1>Candidatos al Senado</h1><p>Líderes comprometidos con Loreto en el Senado de la República.</p></div><div class="hwave"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path fill="#F7FAFB" d="M0,40 C480,80 960,0 1440,50 L1440,80 L0,80 Z"/></svg></div></div>
   <div class="pg-sec"><div class="cgrid">
-    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-s1c" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-s1c">📸 Senador N°1</span><button class="photo-icon-btn" onclick="openPhotoModal('s1c')" title="Cambiar foto">📸</button><div class="cnb">N° 1</div></div><div class="cbody"><span class="ccargo">Candidato/a a Senador/a</span><h3 class="cnombre" contenteditable="true">Nombre Apellido</h3><p class="cdesc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="credes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
-    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-s2c" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-s2c">📸 Senador N°2</span><button class="photo-icon-btn" onclick="openPhotoModal('s2c')" title="Cambiar foto">📸</button><div class="cnb">N° 2</div></div><div class="cbody"><span class="ccargo">Candidato/a a Senador/a</span><h3 class="cnombre" contenteditable="true">Nombre Apellido</h3><p class="cdesc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="credes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
-    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-s3c" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-s3c">📸 Senador N°3</span><button class="photo-icon-btn" onclick="openPhotoModal('s3c')" title="Cambiar foto">📸</button><div class="cnb">N° 3</div></div><div class="cbody"><span class="ccargo">Candidato/a a Senador/a</span><h3 class="cnombre" contenteditable="true">Nombre Apellido</h3><p class="cdesc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="credes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
-    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-s4c" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-s4c">📸 Senador N°4</span><button class="photo-icon-btn" onclick="openPhotoModal('s4c')" title="Cambiar foto">📸</button><div class="cnb">N° 4</div></div><div class="cbody"><span class="ccargo">Candidato/a a Senador/a</span><h3 class="cnombre" contenteditable="true">Nombre Apellido</h3><p class="cdesc" contenteditable="true">Descripción breve. Haz clic para editar.</p><div class="credes"><a href="#" class="red fb">f</a><a href="#" class="red ig">ig</a></div></div></div>
+    <div class="card rv"><div class="cimg" style="position:relative;"><img id="img-s1c" src="" style="display:none;width:100%;height:100%;object-fit:cover;"/><span id="ph-s1c">📸 Senador N°1</span><button class="photo-icon-btn" onclick="openPhotoModal('s1c')" title="Cambiar foto">📸</button><div class="cnb">N° 1</div></div><div class="cbody"><span class="ccargo">Candidato/a a Senador/a</span><h3 class="cnombre" contenteditable="true">Jhon Rivas Ochoa</h3><p class="cdesc" contenteditable="true">La "unidad de Loreto" y en la fiscalización de obras regionales, aprovechando su conocimiento técnico como ingeniero. Propuestas se centra salud y bienestar, inclusión social, medio ambiente, sostenimiento social e infraestructura pública.</p><div class="credes"><a href="https://www.facebook.com/elgallomera" target="_blank" class="red fb">f</a></div></div></div>
+    <div class="card rv"><div class="cbody"><span class="ccargo">Candidato/a a Senador/a</span><h3 class="cnombre" contenteditable="true"></h3><p class="cdesc" contenteditable="true"></p><div class="credes"><a href="https://www.facebook.com/elgallomera" target="_blank" class="red fb">f</a></div></div></div>
+    <div class="card rv"><div class="cbody"><span class="ccargo">Candidato/a a Senador/a</span><h3 class="cnombre" contenteditable="true"></h3><p class="cdesc" contenteditable="true"></p><div class="credes"><a href="https://www.facebook.com/elgallomera" target="_blank" class="red fb">f</a></div></div></div>
+    <div class="card rv"><div class="cbody"><span class="ccargo">Candidato/a a Senador/a</span><h3 class="cnombre" contenteditable="true"></h3><p class="cdesc" contenteditable="true"></p><div class="credes"><a href="https://www.facebook.com/elgallomera" target="_blank" class="red fb">f</a></div></div></div>
   </div><div class="pg-cta"><p>¿Quieres apoyar?</p><button onclick="goTo('inicio');setTimeout(()=>ir('unete'),300)">Únete al equipo ✊</button></div></div>
   <footer><div class="finner"><div class="flogo"><div class="flogo-ico">R</div><span>Jorge Mera – Gobernador 2026</span></div><p>Renovación Popular · Loreto, Perú</p></div></footer>
 </div>
@@ -755,7 +757,9 @@ function publicarPost(){
 }
 function eliminarPost(id){if(!confirm('¿Eliminar?'))return;posts=posts.filter(p=>p.id!==id);guardarPosts();renderPublicNews();}
 function renderPublicNews(){
-  const grid=document.getElementById('news-public-grid'),empty=document.getElementById('news-empty-msg');
+  const grid=document.getElementById('news-public-grid');
+  const empty=document.getElementById('news-empty-msg');
+  if(!grid||!empty)return;
   if(!posts.length){grid.innerHTML='';empty.style.display='block';return;}
   empty.style.display='none';
   grid.innerHTML=posts.map(p=>`<div class="news-card"><button class="ndel" onclick="eliminarPost(${p.id})">✕</button><div class="news-top">${p.cat}</div><div class="news-body"><span class="ncbadge">${p.cat}</span><h3>${p.titulo}</h3>${p.texto?`<p>${p.texto}</p>`:''}<div class="news-date">📅 ${p.fecha}</div></div></div>`).join('');
@@ -777,7 +781,9 @@ function publicarAviso(){
 }
 function eliminarAviso(id){if(!confirm('¿Eliminar?'))return;avisos=avisos.filter(a=>a.id!==id);guardarAvisos();renderAvisos();}
 function renderAvisos(){
-  const grid=document.getElementById('avisos-grid'),empty=document.getElementById('avisos-empty');
+  const grid=document.getElementById('avisos-grid');
+  const empty=document.getElementById('avisos-empty');
+  if(!grid||!empty)return;
   if(!avisos.length){grid.innerHTML='';empty.style.display='block';return;}
   empty.style.display='none';
   grid.innerHTML=avisos.map(a=>`<div class="aviso-card"><button class="aviso-del" onclick="eliminarAviso(${a.id})">✕</button><div class="aviso-top">${a.tipo}</div><div class="aviso-body"><span class="av-badge">${a.tipo}</span><h3>${a.titulo}</h3>${a.texto?`<p>${a.texto}</p>`:''}<div class="aviso-date">📅 ${a.fecha}</div></div></div>`).join('');
@@ -785,14 +791,20 @@ function renderAvisos(){
 
 // ── Formulario contacto ──
 async function suscribir(){
-  const n=document.getElementById('fn').value.trim(),t=document.getElementById('ft').value.trim(),a=document.getElementById('fasunto').value.trim(),m=document.getElementById('fmensaje').value.trim();
+  const n=document.getElementById('fn').value.trim(),t=document.getElementById('ft').value.trim(),a=document.getElementById('fasunto').value.trim(),m=document.getElementById('fmensaje').value.trim(),archivo=document.getElementById('farchivo').files[0];
   const msg=document.getElementById('fmsg'),btn=document.getElementById('fbtn');
   if(!n||!t){alert('Completa nombre y teléfono.');return;}
   if(!a){alert('Selecciona el asunto.');return;}
   btn.textContent='Enviando...';btn.disabled=true;
   try{
-    const res=await fetch('https://formspree.io/f/xaqllnny',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({nombre:n,telefono:t,asunto:a,mensaje:m})});
-    if(res.ok){msg.style.display='block';msg.innerHTML='✅ ¡Mensaje enviado! 🇵🇪';['fn','ft','fasunto','fmensaje'].forEach(i=>document.getElementById(i).value='');}
+    const formData=new FormData();
+    formData.append('nombre',n);
+    formData.append('telefono',t);
+    formData.append('asunto',a);
+    formData.append('mensaje',m);
+    if(archivo){formData.append('archivo',archivo);}
+    const res=await fetch('https://formspree.io/f/xaqllnny',{method:'POST',body:formData});
+    if(res.ok){msg.style.display='block';msg.innerHTML='✅ ¡Mensaje enviado! 🇵🇪';['fn','ft','fasunto','fmensaje'].forEach(i=>document.getElementById(i).value='');document.getElementById('farchivo').value='';}
     else{msg.style.display='block';msg.innerHTML='❌ Hubo un error.';}
   }catch(e){msg.style.display='block';msg.innerHTML='❌ Error de conexión.';}
   btn.textContent='Enviar mensaje ✊';btn.disabled=false;
@@ -803,4 +815,3 @@ cargarAvisos();
 </script>
 </body>
 </html>
-"Actualización de diseño en index"
