@@ -92,7 +92,68 @@ nav.scrolled{background:var(--bdeep);}
 .rv{opacity:0;transform:translateY(22px);transition:opacity .55s,transform .55s;}
 .rv.vis{opacity:1;transform:none;}
 
-/* HERO */
+/* ── RESPONSIVE MOBILE ── */
+@media(max-width:768px){
+  nav{height:60px;padding:0 4%;}
+  .nlogo span{font-size:.8rem;}
+  .nlogo span small{font-size:.6rem;}
+  .nlinks{display:none;gap:0;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:var(--bdeep);width:100%;padding:12px 0;}
+  .nlinks.active{display:flex;}
+  .nlinks a{padding:14px 5%;font-size:.85rem;border-radius:0;border-bottom:1px solid rgba(255,255,255,.1);}
+  .hamburger{display:flex;align-items:center;gap:8px;cursor:pointer;}
+  .hamburger-menu{width:24px;height:24px;display:flex;flex-direction:column;justify-content:space-around;cursor:pointer;}
+  .hamburger-menu span{width:100%;height:2px;background:white;border-radius:1px;transition:.3s;}
+  .hamburger-menu.active span:nth-child(1){transform:rotate(45deg) translateY(11px);}
+  .hamburger-menu.active span:nth-child(2){opacity:0;}
+  .hamburger-menu.active span:nth-child(3){transform:rotate(-45deg) translateY(-11px);}
+  .nav-right{gap:8px;margin-left:auto;}
+  .ncta{padding:7px 16px;font-size:.75rem;}
+  
+  #hero{min-height:calc(100vh - 60px);}
+  .hinner{flex-direction:column;padding:40px 5% 30px;}
+  .hphoto-wrap{width:100%;max-width:100%;}
+  .hframe{aspect-ratio:auto;min-height:280px;}
+  .hframe-eyebrow-top{font-size:.75rem;top:12px;left:16px;}
+  .hframe-eyebrow-top h2{font-size:1.2rem;margin-bottom:6px;}
+  .hframe-text{padding:16px;}
+  .hframe-text h1{font-size:1.3rem;margin-bottom:6px;}
+  .hframe-text p{font-size:.8rem;margin-bottom:8px;}
+  .hframe-buttons{flex-direction:column;gap:8px;margin-top:10px;}
+  .hframe-btn{padding:10px 16px;font-size:.8rem;}
+  
+  .smain, .ssec{min-height:200px;}
+  .stitle{font-size:1.4rem;}
+  .git{height:auto;aspect-ratio:1;}
+  .git.tall{aspect-ratio:1.2;}
+  
+  .card{margin:12px 5%;}
+  .card.rv{width:calc(50% - 5%);}
+  
+  .admin-mode-badge{top:65px;right:10px;padding:10px 14px;font-size:.8rem;}
+}
+
+@media(max-width:480px){
+  nav{height:56px;padding:0 3%;}
+  .nlogo span{display:none;}
+  .rb{width:32px;height:32px;font-size:1rem;}
+  
+  .hframe-eyebrow-top h2{font-size:1rem;}
+  .hframe-text h1{font-size:1.1rem;}
+  .hframe-text p{font-size:.75rem;}
+  .hframe-btn{padding:8px 12px;font-size:.75rem;}
+  
+  .stitle{font-size:1.2rem;}
+  .slead{font-size:.85rem;}
+  
+  .card{margin:10px 3%;width:calc(100% - 6%);}
+  .card.rv{width:calc(100% - 6%);}
+  
+  .fbtn{font-size:.75rem;padding:10px 16px;}
+  .fi{font-size:.9rem;}
+  .fsel, .fta{font-size:.9rem;padding:10px;}
+  
+  .admin-mode-badge{font-size:.75rem;padding:8px 12px;top:60px;}
+}
 #hero{min-height:100vh;position:relative;display:flex;align-items:center;background-image:url('https://i.imgur.com/boCgK5p.jpeg');background-size:cover;background-position:center;background-attachment:fixed;overflow:hidden;}
 #hero::before{content:'';position:absolute;inset:0;background:linear-gradient(150deg,rgba(0,107,159,.85) 0%,rgba(0,133,195,.85) 50%,rgba(0,174,239,.85) 100%);z-index:1;}
 .hero-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:30px 30px;}
@@ -324,18 +385,25 @@ footer p{color:rgba(255,255,255,.42);font-size:.78rem;}
     <div class="rb">R</div>
     <span>Jorge Mera<small>Renovación Popular · Loreto</small></span>
   </div>
-  <ul class="nlinks">
-    <li><a onclick="goTo('inicio')">Inicio</a></li>
-    <li><a onclick="goTo('diputados')">Diputados</a></li>
-    <li><a onclick="goTo('senadores')">Senadores</a></li>
-    <li><a onclick="goTo('noticias')">Noticias</a></li>
-    <li><a onclick="goTo('avisos')">Avisos</a></li>
-    <li><a onclick="goTo('inicio');setTimeout(()=>ir('sobre'),300)">Sobre mí</a></li>
-    <li><a onclick="goTo('inicio');setTimeout(()=>ir('propuestas'),300)">Propuestas</a></li>
-    <li><a onclick="goTo('inicio');setTimeout(()=>ir('unete'),300)">Contacto</a></li>
+  <ul class="nlinks" id="nlinks">
+    <li><a onclick="goTo('inicio');closeMenu()">Inicio</a></li>
+    <li><a onclick="goTo('diputados');closeMenu()">Diputados</a></li>
+    <li><a onclick="goTo('senadores');closeMenu()">Senadores</a></li>
+    <li><a onclick="goTo('noticias');closeMenu()">Noticias</a></li>
+    <li><a onclick="goTo('avisos');closeMenu()">Avisos</a></li>
+    <li><a onclick="goTo('inicio');setTimeout(()=>ir('sobre'),300);closeMenu()">Sobre mí</a></li>
+    <li><a onclick="goTo('inicio');setTimeout(()=>ir('propuestas'),300);closeMenu()">Propuestas</a></li>
+    <li><a onclick="goTo('inicio');setTimeout(()=>ir('unete'),300);closeMenu()">Contacto</a></li>
   </ul>
   <div class="nav-right">
     <button class="ncta" onclick="goTo('inicio');setTimeout(()=>ir('unete'),300)">Únete ✊</button>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div class="hamburger-menu" id="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
   </div>
 </nav>
 
@@ -532,6 +600,10 @@ footer p{color:rgba(255,255,255,.42);font-size:.78rem;}
 </a>
 
 <script>
+// ── MENÚ HAMBURGUESA ──
+function toggleMenu(){const menu=document.getElementById('nlinks'),hamburger=document.getElementById('hamburger-menu');menu.classList.toggle('active');hamburger.classList.toggle('active');}
+function closeMenu(){const menu=document.getElementById('nlinks'),hamburger=document.getElementById('hamburger-menu');menu.classList.remove('active');hamburger.classList.remove('active');}
+
 // ── Navegación ──
 function goTo(p){
   ['inicio','diputados','senadores','noticias','avisos'].forEach(id=>{
