@@ -109,17 +109,21 @@ nav.scrolled{background:var(--bdeep);}
   .nav-right{gap:8px;margin-left:auto;}
   .ncta{padding:7px 16px;font-size:.75rem;}
   
-  #hero{min-height:calc(100vh - 60px);}
-  .hinner{flex-direction:column;padding:40px 5% 30px;}
-  .hphoto-wrap{width:100%;max-width:100%;}
-  .hframe{aspect-ratio:auto;min-height:280px;}
-  .hframe-eyebrow-top{font-size:.75rem;top:12px;left:16px;}
-  .hframe-eyebrow-top h2{font-size:1.2rem;margin-bottom:6px;}
-  .hframe-text{padding:16px;}
-  .hframe-text h1{font-size:1.3rem;margin-bottom:6px;}
-  .hframe-text p{font-size:.8rem;margin-bottom:8px;}
-  .hframe-buttons{flex-direction:column;gap:8px;margin-top:10px;}
-  .hframe-btn{padding:10px 16px;font-size:.8rem;}
+  #hero{min-height:auto;padding-top:60px;}
+  .hinner{flex-direction:column;padding:20px 5% 0;}
+  .hphoto-wrap{width:100%;max-width:100%;order:2;}
+  .hframe{aspect-ratio:auto;min-height:380px;margin-top:20px;}
+  .hframe-eyebrow-top{position:absolute;top:12px;left:16px;background:rgba(0,0,0,.4);padding:8px 12px;border-radius:8px;z-index:10;}
+  .hframe-eyebrow-top h2{font-size:1rem;margin:0;color:white;}
+  .hframe-text{position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(to top,rgba(0,20,40,.9),transparent);color:white;}
+  .hframe-text h1{font-size:1.2rem;margin:0 0 4px 0;color:white;}
+  .hframe-text p{font-size:.75rem;margin:0;color:rgba(255,255,255,.9);}
+  .hframe-buttons{flex-direction:row;gap:6px;margin-top:8px;justify-content:flex-end;}
+  .hframe-btn{padding:8px 12px;font-size:.7rem;min-width:auto;flex:1;}
+  
+  .hframe-text-top{display:block;order:1;margin-bottom:20px;color:white;}
+  .hframe-text-top h2{font-size:1.4rem;font-weight:900;margin:0 0 6px 0;}
+  .hframe-text-top p{font-size:.85rem;margin:0;line-height:1.4;opacity:.95;}
   
   .smain, .ssec{min-height:200px;}
   .stitle{font-size:1.4rem;}
@@ -137,10 +141,11 @@ nav.scrolled{background:var(--bdeep);}
   .nlogo span{display:none;}
   .rb{width:32px;height:32px;font-size:1rem;}
   
-  .hframe-eyebrow-top h2{font-size:1rem;}
-  .hframe-text h1{font-size:1.1rem;}
-  .hframe-text p{font-size:.75rem;}
-  .hframe-btn{padding:8px 12px;font-size:.75rem;}
+  #hero{padding-top:56px;}
+  .hframe{min-height:320px;}
+  .hframe-text-top h2{font-size:1.2rem;}
+  .hframe-text-top p{font-size:.8rem;}
+  .hframe-btn{padding:7px 10px;font-size:.65rem;}
   
   .stitle{font-size:1.2rem;}
   .slead{font-size:.85rem;}
